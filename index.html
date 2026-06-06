@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>সেমিনার লাইব্রেরি, দর্শন বিভাগ, চট্টগ্রাম বিশ্ববিদ্যালয়</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep: #0d1b2a;
+    --navy: #1b2d45;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --warm: #ede6d8;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --white: #ffffff;
+    --red: #c0392b;
+    --green: #1a6b3c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Hind Siliguri', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    background: var(--deep);
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(201,168,76,0.04) 40px,
+      rgba(201,168,76,0.04) 80px
+    );
+  }
+
+  .header-top {
+    background: var(--gold);
+    text-align: center;
+    padding: 6px 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--deep);
+    letter-spacing: 0.5px;
+  }
+
+  .header-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    padding: 32px 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-emblem {
+    width: 80px;
+    height: 80px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 4px rgba(201,168,76,0.2);
+  }
+
+  .header-text { text-align: center; }
+
+  .header-text h1 {
+    font-family: 'Tiro Bangla', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .header-text p {
+    color: var(--gold-light);
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .header-divider {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 0 16px;
+  }
+
+  nav a {
+    color: #b0bec5;
+    text-decoration: none;
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  nav a:hover, nav a.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+    background: rgba(201,168,76,0.06);
+  }
+
+  /* ===== MAIN ===== */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 16px 60px;
+  }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .section-title .icon {
+    width: 44px;
+    height: 44px;
+    background: var(--deep);
+    color: var(--gold);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .section-title h2 {
+    font-family: 'Tiro Bangla', serif;
+    font-size: 1.4rem;
+    color: var(--deep);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 4px;
+  }
+
+  section { margin-bottom: 48px; }
+
+  /* ===== NOTICE BOARD ===== */
+  .notice-board {
+    background: var(--white);
+    border: 1px solid #e0d9cf;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .notice-board-header {
+    background: var(--deep);
+    color: var(--gold);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .live-badge {
+    background: var(--red);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    animation: blink 1.5s infinite;
+    font-weight: 700;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .notice-item {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0ebe3;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: background 0.2s;
+  }
+
+  .notice-item:last-child { border-bottom: none; }
+  .notice-item:hover { background: #faf7f2; }
+
+  .notice-badge {
+    background: var(--gold);
+    color: var(--deep);
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .notice-badge.new { background: var(--red); color: white; }
+  .notice-badge.info { background: #2563eb; color: white; }
+
+  .notice-content h4 { font-size: 0.95rem; font-weight: 600; color: var(--deep); margin-bottom: 4px; }
+  .notice-content p { font-size: 0.82rem; color: var(--muted); }
+
+  /* ===== ABOUT ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+
+  .about-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e0d9cf;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .about-card h3 {
+    font-family: 'Tiro Bangla', serif;
+    font-size: 1.05rem;
+    color: var(--deep);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--gold);
+  }
+
+  .about-card p { font-size: 0.88rem; color: #444; line-height: 1.8; }
+
+  .stat-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .stat-box {
+    background: var(--deep);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 14px 20px;
+    text-align: center;
+    flex: 1;
+    min-width: 80px;
+  }
+
+  .stat-box .num {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+
+  .stat-box .label { font-size: 0.72rem; color: #90a4ae; }
+
+  .contact-list { list-style: none; }
+  .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.88rem;
+    border-bottom: 1px solid #f0ebe3;
+    color: #333;
+  }
+
+  .contact-list li:last-child { border-bottom: none; }
+  .contact-list .icon { font-size: 1rem; width: 22px; flex-shrink: 0; }
+
+  /* ===== BOOKS ===== */
+  .search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .search-bar input {
+    flex: 1;
+    padding: 12px 18px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 0.95rem;
+    background: var(--white);
+    transition: border 0.2s;
+    outline: none;
+  }
+
+  .search-bar input:focus { border-color: var(--gold); }
+
+  .search-bar select {
+    padding: 12px 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 0.88rem;
+    background: var(--white);
+    cursor: pointer;
+    outline: none;
+  }
+
+  .search-bar select:focus { border-color: var(--gold); }
+
+  .book-table-wrap {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e0d9cf;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  table { width: 100%; border-collapse: collapse; }
+
+  thead { background: var(--deep); color: var(--white); }
+
+  thead th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.3px;
+  }
+
+  tbody tr { border-bottom: 1px solid #f0ebe3; transition: background 0.15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #faf7f2; }
+
+  tbody td {
+    padding: 13px 16px;
+    font-size: 0.85rem;
+    color: #333;
+    vertical-align: middle;
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  .status-badge.available { background: #d1fae5; color: #065f46; }
+  .status-badge.issued { background: #fee2e2; color: #991b1b; }
+
+  .book-count {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+
+  /* ===== MEMBERS ===== */
+  .member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .member-card {
+    background: var(--white);
+    border: 1px solid #e0d9cf;
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .member-card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+
+  .member-avatar {
+    width: 54px;
+    height: 54px;
+    background: var(--deep);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 12px;
+    color: var(--gold);
+  }
+
+  .member-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--deep); margin-bottom: 4px; }
+  .member-card p { font-size: 0.75rem; color: var(--muted); }
+
+  .member-tag {
+    display: inline-block;
+    background: var(--warm);
+    color: var(--deep);
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 6px;
+    font-weight: 600;
+  }
+
+  /* ===== ISSUE LOG ===== */
+  .log-table-wrap {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e0d9cf;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    overflow-x: auto;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--deep);
+    color: #90a4ae;
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 0.82rem;
+    line-height: 1.8;
+    border-top: 3px solid var(--gold);
+  }
+
+  footer strong { color: var(--gold); }
+
+  /* ===== ADMIN PANEL ===== */
+  .admin-toggle {
+    text-align: right;
+    margin-bottom: 12px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-gold { background: var(--gold); color: var(--deep); }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-dark { background: var(--deep); color: var(--white); }
+  .btn-dark:hover { background: var(--navy); }
+  .btn-sm { padding: 6px 14px; font-size: 0.78rem; }
+  .btn-red { background: #fee2e2; color: #991b1b; }
+  .btn-green { background: #d1fae5; color: #065f46; }
+
+  .admin-panel {
+    background: #f8f4ef;
+    border: 2px dashed var(--gold);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: none;
+  }
+
+  .admin-panel.open { display: block; }
+
+  .form-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .form-row input, .form-row select, .form-row textarea {
+    flex: 1;
+    min-width: 160px;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 0.88rem;
+    background: var(--white);
+    outline: none;
+  }
+
+  .form-row input:focus, .form-row select:focus { border-color: var(--gold); }
+
+  .admin-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  /* Mobile table scroll */
+  .scroll-x { overflow-x: auto; }
+
+  /* ===== FACULTY ===== */
+  .faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .faculty-card {
+    background: var(--white);
+    border: 1px solid #e0d9cf;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .faculty-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+
+  .faculty-card-top {
+    background: var(--deep);
+    padding: 24px 20px 16px;
+    text-align: center;
+    position: relative;
+  }
+
+  .faculty-avatar {
+    width: 72px;
+    height: 72px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 12px;
+    border: 3px solid rgba(255,255,255,0.15);
+  }
+
+  .faculty-card-top h3 { color: var(--white); font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+  .faculty-card-top .designation { color: var(--gold-light); font-size: 0.78rem; }
+
+  .faculty-card-body { padding: 16px 20px; }
+
+  .faculty-detail {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    font-size: 0.8rem;
+    color: #555;
+    padding: 5px 0;
+    border-bottom: 1px solid #f5f0e8;
+  }
+
+  .faculty-detail:last-child { border-bottom: none; }
+  .faculty-detail .di { color: var(--gold); font-size: 0.9rem; width: 18px; flex-shrink: 0; }
+
+  .faculty-expand-btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--warm);
+    border: none;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--deep);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .faculty-expand-btn:hover { background: var(--gold); }
+
+  .faculty-extra { display: none; padding: 12px 20px 16px; background: #faf7f2; font-size: 0.82rem; color: #444; line-height: 1.8; border-top: 1px dashed #ddd; }
+  .faculty-extra.open { display: block; }
+
+  /* ===== DEPARTMENT ===== */
+  .dept-intro {
+    background: var(--white);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e0d9cf;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+
+  .dept-banner {
+    background: linear-gradient(135deg, var(--deep) 0%, var(--navy) 100%);
+    padding: 32px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dept-banner::after {
+    content: '📜';
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 5rem;
+    opacity: 0.08;
+  }
+
+  .dept-banner h3 { font-family: 'Tiro Bangla', serif; color: var(--white); font-size: 1.3rem; margin-bottom: 6px; }
+  .dept-banner p { color: var(--gold-light); font-size: 0.85rem; }
+
+  .dept-body { padding: 24px 28px; }
+  .dept-body p { font-size: 0.9rem; color: #444; line-height: 1.9; margin-bottom: 16px; }
+
+  .dept-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .dept-highlight {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 14px 16px;
+    border-left: 3px solid var(--gold);
+    font-size: 0.82rem;
+    color: #333;
+  }
+
+  .dept-highlight strong { display: block; color: var(--deep); font-size: 0.9rem; margin-bottom: 2px; }
+
+  /* ===== LINKS ===== */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+  }
+
+  .link-card {
+    background: var(--white);
+    border: 1px solid #e0d9cf;
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+
+  .link-card:hover { border-color: var(--gold); box-shadow: 0 4px 14px rgba(201,168,76,0.15); transform: translateY(-2px); }
+
+  .link-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--deep);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .link-info h4 { font-size: 0.88rem; font-weight: 600; color: var(--deep); margin-bottom: 2px; }
+  .link-info p { font-size: 0.73rem; color: var(--muted); }
+
+  .link-admin-form { background: #f8f4ef; border: 2px dashed var(--gold); border-radius: 12px; padding: 20px; margin-bottom: 16px; display: none; }
+  .link-admin-form.open { display: block; }
+
+  /* ===== RESULTS ===== */
+  .result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .result-card {
+    background: var(--white);
+    border: 1px solid #e0d9cf;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .result-card-header {
+    background: var(--deep);
+    color: var(--gold);
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+
+  .result-card-body { padding: 16px 18px; }
+
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0ebe3;
+    font-size: 0.84rem;
+  }
+
+  .result-row:last-child { border-bottom: none; }
+  .result-row .course { color: #555; }
+  .result-row .grade { font-weight: 700; color: var(--deep); background: var(--warm); padding: 2px 10px; border-radius: 6px; }
+
+  /* ===== GALLERY ===== */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+  }
+
+  .gallery-item {
+    background: var(--white);
+    border: 1px solid #e0d9cf;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .gallery-item:hover { transform: scale(1.02); }
+
+  .gallery-thumb {
+    height: 140px;
+    background: var(--deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+  .gallery-caption {
+    padding: 10px 14px;
+    font-size: 0.8rem;
+    color: #444;
+    font-weight: 500;
+  }
+
+  .gallery-upload-area {
+    border: 2px dashed var(--gold);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    background: #faf7f2;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-bottom: 16px;
+    display: none;
+  }
+
+  .gallery-upload-area.open { display: block; }
+  .gallery-upload-area:hover { background: var(--warm); }
+  .gallery-upload-area p { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
+
+  /* Lightbox */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 999; align-items: center; justify-content: center; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 8px; }
+  .lightbox-close { position: absolute; top: 20px; right: 28px; color: white; font-size: 2rem; cursor: pointer; }
+
+  /* ===== PASSWORD MODAL ===== */
+  .pw-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+  }
+  .pw-overlay.open { display: flex; }
+  .pw-box {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px 28px;
+    width: 320px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    text-align: center;
+  }
+  .pw-box h3 { font-size: 1.1rem; color: var(--deep); margin-bottom: 8px; }
+  .pw-box p { font-size: 0.82rem; color: var(--muted); margin-bottom: 18px; }
+  .pw-box input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 12px;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  .pw-box input:focus { border-color: var(--gold); }
+  .pw-error { color: var(--red); font-size: 0.8rem; margin-bottom: 10px; display: none; }
+  .pw-btns { display: flex; gap: 10px; justify-content: center; }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  section { animation: fadeInUp 0.4s ease both; }
+
+  .hidden-row { display: none; }
+
+  .no-result {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .header-main { flex-direction: column; gap: 16px; }
+    .header-text h1 { font-size: 1.2rem; }
+    thead th, tbody td { padding: 10px 10px; font-size: 0.78rem; }
+    .member-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- PASSWORD MODAL -->
+<div class="pw-overlay" id="pw-overlay">
+  <div class="pw-box">
+    <h3>🔐 অ্যাডমিন লগইন</h3>
+    <p>এই বিভাগটি পরিবর্তন করতে পাসওয়ার্ড দিন</p>
+    <input type="password" id="pw-input" placeholder="পাসওয়ার্ড লিখুন" onkeydown="if(event.key==='Enter') checkPassword()">
+    <div class="pw-error" id="pw-error">❌ ভুল পাসওয়ার্ড! আবার চেষ্টা করুন।</div>
+    <div class="pw-btns">
+      <button class="btn btn-gold" onclick="checkPassword()">✅ প্রবেশ করুন</button>
+      <button class="btn btn-dark" onclick="closePwModal()">বাতিল</button>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-top">চট্টগ্রাম বিশ্ববিদ্যালয় | University of Chittagong — প্রতিষ্ঠা ১৯৬৬ | ওয়েবসাইট নির্দেশনা: মোহাম্মদ আব্দুল মজিদ, ক্যাটালগার</div>
+  <div class="header-main">
+    <div class="header-emblem">📚</div>
+    <div class="header-text">
+      <h1>সেমিনার লাইব্রেরি<br>দর্শন বিভাগ, চট্টগ্রাম বিশ্ববিদ্যালয়</h1>
+      <p>Seminar Library · Department of Philosophy · University of Chittagong · Est. 1973</p>
+    </div>
+  </div>
+  <div class="header-divider"></div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#notices" class="active">📢 নোটিশ</a>
+    <a href="#dept">🏛️ বিভাগ</a>
+    <a href="#chairman">🎖️ সভাপতি</a>
+    <a href="#faculty">👨‍🏫 শিক্ষকমণ্ডলী</a>
+    <a href="#books">📖 বইয়ের তালিকা</a>
+    <a href="#members">👤 সদস্য</a>
+    <a href="#issue-log">📋 ইস্যু লগ</a>
+    <a href="#results">🎓 ফলাফল</a>
+    <a href="#poster">🖼️ পোস্টার</a>
+    <a href="#links">🔗 গুরুত্বপূর্ণ লিঙ্ক</a>
+    <a href="#gallery">📷 গ্যালারি</a>
+    <a href="#contact">📞 যোগাযোগ</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ===== NOTICE BOARD ===== -->
+  <section id="notices">
+    <div class="section-title">
+      <div class="icon">📢</div>
+      <h2>নোটিশ বোর্ড</h2>
+    </div>
+    <div class="admin-toggle">
+      <button class="btn btn-gold btn-sm" onclick="requireAdmin('notice-admin')">✏️ নোটিশ যোগ করুন</button>
+    </div>
+    <div class="admin-panel" id="notice-admin">
+      <span class="admin-label">নতুন নোটিশ যোগ করুন</span>
+      <div class="form-row">
+        <input type="text" id="n-title" placeholder="নোটিশের শিরোনাম">
+        <input type="text" id="n-desc" placeholder="বিস্তারিত (ঐচ্ছিক)">
+        <select id="n-type">
+          <option value="">ধরন</option>
+          <option value="new">নতুন</option>
+          <option value="info">তথ্য</option>
+          <option value="">সাধারণ</option>
+        </select>
+        <button class="btn btn-dark btn-sm" onclick="addNotice()">✅ যোগ করুন</button>
+      </div>
+    </div>
+    <div class="notice-board">
+      <div class="notice-board-header">
+        <span>📋 সর্বশেষ ঘোষণাসমূহ</span>
+        <span class="live-badge">LIVE</span>
+      </div>
+      <div id="notice-list">
+        <div class="notice-item" id="notice-empty">
+          <div class="notice-content" style="color:var(--muted);font-size:0.88rem;padding:8px 0;">এখনো কোনো নোটিশ নেই। উপরের বাটন থেকে নোটিশ যোগ করুন।</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOOKS ===== -->
+  <section id="books">
+    <div class="section-title">
+      <div class="icon">📖</div>
+      <h2>বইয়ের তালিকা ও সার্চ</h2>
+    </div>
+    <div class="admin-toggle">
+      <button class="btn btn-gold btn-sm" onclick="requireAdmin('book-admin')">➕ নতুন বই যোগ করুন</button>
+    </div>
+    <div class="admin-panel" id="book-admin">
+      <span class="admin-label">নতুন বই যোগ করুন</span>
+      <div class="form-row">
+        <input type="text" id="b-title" placeholder="বইয়ের নাম *">
+        <input type="text" id="b-author" placeholder="লেখক *">
+        <input type="text" id="b-call" placeholder="কল নম্বর">
+        <select id="b-status">
+          <option value="available">উপলব্ধ</option>
+          <option value="issued">ইস্যু করা</option>
+        </select>
+        <button class="btn btn-dark btn-sm" onclick="addBook()">✅ যোগ করুন</button>
+      </div>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="book-search" placeholder="🔍 বইয়ের নাম বা লেখক লিখুন..." oninput="searchBooks()">
+      <select onchange="filterBooks(this.value)">
+        <option value="all">সব বই</option>
+        <option value="available">উপলব্ধ</option>
+        <option value="issued">ইস্যু করা</option>
+      </select>
+    </div>
+    <div class="book-table-wrap scroll-x">
+      <table id="book-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>বইয়ের নাম</th>
+            <th>লেখক</th>
+            <th>কল নম্বর</th>
+            <th>অবস্থা</th>
+            <th>কার্যক্রম</th>
+          </tr>
+        </thead>
+        <tbody id="book-tbody"></tbody>
+      </table>
+      <div id="no-book" class="no-result">এখনো কোনো বই যোগ করা হয়নি। উপরের বাটন থেকে বই যোগ করুন।</div>
+    </div>
+    <p class="book-count" id="book-count">মোট বই: ০টি</p>
+  </section>
+
+  <!-- ===== MEMBERS ===== -->
+  <section id="members">
+    <div class="section-title">
+      <div class="icon">👤</div>
+      <h2>সদস্যবৃন্দ</h2>
+    </div>
+    <div class="admin-toggle">
+      <button class="btn btn-gold btn-sm" onclick="requireAdmin('member-admin')">➕ নতুন সদস্য যোগ করুন</button>
+    </div>
+    <div class="admin-panel" id="member-admin">
+      <span class="admin-label">নতুন সদস্য যোগ করুন</span>
+      <div class="form-row">
+        <input type="text" id="m-name" placeholder="সদস্যের নাম *">
+        <input type="text" id="m-id" placeholder="রোল/আইডি নম্বর *">
+        <input type="text" id="m-session" placeholder="সেশন (যেমন: ২০২২-২৩)">
+        <input type="text" id="m-mobile" placeholder="মোবাইল নম্বর">
+        <select id="m-type">
+          <option value="ছাত্র">ছাত্র</option>
+          <option value="ছাত্রী">ছাত্রী</option>
+          <option value="শিক্ষক">শিক্ষক</option>
+          <option value="কর্মকর্তা">কর্মকর্তা</option>
+        </select>
+        <button class="btn btn-dark btn-sm" onclick="addMember()">✅ যোগ করুন</button>
+      </div>
+    </div>
+    <div class="member-grid" id="member-grid">
+      <div class="no-result" style="grid-column:1/-1;">এখনো কোনো সদস্য যোগ করা হয়নি।</div>
+    </div>
+  </section>
+
+  <!-- ===== ISSUE LOG ===== -->
+  <section id="issue-log">
+    <div class="section-title">
+      <div class="icon">📋</div>
+      <h2>বই ইস্যু / রিটার্ন লগ</h2>
+    </div>
+    <div class="admin-toggle">
+      <button class="btn btn-gold btn-sm" onclick="requireAdmin('issue-admin')">➕ নতুন এন্ট্রি</button>
+    </div>
+    <div class="admin-panel" id="issue-admin">
+      <span class="admin-label">বই ইস্যু বা রিটার্ন রেকর্ড করুন</span>
+      <div class="form-row">
+        <input type="text" id="i-member" placeholder="সদস্যের নাম">
+        <input type="text" id="i-book" placeholder="বইয়ের নাম">
+        <input type="date" id="i-date">
+        <select id="i-action">
+          <option value="ইস্যু">ইস্যু</option>
+          <option value="রিটার্ন">রিটার্ন</option>
+        </select>
+        <button class="btn btn-dark btn-sm" onclick="addIssue()">✅ যোগ করুন</button>
+      </div>
+    </div>
+    <div class="log-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>সদস্যের নাম</th>
+            <th>বইয়ের নাম</th>
+            <th>তারিখ</th>
+            <th>ধরন</th>
+            <th>কার্যক্রম</th>
+          </tr>
+        </thead>
+        <tbody id="issue-tbody"></tbody>
+      </table>
+      <div class="no-result" id="no-issue">এখনো কোনো এন্ট্রি নেই। উপরের বাটন থেকে যোগ করুন।</div>
+    </div>
+  </section>
+
+  <!-- ===== DEPARTMENT ===== -->
+  <section id="dept">
+    <div class="section-title">
+      <div class="icon">🏛️</div>
+      <h2>বিভাগ পরিচিতি</h2>
+    </div>
+    <div class="dept-intro">
+      <div class="dept-banner">
+        <h3>দর্শন বিভাগ — চট্টগ্রাম বিশ্ববিদ্যালয়</h3>
+        <p>Department of Philosophy · Faculty of Arts · University of Chittagong</p>
+      </div>
+      <div class="dept-body">
+        <p>চট্টগ্রাম বিশ্ববিদ্যালয়ের দর্শন বিভাগ ১৯৬৬ সালে বিশ্ববিদ্যালয় প্রতিষ্ঠার সাথে সাথে যাত্রা শুরু করে। বিভাগটি বাংলাদেশের দর্শন শিক্ষা ও গবেষণায় একটি গুরুত্বপূর্ণ ভূমিকা পালন করে আসছে। এখানে পাশ্চাত্য ও প্রাচ্য দর্শন, নীতিবিদ্যা, জ্ঞানতত্ত্ব, অধিবিদ্যা, ইসলামি দর্শন এবং বাংলাদেশি দর্শন বিষয়ে উচ্চতর শিক্ষা ও গবেষণা পরিচালিত হয়।</p>
+        <p>বিভাগটি স্নাতক (সম্মান), স্নাতকোত্তর, এমফিল এবং পিএইচডি ডিগ্রি প্রদান করে থাকে।</p>
+        <div class="dept-highlights">
+          <div class="dept-highlight"><strong>প্রতিষ্ঠাকাল</strong>১৯৭৩ সাল</div>
+          <div class="dept-highlight"><strong>ডিগ্রি সমূহ</strong>অনার্স, মাস্টার্স, এমফিল, পিএইচডি</div>
+          <div class="dept-highlight"><strong>অনুষদ</strong>কলা অনুষদ</div>
+          <div class="dept-highlight" id="dept-specialty"><strong>বিশেষত্ব</strong><span id="specialty-text">—</span> <button class="btn btn-sm btn-gold" style="margin-top:4px;font-size:0.7rem;" onclick="editSpecialty()">✏️ সম্পাদনা</button></div>
+          <div class="dept-highlight"><strong>গবেষণা জার্নাল</strong>প্রজ্ঞা</div>
+          <div class="dept-highlight"><strong>সেমিনার লাইব্রেরি</strong>৪০৪৮+ বই সংগ্রহ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHAIRMAN ===== -->
+  <section id="chairman">
+    <div class="section-title">
+      <div class="icon">🎖️</div>
+      <h2>সভাপতিবৃন্দ — দর্শন বিভাগ (১৯৭৩–বর্তমান)</h2>
+    </div>
+    <div class="admin-toggle">
+      <button class="btn btn-gold btn-sm" onclick="requireAdmin('chairman-admin')">➕ সভাপতি যোগ করুন</button>
+    </div>
+    <div class="admin-panel" id="chairman-admin">
+      <span class="admin-label">নতুন সভাপতি যোগ করুন</span>
+      <div class="form-row">
+        <input type="text" id="ch-name" placeholder="নাম *">
+        <input type="text" id="ch-from" placeholder="দায়িত্বকাল শুরু (যেমন: ১৯৭৩)">
+        <input type="text" id="ch-to" placeholder="দায়িত্বকাল শেষ (যেমন: ১৯৭৮ বা বর্তমান)">
+        <input type="text" id="ch-note" placeholder="বিশেষ নোট (ঐচ্ছিক)">
+        <button class="btn btn-dark btn-sm" onclick="addChairman()">✅ যোগ করুন</button>
+      </div>
+    </div>
+    <div style="background:var(--white);border-radius:12px;border:1px solid #e0d9cf;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+      <table style="width:100%;border-collapse:collapse;">
+        <thead style="background:var(--deep);">
+          <tr>
+            <th style="padding:12px 16px;text-align:left;font-size:0.82rem;color:var(--gold-light);font-weight:600;">#</th>
+            <th style="padding:12px 16px;text-align:left;font-size:0.82rem;color:var(--gold-light);font-weight:600;">নাম</th>
+            <th style="padding:12px 16px;text-align:left;font-size:0.82rem;color:var(--gold-light);font-weight:600;">দায়িত্বকাল</th>
+            <th style="padding:12px 16px;text-align:left;font-size:0.82rem;color:var(--gold-light);font-weight:600;">মন্তব্য</th>
+          </tr>
+        </thead>
+        <tbody id="chairman-tbody">
+          <tr style="border-bottom:1px solid #f0ebe3;background:#fffef8;">
+            <td style="padding:12px 16px;font-size:0.85rem;">১</td>
+            <td style="padding:12px 16px;font-size:0.85rem;font-weight:600;color:var(--deep);">— (তথ্য যোগ করুন)</td>
+            <td style="padding:12px 16px;font-size:0.85rem;">১৯৭৩ — ?</td>
+            <td style="padding:12px 16px;font-size:0.82rem;color:var(--muted);">প্রতিষ্ঠাকালীন সভাপতি</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="padding:10px 16px;text-align:right;font-size:0.78rem;color:var(--muted);">উপরের বাটন থেকে সভাপতিদের তালিকা আপডেট করুন</div>
+    </div>
+  </section>
+
+  <!-- ===== FACULTY ===== -->
+  <section id="faculty">
+    <div class="section-title">
+      <div class="icon">👨‍🏫</div>
+      <h2>শিক্ষকমণ্ডলী</h2>
+    </div>
+    <div class="admin-toggle">
+      <button class="btn btn-gold btn-sm" onclick="toggleAdmin('faculty-admin')">➕ শিক্ষক যোগ করুন</button>
+    </div>
+    <div class="admin-panel" id="faculty-admin">
+      <span class="admin-label">নতুন শিক্ষক যোগ করুন</span>
+      <div class="form-row">
+        <input type="text" id="f-name" placeholder="নাম *">
+        <input type="text" id="f-desig" placeholder="পদবি (যেমন: অধ্যাপক)">
+        <input type="text" id="f-email" placeholder="ইমেইল">
+        <input type="text" id="f-special" placeholder="বিশেষজ্ঞতা">
+        <input type="text" id="f-research" placeholder="গবেষণা ক্ষেত্র">
+        <button class="btn btn-dark btn-sm" onclick="addFaculty()">✅ যোগ করুন</button>
+      </div>
+    </div>
+    <div class="faculty-grid" id="faculty-grid">
+
+      <!-- PAGE 48 -->
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👩‍🏫</div>
+          <h3>Professor Dr. Nusrat Jahan Kazal</h3>
+          <div class="designation">Professor · Room No. 2301</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (DU), Ph.D. (Greece)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>umonir18@yahoo.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01717833870</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> History of Modern Philosophy, Symbolic Logic, Indian Philosophy, Philosophy of Religion, Psychology, and Bangladesh Philosophy.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Professor Dr. Md. Iqbal Shahin Khan</h3>
+          <div class="designation">Professor · Room No. 2302</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (CU), Licentiate/M.Phil. (Tampere, Finland), Ph.D. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>shahin_cu@yahoo.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01712102014</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Phenomenology, Applied Philosophy, Ethics, & Informal Logic.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Professor Dr. Md. Abdul Mannan</h3>
+          <div class="designation">Professor · Room No. 2303</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A., Ph.D. (Aligarh, India)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>mannan_philosophy@yahoo.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01730914320</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Philosophy of Science, Contemporary Continental Philosophy, & Recent Trends in Islamic Philosophy.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Professor Dr. F. M. Anayet Hossain</h3>
+          <div class="designation">Professor · Room No. 2304</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (RU), Ph.D. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>fmhossain77@yahoo.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01716034690</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Bangladesh Philosophy, Indian Philosophy, and Applied Ethics.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Professor Dr. Md. Korban Ali</h3>
+          <div class="designation">Professor · Room No. 2305</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (JU), Ph.D. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>korban.cu@gmail.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01716609315</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Applied Ethics, Environmental Philosophy, & Logic.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Professor Dr. Akikul Haque</h3>
+          <div class="designation">Professor · Room No. 2306</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A., M.Phil. (JU), Ph.D. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>akikulhaque@yahoo.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01714377440</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Applied Ethics, Business Ethics, Rawls's Justice, Mathematical Logic, Social Justice & Philosophy of Economics.
+        </div>
+      </div>
+
+      <!-- PAGE 49 -->
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Professor Dr. Masum Ahmed</h3>
+          <div class="designation">Professor · Room No. 2307</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (CU), Ph.D. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>masum.ahmed@cu.ac.bd</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01711284707</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Political Philosophy, Problems of Philosophy, Moral Philosophy, Critical Thinking, German Idealism, Experimental Philosophy, Far-Eastern Philosophy, and Philosophy of Freedom.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Mohammad Mozammel Hoque</h3>
+          <div class="designation">Associate Professor · Room No. 2338</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>mozammel.philosophy@gmail.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01928672405</span></div>
+          <div class="faculty-detail"><span class="di">🌐</span><span>mozammelhoque.com</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Epistemology, Artificial Intelligence and Philosophy of Mind.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👩‍🏫</div>
+          <h3>Shamsun Nahar</h3>
+          <div class="designation">Associate Professor · Room No. 2338</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>mitul.philosophy@gmail.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01939337332</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Moral Philosophy, Applied Ethics, Contemporary Philosophy and Psychology.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👩‍🏫</div>
+          <h3>Dr. Shirin Akter</h3>
+          <div class="designation">Associate Professor · Room No. 2308</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (CU), Ph.D. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>shirin_cu@cu.ac.bd</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01819612900</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Muslim Philosophy, Ethics, Recent Trends in Islamic Philosophy & Problems of Philosophy.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Mizanur Rahman</h3>
+          <div class="designation">Associate Professor · Room No. 2309</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>mizan85cu@gmail.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01743855050</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Moral Philosophy, Philosophy of Education, Philosophy of Religion, Psychology, Logic, and Political Philosophy.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👩‍🏫</div>
+          <h3>Zoshon Ara Joly</h3>
+          <div class="designation">Associate Professor · Room No. 2310</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>zoshonjoly@gmail.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01710236236</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Symbolic Logic, Applied Ethics, Philosophy of Religion, Contemporary Indian Philosophy, and Epistemology.
+        </div>
+      </div>
+
+      <!-- PAGE 50 -->
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👩‍🏫</div>
+          <h3>Nasrin Akter</h3>
+          <div class="designation">Assistant Professor · Room No. 2313</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>nasrinakterphilcu@gmail.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01722476435</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Applied Ethics, Environmental Ethics, and Epistemology.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Asadujjaman</h3>
+          <div class="designation">Assistant Professor · Room No. 2312 (Study Leave)</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (DU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>jonyfrhlldu@gmail.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01717712802</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Problems of Philosophy, Political Philosophy, Ethics, Philosophy, and Public Policy.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Md. Roman Miah</h3>
+          <div class="designation">Assistant Professor · Room No. 2314</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>romanmia.cu@gmail.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01623119184</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Logic, Ethics, and Philosophy of Artificial Intelligence.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Shah Julkar Nine</h3>
+          <div class="designation">Assistant Professor · Room No. 2311</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (JnU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>julkar9@cu.ac.bd</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01911856429</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Problems of Philosophy, Social and Political Philosophy, Ethics, and Philosophy of AI.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Md. Najemul Alam</h3>
+          <div class="designation">Assistant Professor · Room No. 2317</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>najemul.alam@cu.ac.bd</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01822113474</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Philosophy of Artificial Intelligence, Kantian Ethics, Applied Philosophy, and Political Philosophy.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Mohammad Mer Hossain Mazumder</h3>
+          <div class="designation">Lecturer · Room No. 2312</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>mhm.mazumder@cu.ac.bd</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01820070507</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Meta Ethics, Analytic Philosophy, History of Western Philosophy, Postmodern Theories, Phenomenology, Artificial Intelligence, Ethics, and Contemporary Islamic Thought.
+        </div>
+      </div>
+
+      <!-- PAGE 51 -->
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Ahasanullah Rafi</h3>
+          <div class="designation">Lecturer · Room No. 2313</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>ahasanullahrafi@gmail.com</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01914759726</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Philosophy of Mind, Experimental Philosophy, Philosophy of Language, Distributive Justice, Artificial Intelligence, Epistemology, and Philosophical Logic.
+        </div>
+      </div>
+
+      <div class="faculty-card">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar">👨‍🏫</div>
+          <h3>Bapparaj Howlader</h3>
+          <div class="designation">Lecturer · Room No. 2313</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-detail"><span class="di">🎓</span><span>M.A. (CU)</span></div>
+          <div class="faculty-detail"><span class="di">📧</span><span>bapparaj.howlader@cu.ac.bd</span></div>
+          <div class="faculty-detail"><span class="di">📱</span><span>01722476435</span></div>
+        </div>
+        <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+        <div class="faculty-extra">
+          <strong>Research Interests:</strong> Philosophy of Education, Philosophy of Artificial Intelligence, Philosophy of Art, Continental Philosophy, Far-Eastern Philosophy, Contemporary Political Philosophy, and Applied Ethics.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== RESULTS ===== -->
+  <section id="results">
+    <div class="section-title">
+      <div class="icon">🎓</div>
+      <h2>ফলাফল / Results</h2>
+    </div>
+    <div class="admin-toggle">
+      <button class="btn btn-gold btn-sm" onclick="toggleAdmin('result-admin')">➕ ফলাফল যোগ করুন</button>
+    </div>
+    <div class="admin-panel" id="result-admin">
+      <span class="admin-label">ফলাফল লিঙ্ক বা তথ্য যোগ করুন</span>
+      <div class="form-row">
+        <input type="text" id="r-title" placeholder="পরীক্ষার নাম (যেমন: অনার্স ৩য় বর্ষ ২০২৩)">
+        <input type="text" id="r-link" placeholder="ফলাফলের লিঙ্ক (URL)">
+        <input type="text" id="r-date" placeholder="প্রকাশের তারিখ">
+        <button class="btn btn-dark btn-sm" onclick="addResult()">✅ যোগ করুন</button>
+      </div>
+    </div>
+    <div class="result-grid" id="result-grid">
+      <div class="result-card">
+        <div class="result-card-header">
+          <span>অনার্স ৪র্থ বর্ষ — ২০২৩</span>
+          <span style="font-size:0.72rem;color:var(--gold-light);">প্রকাশিত</span>
+        </div>
+        <div class="result-card-body">
+          <div class="result-row"><span class="course">দর্শন বিভাগ, চবি</span><a href="#" class="grade">দেখুন →</a></div>
+          <div class="result-row"><span class="course">প্রকাশ: জুন ২০২৪</span><span style="font-size:0.75rem;color:var(--muted);">CGPA ভিত্তিক</span></div>
+        </div>
+      </div>
+      <div class="result-card">
+        <div class="result-card-header">
+          <span>মাস্টার্স — ২০২২-২৩</span>
+          <span style="font-size:0.72rem;color:var(--gold-light);">প্রকাশিত</span>
+        </div>
+        <div class="result-card-body">
+          <div class="result-row"><span class="course">দর্শন বিভাগ, চবি</span><a href="#" class="grade">দেখুন →</a></div>
+          <div class="result-row"><span class="course">প্রকাশ: মার্চ ২০২৪</span><span style="font-size:0.75rem;color:var(--muted);">CGPA ভিত্তিক</span></div>
+        </div>
+      </div>
+    </div>
+    <div id="result-list" style="margin-top:16px;"></div>
+  </section>
+
+  <!-- ===== POSTER ===== -->
+  <section id="poster">
+    <div class="section-title">
+      <div class="icon">🖼️</div>
+      <h2>পোস্টার / লাইব্রেরি উৎস</h2>
+    </div>
+    <div class="admin-toggle">
+      <button class="btn btn-gold btn-sm" onclick="requireAdmin('poster-admin-wrap')">➕ পোস্টার যোগ করুন</button>
+    </div>
+    <div class="gallery-upload-area" id="poster-admin-wrap">
+      <div style="font-size:2rem;">🗂️</div>
+      <p><strong>পোস্টার আপলোড করুন</strong> (ছবি বা PDF লিঙ্ক)</p>
+      <div class="form-row" style="justify-content:center;margin-top:12px;">
+        <input type="file" id="p-file" accept="image/*" onchange="previewPoster(this)" style="flex:none;">
+        <input type="text" id="p-link" placeholder="অথবা লিঙ্ক দিন (URL)">
+        <input type="text" id="p-caption" placeholder="শিরোনাম / বিবরণ">
+        <button class="btn btn-dark btn-sm" onclick="addPosterItem()">✅ যোগ করুন</button>
+      </div>
+    </div>
+    <div class="gallery-grid" id="poster-grid">
+      <div class="no-result" style="grid-column:1/-1;">এখনো কোনো পোস্টার যোগ করা হয়নি।</div>
+    </div>
+  </section>
+
+  <!-- ===== LINKS ===== -->
+  <section id="links">
+    <div class="section-title">
+      <div class="icon">🔗</div>
+      <h2>গুরুত্বপূর্ণ লিঙ্কসমূহ</h2>
+    </div>
+    <div class="admin-toggle">
+      <button class="btn btn-gold btn-sm" onclick="toggleLinkAdmin()">➕ লিঙ্ক যোগ করুন</button>
+    </div>
+    <div class="link-admin-form" id="link-admin">
+      <span class="admin-label">নতুন লিঙ্ক যোগ করুন</span>
+      <div class="form-row">
+        <input type="text" id="l-title" placeholder="লিঙ্কের নাম *">
+        <input type="text" id="l-url" placeholder="URL (https://...) *">
+        <input type="text" id="l-desc" placeholder="সংক্ষিপ্ত বিবরণ">
+        <input type="text" id="l-icon" placeholder="আইকন (ইমোজি, যেমন: 🌐)">
+        <button class="btn btn-dark btn-sm" onclick="addLink()">✅ যোগ করুন</button>
+      </div>
+    </div>
+    <div class="links-grid" id="links-grid">
+      <a href="https://cu.ac.bd" target="_blank" class="link-card">
+        <div class="link-icon">🏫</div>
+        <div class="link-info"><h4>চট্টগ্রাম বিশ্ববিদ্যালয়</h4><p>অফিসিয়াল ওয়েবসাইট</p></div>
+      </a>
+      <a href="https://cu.ac.bd/philosophy" target="_blank" class="link-card">
+        <div class="link-icon">📜</div>
+        <div class="link-info"><h4>দর্শন বিভাগ</h4><p>বিভাগীয় ওয়েবপেজ</p></div>
+      </a>
+      <a href="https://cu.ac.bd/result" target="_blank" class="link-card">
+        <div class="link-icon">🎓</div>
+        <div class="link-info"><h4>পরীক্ষার ফলাফল</h4><p>চবি পরীক্ষা নিয়ন্ত্রক</p></div>
+      </a>
+      <a href="https://cu.ac.bd/library" target="_blank" class="link-card">
+        <div class="link-icon">📚</div>
+        <div class="link-info"><h4>কেন্দ্রীয় লাইব্রেরি</h4><p>চট্টগ্রাম বিশ্ববিদ্যালয়</p></div>
+      </a>
+      <a href="https://www.nubd.info" target="_blank" class="link-card">
+        <div class="link-icon">🎯</div>
+        <div class="link-info"><h4>জাতীয় বিশ্ববিদ্যালয়</h4><p>nubd.info</p></div>
+      </a>
+      <a href="https://ugc.gov.bd" target="_blank" class="link-card">
+        <div class="link-icon">🏛️</div>
+        <div class="link-info"><h4>বিশ্ববিদ্যালয় মঞ্জুরি কমিশন</h4><p>UGC Bangladesh</p></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section id="gallery">
+    <div class="section-title">
+      <div class="icon">🖼️</div>
+      <h2>গ্যালারি</h2>
+    </div>
+    <div class="admin-toggle">
+      <button class="btn btn-gold btn-sm" onclick="toggleGalleryAdmin()">➕ ছবি যোগ করুন</button>
+    </div>
+    <div class="gallery-upload-area" id="gallery-admin">
+      <div style="font-size:2rem;">📷</div>
+      <p><strong>ছবি আপলোড করুন</strong></p>
+      <div class="form-row" style="justify-content:center;margin-top:12px;">
+        <input type="file" id="g-file" accept="image/*" onchange="previewGallery(this)" style="flex:none;">
+        <input type="text" id="g-caption" placeholder="ক্যাপশন লিখুন" style="max-width:200px;">
+        <button class="btn btn-dark btn-sm" onclick="addGalleryItem()">✅ যোগ করুন</button>
+      </div>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="no-result" style="grid-column:1/-1;">এখনো কোনো ছবি যোগ করা হয়নি।</div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">✕</span>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="section-title">
+      <div class="icon">📞</div>
+      <h2>যোগাযোগ</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>লাইব্রেরি তথ্য</h3>
+        <ul class="contact-list">
+          <li><span class="icon">🏛️</span><span>দর্শন বিভাগ, কলা অনুষদ ভবন<br>চট্টগ্রাম বিশ্ববিদ্যালয়, হাটহাজারী, চট্টগ্রাম</span></li>
+          <li><span class="icon">⏰</span><span><strong>সময়সূচি:</strong> প্রতিদিন সকাল ৮:৩০ — বিকাল ৩:৩০</span></li>
+          <li><span class="icon">📵</span><span>শুক্রবার ও সরকারি ছুটির দিন বন্ধ</span></li>
+        </ul>
+      </div>
+      <div class="about-card">
+        <h3>দায়িত্বশীল কর্মকর্তা</h3>
+        <ul class="contact-list">
+          <li><span class="icon">👨‍💼</span><span><strong>মোহাম্মদ আব্দুল মজিদ</strong><br>ক্যাটালগার, সেমিনার লাইব্রেরি</span></li>
+          <li><span class="icon">📱</span><span>01830690112 · 01516780769</span></li>
+          <li><span class="icon">📧</span><span>mazidcu13@gmail.com</span></li>
+          <li><span class="icon">📧</span><span>philosophyseminar1973@gmail.com</span></li>
+          <li><span class="icon">⏰</span><span><strong>সময়সূচি:</strong> প্রতিদিন সকাল ৮:৩০ — বিকাল ৩:৩০</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <strong>সেমিনার লাইব্রেরি, দর্শন বিভাগ, চট্টগ্রাম বিশ্ববিদ্যালয়</strong><br>
+  প্রতিষ্ঠা: ১৯৭৩ | University of Chittagong<br>
+  ওয়েবসাইট নির্দেশনা: <strong>মোহাম্মদ আব্দুল মজিদ</strong>, ক্যাটালগার | 📧 mazidcu13@gmail.com<br>
+  <small>© ২০২৫ সর্বস্বত্ব সংরক্ষিত</small>
+</footer>
+
+<script>
+  // ===== ADMIN PASSWORD MODAL =====
+  const ADMIN_PASS = 'seminar 1973##@@##';
+  let adminUnlocked = false;
+  let pendingPanelId = null;
+
+  function requireAdmin(panelId) {
+    if (adminUnlocked) {
+      const el = document.getElementById(panelId);
+      if (el) el.classList.toggle('open');
+      return;
+    }
+    pendingPanelId = panelId;
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-error').style.display = 'none';
+    document.getElementById('pw-overlay').classList.add('open');
+    setTimeout(() => document.getElementById('pw-input').focus(), 100);
+  }
+
+  function checkPassword() {
+    const val = document.getElementById('pw-input').value;
+    if (val === ADMIN_PASS) {
+      adminUnlocked = true;
+      closePwModal();
+      if (pendingPanelId) {
+        const el = document.getElementById(pendingPanelId);
+        if (el) el.classList.add('open');
+        pendingPanelId = null;
+      }
+    } else {
+      document.getElementById('pw-error').style.display = 'block';
+      document.getElementById('pw-input').value = '';
+      document.getElementById('pw-input').focus();
+    }
+  }
+
+  function closePwModal() {
+    document.getElementById('pw-overlay').classList.remove('open');
+  }
+
+  function toggleAdmin(id) {
+    if (!adminUnlocked) { requireAdmin(id); return; }
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('open');
+  }
+
+  // ===== SPECIALTY EDIT =====
+  function editSpecialty() {
+    if (!adminUnlocked) { requireAdmin('dummy'); return; }
+    const cur = document.getElementById('specialty-text').textContent;
+    const val = window.prompt ? window.prompt('বিশেষত্ব লিখুন:', cur) : cur;
+    if (val !== null) document.getElementById('specialty-text').textContent = val || '—';
+  }
+
+  // ===== NAV ACTIVE =====
+  const navLinks = document.querySelectorAll('nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    document.querySelectorAll('section').forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+
+  // ===== ADD NOTICE =====
+  function addNotice() {
+    const title = document.getElementById('n-title').value.trim();
+    const desc = document.getElementById('n-desc').value.trim();
+    const type = document.getElementById('n-type').value;
+    if (!title) return alert('শিরোনাম লিখুন।');
+    const empty = document.getElementById('notice-empty');
+    if (empty) empty.remove();
+    const badgeMap = { new: 'notice-badge new', info: 'notice-badge info', '': 'notice-badge' };
+    const labelMap = { new: 'নতুন', info: 'তথ্য', '': 'সাধারণ' };
+    const cls = badgeMap[type] || 'notice-badge';
+    const lbl = labelMap[type] || 'সাধারণ';
+    const div = document.createElement('div');
+    div.className = 'notice-item';
+    div.innerHTML = `<span class="${cls}">${lbl}</span>
+      <div class="notice-content"><h4>${title}</h4><p>${desc}</p></div>`;
+    document.getElementById('notice-list').prepend(div);
+    document.getElementById('n-title').value = '';
+    document.getElementById('n-desc').value = '';
+  }
+
+  // ===== ADD BOOK =====
+  let bookCount = 0;
+  function addBook() {
+    const title = document.getElementById('b-title').value.trim();
+    const author = document.getElementById('b-author').value.trim();
+    const call = document.getElementById('b-call').value.trim();
+    const status = document.getElementById('b-status').value;
+    if (!title || !author) return alert('বইয়ের নাম ও লেখক লিখুন।');
+    bookCount++;
+    const statusLabel = status === 'available' ? 'উপলব্ধ' : 'ইস্যু করা';
+    const tr = document.createElement('tr');
+    tr.setAttribute('data-status', status);
+    tr.innerHTML = `<td>${bookCount}</td><td>${title}</td><td>${author}</td><td>${call}</td>
+      <td><span class="status-badge ${status}">${statusLabel}</span></td>
+      <td><button class="btn btn-sm btn-red" onclick="removeRow(this)">🗑️</button></td>`;
+    document.getElementById('book-tbody').appendChild(tr);
+    document.getElementById('b-title').value = '';
+    document.getElementById('b-author').value = '';
+    document.getElementById('b-call').value = '';
+    updateBookCount();
+  }
+
+  function updateBookCount() {
+    const rows = document.querySelectorAll('#book-tbody tr:not(.hidden-row)');
+    document.getElementById('book-count').textContent = `মোট বই: ${rows.length}টি`;
+  }
+
+  // ===== SEARCH BOOKS =====
+  function searchBooks() {
+    const q = document.getElementById('book-search').value.toLowerCase();
+    const rows = document.querySelectorAll('#book-tbody tr');
+    let visible = 0;
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      if (text.includes(q)) { row.classList.remove('hidden-row'); visible++; }
+      else row.classList.add('hidden-row');
+    });
+    document.getElementById('no-book').style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  function filterBooks(val) {
+    const rows = document.querySelectorAll('#book-tbody tr');
+    let visible = 0;
+    rows.forEach(row => {
+      if (val === 'all' || row.dataset.status === val) { row.classList.remove('hidden-row'); visible++; }
+      else row.classList.add('hidden-row');
+    });
+    document.getElementById('no-book').style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  // ===== ADD MEMBER =====
+  const avatarMap = { ছাত্র: '👨‍🎓', ছাত্রী: '👩‍🎓', শিক্ষক: '👨‍🏫', কর্মকর্তা: '👔' };
+  function addMember() {
+    const name = document.getElementById('m-name').value.trim();
+    const id = document.getElementById('m-id').value.trim();
+    const session = document.getElementById('m-session').value.trim();
+    const mobile = document.getElementById('m-mobile').value.trim();
+    const type = document.getElementById('m-type').value;
+    if (!name || !id) return alert('নাম ও আইডি লিখুন।');
+    // Remove empty placeholder
+    const placeholder = document.querySelector('#member-grid .no-result');
+    if (placeholder) placeholder.remove();
+    const avatar = avatarMap[type] || '👤';
+    const div = document.createElement('div');
+    div.className = 'member-card';
+    div.innerHTML = `<div class="member-avatar">${avatar}</div>
+      <h4>${name}</h4>
+      <p>রোল: ${id}</p>
+      ${session ? `<p style="font-size:0.75rem;color:var(--muted);">সেশন: ${session}</p>` : ''}
+      ${mobile ? `<p style="font-size:0.75rem;color:var(--muted);">📱 ${mobile}</p>` : ''}
+      <span class="member-tag">${type}</span>`;
+    document.getElementById('member-grid').appendChild(div);
+    ['m-name','m-id','m-session','m-mobile'].forEach(i => document.getElementById(i).value = '');
+  }
+
+  // ===== ADD ISSUE =====
+  let issueCount = 0;
+  function addIssue() {
+    const member = document.getElementById('i-member').value.trim();
+    const book = document.getElementById('i-book').value.trim();
+    const date = document.getElementById('i-date').value;
+    const action = document.getElementById('i-action').value;
+    if (!member || !book) return alert('সদস্য ও বইয়ের নাম লিখুন।');
+    const noIssue = document.getElementById('no-issue');
+    if (noIssue) noIssue.style.display = 'none';
+    issueCount++;
+    const badgeCls = action === 'ইস্যু' ? 'issued' : 'available';
+    const dateStr = date ? new Date(date).toLocaleDateString('bn-BD') : 'আজ';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${issueCount}</td><td>${member}</td><td>${book}</td><td>${dateStr}</td>
+      <td><span class="status-badge ${badgeCls}">${action}</span></td>
+      <td><button class="btn btn-sm btn-red" onclick="removeRow(this)">🗑️</button></td>`;
+    document.getElementById('issue-tbody').appendChild(tr);
+    document.getElementById('i-member').value = '';
+    document.getElementById('i-book').value = '';
+  }
+
+  // ===== FACULTY =====
+  function toggleExtra(btn) {
+    const extra = btn.nextElementSibling;
+    extra.classList.toggle('open');
+    btn.textContent = extra.classList.contains('open') ? '▲ বন্ধ করুন' : '▼ বিস্তারিত দেখুন';
+  }
+
+  function addFaculty() {
+    const name = document.getElementById('f-name').value.trim();
+    const desig = document.getElementById('f-desig').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const special = document.getElementById('f-special').value.trim();
+    const research = document.getElementById('f-research').value.trim();
+    if (!name) return alert('নাম লিখুন।');
+    const div = document.createElement('div');
+    div.className = 'faculty-card';
+    div.innerHTML = `
+      <div class="faculty-card-top">
+        <div class="faculty-avatar">👨‍🏫</div>
+        <h3>${name}</h3>
+        <div class="designation">${desig}</div>
+      </div>
+      <div class="faculty-card-body">
+        ${special ? `<div class="faculty-detail"><span class="di">📚</span><span>${special}</span></div>` : ''}
+        ${email ? `<div class="faculty-detail"><span class="di">📧</span><span>${email}</span></div>` : ''}
+      </div>
+      <button class="faculty-expand-btn" onclick="toggleExtra(this)">▼ বিস্তারিত দেখুন</button>
+      <div class="faculty-extra">${research ? `<strong>গবেষণা ক্ষেত্র:</strong> ${research}` : 'তথ্য শীঘ্রই যোগ হবে।'}</div>`;
+    document.getElementById('faculty-grid').appendChild(div);
+    ['f-name','f-desig','f-email','f-special','f-research'].forEach(id => document.getElementById(id).value = '');
+  }
+
+  // ===== LINKS =====
+  function toggleLinkAdmin() {
+    document.getElementById('link-admin').classList.toggle('open');
+  }
+
+  function addLink() {
+    const title = document.getElementById('l-title').value.trim();
+    const url = document.getElementById('l-url').value.trim();
+    const desc = document.getElementById('l-desc').value.trim();
+    const icon = document.getElementById('l-icon').value.trim() || '🔗';
+    if (!title || !url) return alert('নাম ও URL লিখুন।');
+    const a = document.createElement('a');
+    a.href = url; a.target = '_blank'; a.className = 'link-card';
+    a.innerHTML = `<div class="link-icon">${icon}</div><div class="link-info"><h4>${title}</h4><p>${desc}</p></div>`;
+    document.getElementById('links-grid').appendChild(a);
+    ['l-title','l-url','l-desc','l-icon'].forEach(id => document.getElementById(id).value = '');
+  }
+
+  // ===== RESULTS =====
+  function addResult() {
+    const title = document.getElementById('r-title').value.trim();
+    const link = document.getElementById('r-link').value.trim();
+    const date = document.getElementById('r-date').value.trim();
+    if (!title) return alert('পরীক্ষার নাম লিখুন।');
+    const div = document.createElement('div');
+    div.className = 'result-card';
+    div.innerHTML = `
+      <div class="result-card-header"><span>${title}</span><span style="font-size:0.72rem;color:var(--gold-light);">নতুন</span></div>
+      <div class="result-card-body">
+        <div class="result-row"><span class="course">দর্শন বিভাগ, চবি</span>${link ? `<a href="${link}" target="_blank" class="grade">দেখুন →</a>` : ''}</div>
+        ${date ? `<div class="result-row"><span class="course">প্রকাশ: ${date}</span></div>` : ''}
+      </div>`;
+    document.getElementById('result-grid').appendChild(div);
+    ['r-title','r-link','r-date'].forEach(id => document.getElementById(id).value = '');
+  }
+
+  // ===== GALLERY =====
+  function toggleGalleryAdmin() {
+    document.getElementById('gallery-admin').classList.toggle('open');
+  }
+
+  let galleryPreviewSrc = '';
+  function previewGallery(input) {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = e => galleryPreviewSrc = e.target.result;
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  function addGalleryItem() {
+    const caption = document.getElementById('g-caption').value.trim() || 'ছবি';
+    if (!galleryPreviewSrc) return alert('আগে ছবি সিলেক্ট করুন।');
+    const div = document.createElement('div');
+    div.className = 'gallery-item';
+    div.onclick = () => openLightbox(galleryPreviewSrc);
+    div.innerHTML = `<div class="gallery-thumb"><img src="${galleryPreviewSrc}" alt="${caption}"></div>
+      <div class="gallery-caption">${caption}</div>`;
+    document.getElementById('gallery-grid').appendChild(div);
+    galleryPreviewSrc = '';
+    document.getElementById('g-file').value = '';
+    document.getElementById('g-caption').value = '';
+  }
+
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  // ===== CHAIRMAN =====
+  let chairmanCount = 1;
+  function addChairman() {
+    const name = document.getElementById('ch-name').value.trim();
+    const from = document.getElementById('ch-from').value.trim();
+    const to = document.getElementById('ch-to').value.trim();
+    const note = document.getElementById('ch-note').value.trim();
+    if (!name) return alert('নাম লিখুন।');
+    chairmanCount++;
+    const isCurrent = (to === 'বর্তমান' || to === 'current' || to === '');
+    const tr = document.createElement('tr');
+    tr.style.borderBottom = '1px solid #f0ebe3';
+    if (isCurrent) tr.style.background = '#fffbf0';
+    tr.innerHTML = `
+      <td style="padding:12px 16px;font-size:0.85rem;">${chairmanCount}</td>
+      <td style="padding:12px 16px;font-size:0.85rem;font-weight:600;color:var(--deep);">${name} ${isCurrent ? '<span style="background:var(--gold);color:var(--deep);font-size:0.65rem;padding:2px 7px;border-radius:10px;font-weight:700;margin-left:6px;">বর্তমান</span>' : ''}</td>
+      <td style="padding:12px 16px;font-size:0.85rem;">${from}${to ? ' — ' + to : ''}</td>
+      <td style="padding:12px 16px;font-size:0.82rem;color:var(--muted);">${note}</td>`;
+    document.getElementById('chairman-tbody').appendChild(tr);
+    ['ch-name','ch-from','ch-to','ch-note'].forEach(i => document.getElementById(i).value = '');
+  }
+
+  // ===== POSTER =====
+  let posterPreviewSrc = '';
+  function previewPoster(input) {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = e => posterPreviewSrc = e.target.result;
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  function addPosterItem() {
+    const caption = document.getElementById('p-caption').value.trim() || 'পোস্টার';
+    const link = document.getElementById('p-link').value.trim();
+    const src = posterPreviewSrc || link;
+    if (!src) return alert('আগে ছবি সিলেক্ট করুন অথবা লিঙ্ক দিন।');
+    const placeholder = document.querySelector('#poster-grid .no-result');
+    if (placeholder) placeholder.remove();
+    const div = document.createElement('div');
+    div.className = 'gallery-item';
+    if (posterPreviewSrc) {
+      div.onclick = () => openLightbox(src);
+      div.innerHTML = `<div class="gallery-thumb"><img src="${src}" alt="${caption}"></div>
+        <div class="gallery-caption">${caption}</div>`;
+    } else {
+      div.innerHTML = `<div class="gallery-thumb" style="background:var(--navy);">🔗</div>
+        <div class="gallery-caption"><a href="${src}" target="_blank" style="color:var(--gold);">${caption}</a></div>`;
+    }
+    document.getElementById('poster-grid').appendChild(div);
+    posterPreviewSrc = '';
+    document.getElementById('p-file').value = '';
+    document.getElementById('p-link').value = '';
+    document.getElementById('p-caption').value = '';
+  }
+
+  // ===== REMOVE ROW =====
+  function removeRow(btn) {
+    if (confirm('এই এন্ট্রি মুছে ফেলবেন?')) {
+      btn.closest('tr').remove();
+      updateBookCount();
+    }
+  }
+</script>
+</body>
+</html>
