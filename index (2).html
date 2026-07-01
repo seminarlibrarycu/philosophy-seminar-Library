@@ -1,0 +1,3321 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIIM Centre — Library Innovation & Information Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0A1628;
+    --navy-mid: #112240;
+    --navy-light: #1a3560;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #F5EDD3;
+    --white: #FFFFFF;
+    --off-white: #F8F9FB;
+    --gray-100: #EEF0F4;
+    --gray-300: #B8BEC8;
+    --gray-600: #5A6478;
+    --text: #1C2333;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Hind Siliguri', 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--navy);
+    color: var(--gray-300);
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--navy-light);
+  }
+  .topbar-inner {
+    max-width: 1200px; margin: auto; padding: 0 24px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .topbar a { color: var(--gold-light); text-decoration: none; margin-left: 18px; }
+  .topbar a:hover { color: var(--white); }
+
+  /* ── NAVBAR ── */
+  nav {
+    background: var(--navy-mid);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: auto; padding: 0 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    height: 64px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 12px; text-decoration: none;
+  }
+  .brand-icon {
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 900; color: var(--navy);
+    font-family: 'Playfair Display', serif;
+    flex-shrink: 0;
+  }
+  .brand-text { line-height: 1.2; }
+  .brand-text .en {
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700;
+    color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  .brand-text .bn {
+    font-size: 11px; color: var(--gray-300); font-weight: 400;
+  }
+  .nav-links { display: flex; gap: 4px; align-items: center; }
+  .nav-links a {
+    color: var(--gray-300); text-decoration: none;
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500;
+    padding: 8px 14px; border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); background: rgba(201,168,76,0.08); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy) !important; font-weight: 700 !important;
+    border-radius: 6px; padding: 8px 16px !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    min-height: 88vh;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+  }
+  /* Geometric Islamic-inspired SVG background */
+  .hero-pattern {
+    position: absolute; inset: 0;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='1'%3E%3Cpolygon points='40,4 76,22 76,58 40,76 4,58 4,22'/%3E%3Cpolygon points='40,14 66,27 66,53 40,66 14,53 14,27'/%3E%3Cline x1='40' y1='4' x2='40' y2='76'/%3E%3Cline x1='4' y1='22' x2='76' y2='58'/%3E%3Cline x1='4' y1='58' x2='76' y2='22'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 80px 80px;
+  }
+  .hero-glow {
+    position: absolute; top: -200px; right: -200px;
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+  }
+  .hero-inner {
+    max-width: 1200px; margin: auto; padding: 80px 24px;
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 32px; height: 2px; background: var(--gold);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', 'Hind Siliguri', serif;
+    font-size: clamp(32px, 4vw, 52px); font-weight: 900;
+    color: var(--white); line-height: 1.15; margin-bottom: 12px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-subtitle {
+    font-size: 18px; color: var(--gold-light);
+    font-weight: 600; margin-bottom: 16px;
+  }
+  .hero-desc {
+    font-size: 15px; color: var(--gray-300); line-height: 1.8;
+    margin-bottom: 36px; max-width: 480px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy); font-weight: 700; font-family: 'Inter', sans-serif;
+    padding: 14px 28px; border-radius: 8px; text-decoration: none;
+    font-size: 14px; transition: all 0.25s; display: inline-block;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.5); }
+  .btn-outline {
+    border: 1.5px solid rgba(201,168,76,0.4); color: var(--gold-light);
+    padding: 14px 28px; border-radius: 8px; text-decoration: none;
+    font-size: 14px; font-family: 'Inter', sans-serif; font-weight: 500;
+    transition: all 0.25s; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.06); }
+
+  /* hero stats */
+  .hero-stats {
+    display: flex; gap: 32px; margin-top: 40px; padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900;
+    color: var(--gold); line-height: 1;
+  }
+  .stat-label { font-size: 12px; color: var(--gray-300); margin-top: 4px; }
+
+  /* hero visual */
+  .hero-visual {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 12px; padding: 20px 22px;
+    display: flex; align-items: center; gap: 16px;
+    backdrop-filter: blur(8px); transition: all 0.3s;
+  }
+  .hero-card:hover { background: rgba(255,255,255,0.07); transform: translateX(4px); }
+  .hero-card-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--gold) 0%, rgba(201,168,76,0.3) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .hero-card-title { font-size: 14px; color: var(--white); font-weight: 600; margin-bottom: 2px; }
+  .hero-card-sub { font-size: 12px; color: var(--gray-300); }
+
+  /* ── SEARCH ── */
+  .search-section {
+    background: var(--gold);
+    padding: 28px 0;
+  }
+  .search-inner {
+    max-width: 800px; margin: auto; padding: 0 24px;
+    text-align: center;
+  }
+  .search-label {
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--navy);
+    margin-bottom: 14px; opacity: 0.7;
+  }
+  .search-bar {
+    display: flex; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 4px 24px rgba(10,22,40,0.2);
+  }
+  .search-bar input {
+    flex: 1; padding: 16px 22px; border: none; outline: none;
+    font-family: 'Hind Siliguri', sans-serif; font-size: 15px; color: var(--text);
+    background: var(--white);
+  }
+  .search-bar input::placeholder { color: var(--gray-300); }
+  .search-bar select {
+    border: none; border-left: 1px solid var(--gray-100);
+    padding: 0 16px; font-family: 'Inter', sans-serif; font-size: 13px;
+    color: var(--gray-600); background: var(--white); outline: none; cursor: pointer;
+  }
+  .search-btn {
+    background: var(--navy); color: var(--white);
+    padding: 16px 28px; border: none; cursor: pointer;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px;
+    transition: background 0.2s;
+  }
+  .search-btn:hover { background: var(--navy-light); }
+
+  /* ── QUICK LINKS ── */
+  .quick-links {
+    background: var(--off-white);
+    padding: 40px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .ql-inner {
+    max-width: 1200px; margin: auto; padding: 0 24px;
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px;
+  }
+  .ql-item {
+    background: var(--white); border: 1px solid var(--gray-100);
+    border-radius: 12px; padding: 20px 14px; text-align: center;
+    text-decoration: none; transition: all 0.25s; cursor: pointer;
+  }
+  .ql-item:hover {
+    border-color: var(--gold); box-shadow: 0 4px 20px rgba(201,168,76,0.15);
+    transform: translateY(-3px);
+  }
+  .ql-icon { font-size: 28px; margin-bottom: 8px; }
+  .ql-label { font-size: 12px; color: var(--gray-600); font-weight: 600; line-height: 1.4; }
+
+  /* ── SECTION SHELL ── */
+  section { padding: 80px 0; }
+  .section-inner { max-width: 1200px; margin: auto; padding: 0 24px; }
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-eyebrow {
+    font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 12px; display: block;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 38px);
+    font-weight: 900; color: var(--navy); line-height: 1.2; margin-bottom: 14px;
+  }
+  .section-desc { font-size: 15px; color: var(--gray-600); max-width: 560px; margin: auto; }
+
+  /* ── FEATURE GRID ── */
+  .feature-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .feature-card {
+    background: var(--white); border: 1px solid var(--gray-100);
+    border-radius: 16px; padding: 32px 28px; transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .feature-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+  .feature-card:hover { box-shadow: 0 8px 40px rgba(10,22,40,0.1); transform: translateY(-4px); }
+  .feature-card:hover::before { transform: scaleX(1); }
+  .feature-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    background: var(--gold-pale); display: flex; align-items: center;
+    justify-content: center; font-size: 24px; margin-bottom: 20px;
+  }
+  .feature-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .feature-desc { font-size: 13.5px; color: var(--gray-600); line-height: 1.75; }
+  .feature-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+  .tag {
+    font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600;
+    padding: 3px 10px; border-radius: 20px;
+    background: var(--gold-pale); color: #8B6914;
+  }
+
+  /* ── OPAC SECTION ── */
+  .opac-section { background: var(--navy); }
+  .opac-inner {
+    max-width: 1200px; margin: auto; padding: 80px 24px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .opac-eyebrow {
+    font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .opac-title {
+    font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 900;
+    color: var(--white); line-height: 1.2; margin-bottom: 16px;
+  }
+  .opac-desc { font-size: 15px; color: var(--gray-300); line-height: 1.8; margin-bottom: 28px; }
+  .opac-features { list-style: none; }
+  .opac-features li {
+    color: var(--gray-300); font-size: 14px; padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .opac-features li::before { content: '✦'; color: var(--gold); font-size: 10px; }
+  .opac-mockup {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 16px; padding: 28px; backdrop-filter: blur(8px);
+  }
+  .mockup-bar {
+    background: rgba(255,255,255,0.08); border-radius: 8px;
+    padding: 12px 16px; display: flex; align-items: center; gap: 10px;
+    margin-bottom: 20px;
+  }
+  .mockup-bar input {
+    background: none; border: none; outline: none; color: var(--white);
+    font-family: 'Hind Siliguri', sans-serif; font-size: 14px; flex: 1;
+  }
+  .mockup-result {
+    background: rgba(255,255,255,0.04); border-radius: 8px; padding: 14px 16px;
+    margin-bottom: 10px; border-left: 3px solid var(--gold);
+  }
+  .mr-title { font-size: 13px; color: var(--white); font-weight: 600; margin-bottom: 4px; }
+  .mr-meta { font-size: 11px; color: var(--gray-300); font-family: 'Inter', sans-serif; }
+  .available { color: #4ADE80; font-weight: 700; }
+  .issued { color: #F87171; font-weight: 700; }
+
+  /* ── DIGITAL REPO ── */
+  .repo-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  }
+  .repo-card {
+    background: var(--white); border: 1px solid var(--gray-100);
+    border-radius: 14px; padding: 28px 22px; text-align: center;
+    transition: all 0.3s;
+  }
+  .repo-card:hover { border-color: var(--gold); box-shadow: 0 4px 24px rgba(201,168,76,0.15); transform: translateY(-3px); }
+  .repo-card .icon { font-size: 36px; margin-bottom: 14px; }
+  .repo-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .repo-card p { font-size: 12.5px; color: var(--gray-600); line-height: 1.65; }
+  .repo-count { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--gold); font-weight: 900; margin-top: 12px; }
+
+  /* ── IT LAB ── */
+  .itlab-section { background: linear-gradient(135deg, #0A1628 0%, #0F2A50 100%); }
+  .itlab-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  }
+  .itlab-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 14px; padding: 28px; transition: all 0.3s;
+  }
+  .itlab-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(201,168,76,0.4); }
+  .itlab-card h3 { font-size: 16px; color: var(--white); font-weight: 700; margin: 14px 0 10px; }
+  .itlab-card p { font-size: 13px; color: var(--gray-300); line-height: 1.7; }
+  .itlab-card .badge {
+    display: inline-block; background: rgba(201,168,76,0.15); color: var(--gold);
+    font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px;
+    font-family: 'Inter', sans-serif; letter-spacing: 1px; text-transform: uppercase;
+    margin-top: 14px;
+  }
+
+  /* ── RESEARCH SERVICES ── */
+  .services-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .service-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--white); border: 1px solid var(--gray-100);
+    border-radius: 14px; padding: 24px;
+    transition: all 0.3s;
+  }
+  .service-item:hover { border-color: var(--gold); box-shadow: 0 4px 20px rgba(201,168,76,0.1); }
+  .service-icon-wrap {
+    width: 48px; height: 48px; background: var(--gold-pale);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .service-item h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .service-item p { font-size: 13px; color: var(--gray-600); line-height: 1.65; }
+
+  /* ── USER PORTAL ── */
+  .portal-section { background: var(--gold-pale); }
+  .portal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .portal-card {
+    background: var(--white); border-radius: 14px; padding: 30px 24px;
+    text-align: center; box-shadow: 0 2px 16px rgba(10,22,40,0.06);
+    transition: all 0.3s;
+  }
+  .portal-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(10,22,40,0.12); }
+  .portal-card .icon { font-size: 40px; margin-bottom: 16px; }
+  .portal-card h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .portal-card p { font-size: 13px; color: var(--gray-600); line-height: 1.65; margin-bottom: 18px; }
+  .portal-btn {
+    display: inline-block; background: var(--navy); color: var(--white);
+    padding: 10px 20px; border-radius: 8px; font-size: 13px;
+    font-family: 'Inter', sans-serif; font-weight: 600; text-decoration: none;
+    transition: background 0.2s;
+  }
+  .portal-btn:hover { background: var(--navy-light); }
+
+  /* ── COMMUNITY / NEWS ── */
+  .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .news-card {
+    background: var(--white); border: 1px solid var(--gray-100);
+    border-radius: 14px; overflow: hidden; transition: all 0.3s;
+  }
+  .news-card:hover { box-shadow: 0 6px 28px rgba(10,22,40,0.1); transform: translateY(-3px); }
+  .news-thumb {
+    height: 140px; display: flex; align-items: center; justify-content: center;
+    font-size: 60px;
+  }
+  .nc-blue { background: linear-gradient(135deg, #1a3560, #0A1628); }
+  .nc-gold { background: linear-gradient(135deg, #C9A84C, #F5EDD3); }
+  .nc-green { background: linear-gradient(135deg, #1a5040, #0f2820); }
+  .news-body { padding: 20px; }
+  .news-cat {
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+  }
+  .news-card h3 { font-size: 14.5px; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.4; }
+  .news-card p { font-size: 12.5px; color: var(--gray-600); line-height: 1.6; }
+  .news-date { font-size: 11px; color: var(--gray-300); margin-top: 12px; font-family: 'Inter', sans-serif; }
+
+  /* ── DIRECTOR MESSAGE ── */
+  .director-section { background: var(--navy); }
+  .director-inner {
+    max-width: 800px; margin: auto; padding: 80px 24px; text-align: center;
+  }
+  .quote-mark { font-size: 80px; color: var(--gold); font-family: 'Playfair Display', serif; line-height: 0.6; margin-bottom: 24px; opacity: 0.6; }
+  .director-quote {
+    font-size: clamp(18px, 2.5vw, 24px); color: var(--white); font-style: italic;
+    line-height: 1.7; margin-bottom: 32px; font-family: 'Hind Siliguri', serif;
+  }
+  .director-name { font-size: 16px; font-weight: 700; color: var(--gold); }
+  .director-role { font-size: 13px; color: var(--gray-300); margin-top: 4px; }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+  }
+  .contact-info h3 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 20px; }
+  .contact-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .ci-icon {
+    width: 40px; height: 40px; background: var(--gold-pale);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .ci-label { font-size: 12px; color: var(--gray-300); font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+  .ci-value { font-size: 14px; color: var(--text); font-weight: 500; margin-top: 2px; }
+  .ask-librarian {
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    border-radius: 16px; padding: 32px; color: var(--white);
+  }
+  .ask-librarian h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+  .ask-librarian p { font-size: 13.5px; color: var(--gray-300); margin-bottom: 22px; line-height: 1.7; }
+  .ask-form input, .ask-form textarea, .ask-form select {
+    width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px; padding: 12px 14px; color: var(--white);
+    font-family: 'Hind Siliguri', sans-serif; font-size: 14px;
+    outline: none; margin-bottom: 12px; resize: none;
+  }
+  .ask-form input::placeholder, .ask-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+  .ask-form input:focus, .ask-form textarea:focus { border-color: var(--gold); }
+  .ask-submit {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy); font-weight: 700; font-family: 'Inter', sans-serif;
+    border: none; padding: 13px 24px; border-radius: 8px; cursor: pointer;
+    font-size: 14px; width: 100%; transition: opacity 0.2s;
+  }
+  .ask-submit:hover { opacity: 0.9; }
+  .social-links { display: flex; gap: 12px; margin-top: 24px; }
+  .social-btn {
+    background: var(--gold-pale); color: var(--navy);
+    width: 40px; height: 40px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; text-decoration: none; transition: all 0.2s;
+  }
+  .social-btn:hover { background: var(--gold); }
+
+  /* ── HOURS BANNER ── */
+  .hours-banner {
+    background: var(--gold); padding: 16px 0;
+  }
+  .hours-inner {
+    max-width: 1200px; margin: auto; padding: 0 24px;
+    display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;
+  }
+  .hour-item { display: flex; align-items: center; gap: 10px; }
+  .hour-item span:first-child { font-size: 18px; }
+  .hour-label { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 1px; }
+  .hour-val { font-size: 14px; color: var(--navy); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060E1C; padding: 56px 0 28px;
+  }
+  .footer-inner {
+    max-width: 1200px; margin: auto; padding: 0 24px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px;
+  }
+  .footer-brand p { font-size: 13px; color: var(--gray-300); line-height: 1.8; margin-top: 14px; max-width: 280px; }
+  .footer-col h4 {
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .footer-col a {
+    display: block; font-size: 13px; color: var(--gray-300);
+    text-decoration: none; margin-bottom: 10px; transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: var(--gray-600); font-family: 'Inter', sans-serif;
+  }
+  .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+  /* ── DIVIDER ── */
+  .gold-divider {
+    width: 60px; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    margin: 0 auto 20px; border-radius: 2px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner, .opac-inner, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .feature-grid, .itlab-grid, .portal-grid, .news-grid { grid-template-columns: 1fr 1fr; }
+    .repo-grid, .services-list { grid-template-columns: 1fr 1fr; }
+    .ql-inner { grid-template-columns: repeat(3, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links {
+      display: none;
+      position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+      background: var(--navy-mid); flex-direction: column; gap: 0;
+      padding: 12px 0; z-index: 999; overflow-y: auto;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a, .nav-links button {
+      width: 100%; text-align: left; padding: 16px 24px !important;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-radius: 0 !important; font-size: 15px !important;
+    }
+    #hamburgerBtn { display: block !important; }
+    .hero-stats { flex-wrap: wrap; }
+    .hours-inner { gap: 24px; }
+  }
+  @media (max-width: 560px) {
+    .feature-grid, .repo-grid, .services-list, .portal-grid, .news-grid, .itlab-grid { grid-template-columns: 1fr; }
+    .ql-inner { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+:root {
+  --navy: #0A1628; --navy-mid: #112240; --navy-light: #1a3560;
+  --gold: #C9A84C; --gold-light: #E8C97A; --gold-pale: #F5EDD3;
+  --white: #FFFFFF; --off-white: #F8F9FB; --gray-100: #EEF0F4;
+  --gray-300: #B8BEC8; --gray-600: #5A6478; --text: #1C2333;
+  --green: #16a34a; --blue: #2563eb; --red: #dc2626;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Hind Siliguri','Inter',sans-serif; color:var(--text); background:var(--white); }
+
+/* TOPBAR */
+.topbar { background:var(--navy); color:var(--gray-300); font-size:12px; font-family:'Inter',sans-serif; padding:6px 0; }
+.topbar-inner { max-width:1200px; margin:auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; }
+.topbar a { color:var(--gold-light); text-decoration:none; margin-left:16px; }
+
+/* NAV */
+nav { background:var(--navy-mid); position:sticky; top:0; z-index:100; box-shadow:0 2px 20px rgba(0,0,0,0.4); }
+.nav-inner { max-width:1200px; margin:auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; height:62px; }
+.brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.brand-icon { width:40px; height:40px; background:linear-gradient(135deg,var(--gold),var(--gold-light)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:900; color:var(--navy); font-family:'Playfair Display',serif; }
+.brand-en { font-family:'Inter',sans-serif; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:1.5px; }
+.brand-bn { font-size:11px; color:var(--gray-300); }
+.nav-tabs { display:flex; gap:4px; }
+.nav-tab { color:var(--gray-300); text-decoration:none; font-family:'Inter',sans-serif; font-size:13px; font-weight:500; padding:8px 14px; border-radius:6px; cursor:pointer; transition:all 0.2s; border:none; background:none; }
+.nav-tab:hover, .nav-tab.active { color:var(--gold-light); background:rgba(201,168,76,0.1); }
+.nav-tab.active { border-bottom:2px solid var(--gold); border-radius:6px 6px 0 0; }
+
+/* PAGE TABS */
+.page-container { display:none; }
+.page-container.active { display:block; }
+
+/* HERO MINI */
+.page-hero { background:var(--navy); padding:48px 0 40px; position:relative; overflow:hidden; }
+.page-hero::before { content:''; position:absolute; inset:0; opacity:0.05; background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='1'%3E%3Cpolygon points='30,3 57,16 57,44 30,57 3,44 3,16'/%3E%3C/g%3E%3C/svg%3E"); background-size:60px 60px; }
+.page-hero-inner { max-width:1200px; margin:auto; padding:0 24px; position:relative; z-index:2; }
+.page-eyebrow { font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+.page-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3.5vw,42px); font-weight:900; color:var(--white); line-height:1.2; margin-bottom:10px; }
+.page-subtitle { font-size:14px; color:var(--gray-300); max-width:600px; line-height:1.7; }
+
+/* SECTION */
+.section { padding:60px 0; }
+.section-inner { max-width:1200px; margin:auto; padding:0 24px; }
+.section-header { margin-bottom:40px; }
+.sec-eyebrow { font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; display:block; }
+.sec-title { font-family:'Playfair Display',serif; font-size:clamp(22px,2.5vw,30px); font-weight:900; color:var(--navy); margin-bottom:8px; }
+.sec-desc { font-size:14px; color:var(--gray-600); line-height:1.7; }
+.gold-bar { width:48px; height:3px; background:linear-gradient(90deg,var(--gold),var(--gold-light)); border-radius:2px; margin:12px 0; }
+
+/* ══════════════════════════════════════════
+   MENDELEY PAGE
+══════════════════════════════════════════ */
+.step-timeline { position:relative; }
+.step-timeline::before { content:''; position:absolute; left:28px; top:0; bottom:0; width:2px; background:linear-gradient(180deg,var(--gold),rgba(201,168,76,0.1)); }
+.step-item { display:flex; gap:24px; margin-bottom:40px; position:relative; }
+.step-num { width:56px; height:56px; background:linear-gradient(135deg,var(--gold),var(--gold-light)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:22px; font-weight:900; color:var(--navy); flex-shrink:0; box-shadow:0 4px 16px rgba(201,168,76,0.4); position:relative; z-index:2; }
+.step-body { flex:1; background:var(--white); border:1px solid var(--gray-100); border-radius:14px; padding:24px 26px; box-shadow:0 2px 12px rgba(10,22,40,0.05); }
+.step-body:hover { border-color:var(--gold); box-shadow:0 4px 24px rgba(201,168,76,0.12); }
+.step-title { font-size:17px; font-weight:700; color:var(--navy); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+.step-icon { font-size:22px; }
+.step-desc { font-size:13.5px; color:var(--gray-600); line-height:1.8; margin-bottom:14px; }
+.step-tips { background:var(--gold-pale); border-left:3px solid var(--gold); border-radius:0 8px 8px 0; padding:12px 16px; }
+.step-tips p { font-size:12.5px; color:#7a5c10; line-height:1.7; }
+.step-tips strong { color:#5a3d08; }
+.step-sub { list-style:none; margin-top:10px; }
+.step-sub li { font-size:13px; color:var(--gray-600); padding:5px 0; padding-left:18px; position:relative; border-bottom:1px solid var(--gray-100); }
+.step-sub li:last-child { border-bottom:none; }
+.step-sub li::before { content:'→'; position:absolute; left:0; color:var(--gold); font-weight:700; }
+.step-badge { display:inline-block; font-family:'Inter',sans-serif; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; margin-left:8px; }
+.badge-free { background:#dcfce7; color:#16a34a; }
+.badge-important { background:#fef3c7; color:#92400e; }
+.badge-tip { background:#dbeafe; color:#1d4ed8; }
+
+/* Screenshot placeholder */
+.screenshot { background:linear-gradient(135deg,var(--navy),var(--navy-light)); border-radius:10px; padding:20px; margin-top:14px; border:1px solid rgba(201,168,76,0.2); }
+.screenshot-bar { background:rgba(255,255,255,0.08); border-radius:6px; padding:8px 12px; margin-bottom:12px; font-size:12px; color:var(--gray-300); font-family:'Inter',sans-serif; display:flex; align-items:center; gap:8px; }
+.screenshot-content { font-size:12px; color:var(--gray-300); line-height:1.7; }
+.btn-link { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:var(--navy); padding:10px 20px; border-radius:8px; font-size:13px; font-weight:700; font-family:'Inter',sans-serif; text-decoration:none; margin-top:12px; transition:all 0.2s; }
+.btn-link:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(201,168,76,0.4); }
+
+/* Format compare table */
+.format-table { width:100%; border-collapse:collapse; margin-top:16px; font-size:13px; }
+.format-table th { background:var(--navy); color:var(--gold); padding:10px 14px; text-align:left; font-family:'Inter',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; }
+.format-table td { padding:10px 14px; border-bottom:1px solid var(--gray-100); color:var(--text); }
+.format-table tr:hover td { background:var(--gold-pale); }
+.check { color:var(--green); font-size:16px; }
+
+/* Video embed placeholder */
+.video-placeholder { background:var(--navy); border-radius:12px; height:180px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; border:1px solid rgba(201,168,76,0.2); cursor:pointer; transition:all 0.2s; }
+.video-placeholder:hover { border-color:var(--gold); }
+.play-btn { width:56px; height:56px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; }
+.video-placeholder p { color:var(--gray-300); font-size:13px; }
+
+/* ══════════════════════════════════════════
+   GLOBAL LIBRARY SEARCH PAGE
+══════════════════════════════════════════ */
+
+/* BIG SEARCH */
+.global-search-box { background:linear-gradient(135deg,var(--navy),var(--navy-light)); border-radius:20px; padding:40px; margin-bottom:48px; position:relative; overflow:hidden; }
+.global-search-box::before { content:''; position:absolute; inset:0; opacity:0.04; background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='30,3 57,16 57,44 30,57 3,44 3,16' fill='none' stroke='%23C9A84C' stroke-width='1'/%3E%3C/svg%3E"); background-size:60px; }
+.gs-title { font-family:'Playfair Display',serif; font-size:26px; font-weight:900; color:var(--white); margin-bottom:6px; position:relative; z-index:1; }
+.gs-sub { font-size:13px; color:var(--gray-300); margin-bottom:24px; position:relative; z-index:1; }
+.gs-bar { display:flex; border-radius:12px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.3); position:relative; z-index:1; }
+.gs-bar input { flex:1; padding:18px 22px; border:none; outline:none; font-family:'Hind Siliguri',sans-serif; font-size:16px; color:var(--text); background:var(--white); }
+.gs-bar input::placeholder { color:var(--gray-300); }
+.gs-btn { background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:var(--navy); padding:18px 32px; border:none; cursor:pointer; font-family:'Inter',sans-serif; font-weight:700; font-size:15px; transition:opacity 0.2s; white-space:nowrap; }
+.gs-btn:hover { opacity:0.9; }
+.gs-options { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; position:relative; z-index:1; }
+.gs-opt { display:flex; align-items:center; gap:6px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:8px; padding:6px 12px; cursor:pointer; transition:all 0.2s; }
+.gs-opt:hover { border-color:var(--gold); background:rgba(201,168,76,0.1); }
+.gs-opt input[type=checkbox] { accent-color:var(--gold); width:14px; height:14px; }
+.gs-opt label { font-size:12px; color:var(--gray-300); cursor:pointer; font-family:'Inter',sans-serif; }
+.gs-select-all { background:rgba(201,168,76,0.15); border-color:rgba(201,168,76,0.3); }
+.gs-select-all label { color:var(--gold); font-weight:700; }
+.gs-result-info { margin-top:14px; font-size:12px; color:var(--gray-300); font-family:'Inter',sans-serif; }
+.gs-result-info span { color:var(--gold); font-weight:700; }
+
+/* REGION TABS */
+.region-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px; }
+.rtab { padding:8px 18px; border-radius:20px; font-size:13px; font-family:'Inter',sans-serif; font-weight:600; cursor:pointer; border:1.5px solid var(--gray-100); color:var(--gray-600); background:var(--white); transition:all 0.2s; }
+.rtab:hover { border-color:var(--gold); color:var(--gold); }
+.rtab.active { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+
+/* LIBRARY GRID */
+.lib-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.lib-card { background:var(--white); border:1px solid var(--gray-100); border-radius:14px; padding:20px; transition:all 0.3s; position:relative; }
+.lib-card:hover { border-color:var(--gold); box-shadow:0 4px 20px rgba(201,168,76,0.15); transform:translateY(-2px); }
+.lib-card.selected { border-color:var(--gold); background:var(--gold-pale); }
+.lib-flag { font-size:28px; margin-bottom:10px; }
+.lib-rank { position:absolute; top:14px; right:14px; background:var(--navy); color:var(--gold); font-size:10px; font-weight:700; font-family:'Inter',sans-serif; padding:3px 8px; border-radius:12px; }
+.lib-uni { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:4px; line-height:1.3; }
+.lib-name { font-size:12px; color:var(--gray-600); margin-bottom:12px; }
+.lib-tags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:12px; }
+.lib-tag { font-size:10px; font-family:'Inter',sans-serif; font-weight:600; padding:2px 8px; border-radius:10px; background:var(--gray-100); color:var(--gray-600); }
+.lib-actions { display:flex; gap:8px; }
+.lib-btn { flex:1; padding:8px; border-radius:8px; font-size:12px; font-family:'Inter',sans-serif; font-weight:600; text-align:center; text-decoration:none; cursor:pointer; border:none; transition:all 0.2s; }
+.lib-btn-visit { background:var(--navy); color:var(--white); }
+.lib-btn-visit:hover { background:var(--navy-light); }
+.lib-btn-select { background:var(--gray-100); color:var(--gray-600); }
+.lib-btn-select:hover { background:var(--gold-pale); color:var(--navy); }
+.lib-btn-select.selected-btn { background:var(--gold); color:var(--navy); }
+
+/* FLOATING SEARCH BAR */
+.floating-search { position:fixed; bottom:24px; right:24px; z-index:200; }
+.fs-btn { background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:var(--navy); border:none; padding:14px 24px; border-radius:12px; font-size:14px; font-weight:700; font-family:'Inter',sans-serif; cursor:pointer; box-shadow:0 6px 24px rgba(201,168,76,0.5); transition:all 0.2s; display:flex; align-items:center; gap:8px; }
+.fs-btn:hover { transform:translateY(-2px); box-shadow:0 10px 32px rgba(201,168,76,0.6); }
+.fs-count { background:var(--navy); color:var(--gold); border-radius:50%; width:22px; height:22px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; font-weight:900; }
+
+/* SECTION REGION */
+.region-section { margin-bottom:48px; }
+.region-header { display:flex; align-items:center; gap:14px; margin-bottom:20px; padding-bottom:12px; border-bottom:2px solid var(--gray-100); }
+.region-icon { font-size:28px; }
+.region-title { font-size:18px; font-weight:700; color:var(--navy); }
+.region-count { font-size:12px; color:var(--gray-300); font-family:'Inter',sans-serif; }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:900px) { .lib-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:560px) { .lib-grid { grid-template-columns:1fr; } .step-item { flex-direction:column; } .step-timeline::before { display:none; } }
+
+  /* ══ SUB-PAGE SYSTEM ══ */
+  .main-page { display:block; }
+  .main-page.hidden { display:none; }
+</style>
+</head>
+<body>
+
+<div id="mainHomePage" class="main-page">
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>📍 অবস্থিত: সেমিনার লাইব্রেরি, দর্শন বিভাগ, চট্টগ্রাম বিশ্ববিদ্যালয়</span>
+    <div>
+      <span>সকাল ৯:০০ — বিকাল ৫:০০</span>
+      <a href="#">বাংলা</a>
+      <a href="#">English</a>
+      <a href="#" onclick="openLogin(); return false;" id="loginLink">🔐 অ্যাডমিন লগইন</a>
+      <span id="adminBadge" style="display:none; color:#4ADE80; font-weight:700; margin-left:12px;">✓ অ্যাডমিন <a href="#" onclick="openAdminPanel(); return false;" style="color:var(--gold-light); margin-left:10px;">⚙️ প্যানেল</a> <a href="#" onclick="doLogout(); return false;" style="color:#F87171; margin-left:8px;">লগআউট</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:9999; display:none; align-items:center; justify-content:center;">
+  <div style="background:var(--navy-mid); border:1px solid rgba(201,168,76,0.3); border-radius:20px; padding:40px; width:100%; max-width:380px; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+    <button onclick="closeLogin()" style="position:absolute; top:16px; right:16px; background:none; border:none; color:var(--gray-300); font-size:22px; cursor:pointer;">✕</button>
+    <div style="text-align:center; margin-bottom:28px;">
+      <div style="width:56px; height:56px; background:linear-gradient(135deg,var(--gold),var(--gold-light)); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:24px; margin:0 auto 14px;">🔐</div>
+      <h2 style="font-family:'Playfair Display',serif; font-size:22px; color:var(--white); margin-bottom:6px;">অ্যাডমিন লগইন</h2>
+      <p style="font-size:13px; color:var(--gray-300);">LIIM Centre — প্রশাসনিক প্যানেল</p>
+    </div>
+    <div style="margin-bottom:16px;">
+      <label style="font-size:12px; color:var(--gray-300); font-family:'Inter',sans-serif; text-transform:uppercase; letter-spacing:1px; display:block; margin-bottom:6px;">পাসওয়ার্ড</label>
+      <input type="password" id="adminPassInput" placeholder="পাসওয়ার্ড লিখুন..."
+        style="width:100%; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:14px 16px; color:var(--white); font-family:'Hind Siliguri',sans-serif; font-size:15px; outline:none;"
+        onkeydown="if(event.key==='Enter') checkLogin()"
+        onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+    </div>
+    <p id="loginError" style="display:none; color:#F87171; font-size:13px; margin-bottom:12px; text-align:center;">❌ পাসওয়ার্ড সঠিক নয়। আবার চেষ্টা করুন।</p>
+    <button onclick="checkLogin()"
+      style="width:100%; background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:var(--navy); border:none; padding:14px; border-radius:10px; font-size:15px; font-weight:700; font-family:'Inter',sans-serif; cursor:pointer; transition:opacity 0.2s;"
+      onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+      লগইন করুন →
+    </button>
+    <p style="font-size:11px; color:var(--gray-600); text-align:center; margin-top:16px; font-family:'Inter',sans-serif;">শুধুমাত্র অ্যাডমিনিস্ট্রেটরের জন্য</p>
+  </div>
+</div>
+
+<script>
+var ADMIN_PASS = 'Mazidliimc@2026#';
+
+function openLogin() {
+  document.getElementById('loginModal').style.display = 'flex';
+  setTimeout(function(){ document.getElementById('adminPassInput').focus(); }, 100);
+}
+function closeLogin() {
+  document.getElementById('loginModal').style.display = 'none';
+  document.getElementById('adminPassInput').value = '';
+  document.getElementById('loginError').style.display = 'none';
+}
+function checkLogin() {
+  var val = document.getElementById('adminPassInput').value;
+  if (val === ADMIN_PASS) {
+    closeLogin();
+    document.getElementById('loginLink').style.display = 'none';
+    document.getElementById('adminBadge').style.display = 'inline';
+    sessionStorage.setItem('liimAdmin', '1');
+    alert('✅ স্বাগতম! অ্যাডমিন হিসেবে লগইন সফল হয়েছে।');
+  } else {
+    document.getElementById('loginError').style.display = 'block';
+    document.getElementById('adminPassInput').value = '';
+    document.getElementById('adminPassInput').focus();
+  }
+}
+function doLogout() {
+  sessionStorage.removeItem('liimAdmin');
+  document.getElementById('loginLink').style.display = 'inline';
+  document.getElementById('adminBadge').style.display = 'none';
+}
+// Check session on load
+window.addEventListener('load', function() {
+  if (sessionStorage.getItem('liimAdmin') === '1') {
+    document.getElementById('loginLink').style.display = 'none';
+    document.getElementById('adminBadge').style.display = 'inline';
+  }
+  // Close modal on backdrop click
+  document.getElementById('loginModal').addEventListener('click', function(e) {
+    if (e.target === this) closeLogin();
+  });
+});
+</script>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#">
+      <div class="brand-icon">L</div>
+      <div class="brand-text">
+        <div class="en">LIIM Centre</div>
+        <div class="bn">Library Innovation & Information Management</div>
+      </div>
+    </a>
+    <button id="hamburgerBtn" onclick="toggleMobileMenu()" style="display:none; background:none; border:none; color:var(--gold); font-size:26px; cursor:pointer; padding:4px 8px;">☰</button>
+    <div class="nav-links" id="mainNavLinks">
+      <a href="#catalogue" onclick="closeMobileMenu()">ক্যাটালগ</a>
+      <a href="#digital" onclick="closeMobileMenu()">ডিজিটাল রিপোজিটরি</a>
+      <a href="#itlab" onclick="closeMobileMenu()">আইটি ল্যাব</a>
+      <a href="#research" onclick="closeMobileMenu()">গবেষণা সেবা</a>
+      <a href="#portal" onclick="closeMobileMenu()">সদস্যপদ</a>
+      <a href="#contact" onclick="closeMobileMenu()">যোগাযোগ</a>
+      <button class="nav-tab" onclick="showSubPage('catalogue'); closeMobileMenu();">📚 বই ক্যাটালগ</button>
+      <button class="nav-tab" onclick="showSubPage('about'); closeMobileMenu();">ℹ️ সম্পর্কে</button>
+      <button class="nav-tab" onclick="showSubPage('mendeley'); closeMobileMenu();">📖 Mendeley</button>
+      <button class="nav-tab" onclick="showSubPage('libraries'); closeMobileMenu();">🌍 লাইব্রেরি সার্চ</button>
+      <a href="#" class="nav-cta" onclick="showHome(); closeMobileMenu(); return false;">🏠 হোম</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Library Innovation & Information Management Centre</div>
+      <h1>জ্ঞানের আলো,<br><span>প্রযুক্তির পথে</span></h1>
+      <p class="hero-subtitle">সেমিনার লাইব্রেরি, দর্শন বিভাগ, চট্টগ্রাম বিশ্ববিদ্যালয়</p>
+      <p class="hero-desc">
+        এই লাইব্রেরি আধুনিক তথ্য-প্রযুক্তির সংমিশ্রণে একটি সমৃদ্ধ জ্ঞানকেন্দ্রে পরিণত হচ্ছে। ডিজিটাল ক্যাটালগ থেকে গবেষণা সহায়তা — সব কিছু এক জায়গায়।
+      </p>
+      <div class="hero-btns">
+        <a href="#catalogue" class="btn-primary">📚 বই অনুসন্ধান করুন</a>
+        <a href="#portal" class="btn-outline">🪪 সদস্য হন</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num" id="stat1" onclick="editStat('stat1','stat1label')" title="ক্লিক করে পরিবর্তন করুন" style="cursor:pointer;">—</div>
+          <div class="stat-label" id="stat1label">গ্রন্থ সংগ্রহ</div>
+        </div>
+        <div>
+          <div class="stat-num" id="stat2" onclick="editStat('stat2','stat2label')" title="ক্লিক করে পরিবর্তন করুন" style="cursor:pointer;">—</div>
+          <div class="stat-label" id="stat2label">গবেষণা প্রবন্ধ</div>
+        </div>
+        <div>
+          <div class="stat-num" id="stat3" onclick="editStat('stat3','stat3label')" title="ক্লিক করে পরিবর্তন করুন" style="cursor:pointer;">—</div>
+          <div class="stat-label" id="stat3label">সদস্য</div>
+        </div>
+      </div>
+      <p id="statEditHint" style="font-size:11px; color:rgba(201,168,76,0.5); margin-top:8px; display:none;">✏️ সংখ্যায় ক্লিক করে পরিবর্তন করুন</p>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-icon">🔍</div>
+        <div>
+          <div class="hero-card-title">ওয়েব-ওপাক (Web-OPAC)</div>
+          <div class="hero-card-sub">অনলাইনে বই খুঁজুন ও রিজার্ভ করুন</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">📁</div>
+        <div>
+          <div class="hero-card-title">ডিজিটাল রিপোজিটরি</div>
+          <div class="hero-card-sub">থিসিস, সেমিনার পেপার ও ই-বুক</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🤖</div>
+        <div>
+          <div class="hero-card-title">AI-চালিত সেবা</div>
+          <div class="hero-card-sub">স্বয়ংক্রিয় ক্যাটালগিং ও সহায়তা</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">📱</div>
+        <div>
+          <div class="hero-card-title">মোবাইল অ্যাপ্লিকেশন</div>
+          <div class="hero-card-sub">যেকোনো ডিভাইস থেকে অ্যাক্সেস</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-section">
+  <div class="search-inner">
+    <div class="search-label">সর্বজনীন বই অনুসন্ধান</div>
+    <div class="search-bar">
+      <input type="text" placeholder="বইয়ের নাম, লেখক, বিষয় বা DDC নম্বর লিখুন...">
+      <select>
+        <option>সকল বিভাগ</option>
+        <option>দর্শন</option>
+        <option>ধর্মতত্ত্ব</option>
+        <option>মনোবিজ্ঞান</option>
+        <option>সমাজবিজ্ঞান</option>
+        <option>থিসিস</option>
+      </select>
+      <button class="search-btn">🔍 খুঁজুন</button>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK LINKS -->
+<div class="quick-links">
+  <div class="ql-inner">
+    <a class="ql-item" href="#catalogue">
+      <div class="ql-icon">📖</div>
+      <div class="ql-label">বই রিনিউয়াল</div>
+    </a>
+    <a class="ql-item" href="#digital">
+      <div class="ql-icon">🎓</div>
+      <div class="ql-label">থিসিস আর্কাইভ</div>
+    </a>
+    <a class="ql-item" href="#itlab">
+      <div class="ql-icon">💻</div>
+      <div class="ql-label">আইটি ট্রেনিং</div>
+    </a>
+    <a class="ql-item" href="#research">
+      <div class="ql-icon">🔬</div>
+      <div class="ql-label">গবেষণা সহায়তা</div>
+    </a>
+    <a class="ql-item" href="#portal">
+      <div class="ql-icon">🪪</div>
+      <div class="ql-label">ডিজিটাল আইডি</div>
+    </a>
+    <a class="ql-item" href="#contact">
+      <div class="ql-icon">💬</div>
+      <div class="ql-label">Ask Librarian</div>
+    </a>
+  </div>
+</div>
+
+<!-- FEATURES / OVERVIEW -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">আমাদের সেবাসমূহ</span>
+      <h2 class="section-title">একটি সমন্বিত জ্ঞান-ইকোসিস্টেম</h2>
+      <div class="gold-divider"></div>
+      <p class="section-desc">LIIM Centre — সেমিনার লাইব্রেরি, দর্শন বিভাগ, চট্টগ্রাম বিশ্ববিদ্যালয়ে অবস্থিত একটি আধুনিক জ্ঞান ও তথ্য ব্যবস্থাপনা কেন্দ্র।</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🗂️</div>
+        <div class="feature-title">অনলাইন ক্যাটালগ (OPAC)</div>
+        <p class="feature-desc">DDC ও কাটার নম্বরভিত্তিক সেলফ-লোকেশন গাইডসহ বই অনুসন্ধান, বুকিং ও রিনিউয়াল সিস্টেম।</p>
+        <div class="feature-tags"><span class="tag">Koha ILS</span><span class="tag">DDC</span><span class="tag">রিজার্ভেশন</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏛️</div>
+        <div class="feature-title">ডিজিটাল রিপোজিটরি</div>
+        <p class="feature-desc">প্রাতিষ্ঠানিক গবেষণাপত্র, থিসিস, সেমিনার পেপার এবং ওপেন-অ্যাক্সেস জার্নাল আর্কাইভ।</p>
+        <div class="feature-tags"><span class="tag">OA জার্নাল</span><span class="tag">ই-বুক</span><span class="tag">থিসিস</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-title">AI ও স্মার্ট লাইব্রেরি</div>
+        <p class="feature-desc">RFID, বারকোড, মোবাইল অ্যাপ এবং নো-কোড/লো-কোড টুলের মাধ্যমে স্মার্ট লাইব্রেরি অভিজ্ঞতা।</p>
+        <div class="feature-tags"><span class="tag">RFID</span><span class="tag">AI</span><span class="tag">অটোমেশন</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔭</div>
+        <div class="feature-title">গবেষণা তথ্য সেবা</div>
+        <p class="feature-desc">CAS, SDI, প্লেজিয়ারিজম চেকিং এবং Zotero/Mendeley সাইটেশন গাইডলাইন।</p>
+        <div class="feature-tags"><span class="tag">CAS</span><span class="tag">SDI</span><span class="tag">Zotero</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👤</div>
+        <div class="feature-title">ইউজার পোর্টাল</div>
+        <p class="feature-desc">অনলাইন মেম্বারশিপ, ব্যক্তিগত ড্যাশবোর্ড, ডিজিটাল আইডি কার্ড ও ফাইন চেকার।</p>
+        <div class="feature-tags"><span class="tag">ডিজিটাল কার্ড</span><span class="tag">রিডিং হিস্ট্রি</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📢</div>
+        <div class="feature-title">একাডেমিক কমিউনিটি</div>
+        <p class="feature-desc">নোটিশ বোর্ড, ইভেন্ট ক্যালেন্ডার, UniVoice ব্লগ ফোরাম এবং সেমিনার গ্যালারি।</p>
+        <div class="feature-tags"><span class="tag">ইভেন্ট</span><span class="tag">ব্লগ</span><span class="tag">গ্যালারি</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPAC / CATALOGUE -->
+<section class="opac-section" id="catalogue">
+  <div class="opac-inner">
+    <div>
+      <div class="opac-eyebrow">ওয়েব-ওপাক ও অটোমেশন</div>
+      <h2 class="opac-title">আপনার বই খুঁজুন<br>মুহূর্তেই</h2>
+      <p class="opac-desc">Koha ILS ইন্টিগ্রেটেড আমাদের অনলাইন পাবলিক অ্যাক্সেস ক্যাটালগ থেকে বই খুঁজুন, রিজার্ভ করুন এবং DDC সেলফ লোকেশন গাইড ব্যবহার করে সহজে বই খুঁজে নিন।</p>
+      <ul class="opac-features">
+        <li>ওয়েব-ওপাক — বই অনুসন্ধান ও বুকিং</li>
+        <li>Koha ILS ইন্টিগ্রেশন</li>
+        <li>বই রিনিউয়াল ও রিজার্ভেশন সিস্টেম</li>
+        <li>DDC ও কাটার নম্বরভিত্তিক সেলফ লোকেশন গাইড</li>
+        <li>মাল্টি-বুক ইস্যুয়িং ও ওভারডিউ ফাইন ট্র্যাকার</li>
+        <li>QR কোডভিত্তিক বুক চেক-ইন/আউট</li>
+      </ul>
+    </div>
+    <div class="opac-mockup">
+      <div class="mockup-bar">
+        <span style="color:var(--gold)">🔍</span>
+        <input type="text" value="দর্শন ও নৈতিকতা" readonly>
+        <span style="color:var(--gray-300);font-size:12px;font-family:Inter">১২ ফলাফল</span>
+      </div>
+      <div class="mockup-result">
+        <div class="mr-title">নৈতিকতার দর্শন — ইমানুয়েল কান্ট</div>
+        <div class="mr-meta">DDC: 170 | তাক: A-12 | <span class="available">✓ পাওয়া যাচ্ছে</span></div>
+      </div>
+      <div class="mockup-result">
+        <div class="mr-title">ইসলামী দর্শনের ইতিহাস — ড. মো. আলী</div>
+        <div class="mr-meta">DDC: 181.9 | তাক: B-04 | <span class="issued">✗ ইস্যুড</span> — ফেরত: ২২ জুন</div>
+      </div>
+      <div class="mockup-result">
+        <div class="mr-title">তর্কশাস্ত্র পরিচিতি — আল-ফারাবি</div>
+        <div class="mr-meta">DDC: 160 | তাক: A-07 | <span class="available">✓ পাওয়া যাচ্ছে</span></div>
+      </div>
+      <div style="margin-top:16px;text-align:center">
+        <a href="#" class="btn-primary" style="font-size:13px;padding:10px 20px">সম্পূর্ণ ক্যাটালগ দেখুন →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL REPO -->
+<section id="digital">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">ডিজিটাল লাইব্রেরি ও রিপোজিটরি</span>
+      <h2 class="section-title">জ্ঞানের উন্মুক্ত ভান্ডার</h2>
+      <div class="gold-divider"></div>
+      <p class="section-desc">গবেষণাপত্র থেকে ভিডিও লেকচার — সব কিছু এক জায়গায়, বিনামূল্যে।</p>
+    </div>
+    <div class="repo-grid">
+      <div class="repo-card">
+        <div class="icon">📜</div>
+        <h3>গবেষণা রিপোজিটরি</h3>
+        <p>থিসিস, সেমিনার পেপার ও একাডেমিক প্রবন্ধ আর্কাইভ।</p>
+        <div class="repo-count">৩০০+</div>
+      </div>
+      <div class="repo-card">
+        <div class="icon">📕</div>
+        <h3>ই-বুক ও ই-জার্নাল</h3>
+        <p>ওপেন অ্যাক্সেস ই-বুক এবং আন্তর্জাতিক জার্নাল লিংক সংগ্রহ।</p>
+        <div class="repo-count">১,২০০+</div>
+      </div>
+      <div class="repo-card">
+        <div class="icon">🎓</div>
+        <h3>ওপেন এডুকেশনাল রিসোর্স</h3>
+        <p>লেকচার শিট, কোর্স মেটেরিয়াল ও শিক্ষার্থী গাইড।</p>
+        <div class="repo-count">৫০০+</div>
+      </div>
+      <div class="repo-card">
+        <div class="icon">🎬</div>
+        <h3>অডিও-ভিডিও আর্কাইভ</h3>
+        <p>বক্তৃতা, সেমিনার ও দার্শনিক আলোচনার ভিডিও সংগ্রহ।</p>
+        <div class="repo-count">১৫০+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IT LAB -->
+<section class="itlab-section" id="itlab">
+  <div class="section-inner" style="padding: 80px 24px;">
+    <div class="section-header">
+      <span class="section-eyebrow" style="color:var(--gold)">উদ্ভাবন ও আইটি ল্যাব</span>
+      <h2 class="section-title" style="color:var(--white)">Library Innovation & Tech Hub</h2>
+      <div class="gold-divider"></div>
+      <p class="section-desc" style="color:var(--gray-300)">প্রযুক্তি দিয়ে লাইব্রেরি সেবাকে নতুনভাবে সংজ্ঞায়িত করছে LIIM Centre।</p>
+    </div>
+    <div class="itlab-grid">
+      <div class="itlab-card">
+        <div style="font-size:36px">📡</div>
+        <h3>স্মার্ট লাইব্রেরি প্রজেক্টস</h3>
+        <p>RFID ট্র্যাকিং, বারকোড সিস্টেম এবং মোবাইল অ্যাপ উন্নয়নের মাধ্যমে লাইব্রেরির সম্পূর্ণ ডিজিটাইজেশন।</p>
+        <span class="badge">চলমান প্রজেক্ট</span>
+      </div>
+      <div class="itlab-card">
+        <div style="font-size:36px">🤖</div>
+        <h3>লাইব্রেরি সেবায় AI</h3>
+        <p>AI-চালিত রেফারেন্স সার্ভিস, স্বয়ংক্রিয় ক্যাটালগিং এবং নো-কোড/লো-কোড টুল ব্যবহার করে সেবা দ্রুততর করা।</p>
+        <span class="badge">পাইলট পর্যায়</span>
+      </div>
+      <div class="itlab-card">
+        <div style="font-size:36px">🏫</div>
+        <h3>আইটি ও ডেটা ট্রেনিং কোর্স</h3>
+        <p>শিক্ষার্থী ও গবেষকদের জন্য ডেটা ম্যানেজমেন্ট, রেফারেন্স ম্যানেজার এবং ডিজিটাল রিসার্চ দক্ষতা উন্নয়ন কোর্স।</p>
+        <span class="badge">রেজিস্ট্রেশন চলছে</span>
+      </div>
+      <div class="itlab-card">
+        <div style="font-size:36px">🏗️</div>
+        <h3>সেমিনার লাইব্রেরি আধুনিকায়ন</h3>
+        <p>GPS-ভিত্তিক উপস্থিতি সিস্টেম, QR কোড অ্যাটেন্ডেন্স এবং WhatsApp নোটিফিকেশন সিস্টেম বাস্তবায়ন।</p>
+        <span class="badge">বাস্তবায়িত</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH SERVICES -->
+<section id="research">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">গবেষণা ও তথ্য ব্যবস্থাপনা সেবা</span>
+      <h2 class="section-title">গবেষকের পাশে আছি আমরা</h2>
+      <div class="gold-divider"></div>
+      <p class="section-desc">শুরু থেকে প্রকাশনা পর্যন্ত — গবেষণার প্রতিটি ধাপে পেশাদার তথ্য সহায়তা।</p>
+    </div>
+    <div class="services-list">
+      <div class="service-item">
+        <div class="service-icon-wrap">✅</div>
+        <div>
+          <h3>প্লেজারিজম চেকিং</h3>
+          <p>Turnitin ও Unicheck টুল ব্যবহার করে থিসিস ও প্রবন্ধের অরিজিনালিটি যাচাই এবং Zotero/Mendeley সাইটেশন গাইডলাইন।</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon-wrap">📰</div>
+        <div>
+          <h3>কারেন্ট অ্যাওয়ারনেস সার্ভিস (CAS)</h3>
+          <p>নতুন বই, জার্নাল ও গবেষণা প্রকাশনার নিয়মিত আপডেট — ইমেইল ও WhatsApp-এর মাধ্যমে।</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon-wrap">🎯</div>
+        <div>
+          <h3>SDI — ব্যক্তিগতকৃত তথ্য সেবা</h3>
+          <p>গবেষকের গবেষণার বিষয় অনুযায়ী প্রাসঙ্গিক তথ্য, নিবন্ধ ও ডেটাবেস কাস্টমাইজড পাঠানো হয়।</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon-wrap">📷</div>
+        <div>
+          <h3>দুর্লভ নথি ডিজিটাইজেশন</h3>
+          <p>বিভাগীয় পুরনো ও দুর্লভ নথিপত্র, পাণ্ডুলিপি ও দুষ্প্রাপ্য জার্নালের ডিজিটাইজেশন ও আর্কাইভ প্রকল্প।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USER PORTAL -->
+<section class="portal-section" id="portal">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">ইউজার পোর্টাল ও মেম্বারশিপ</span>
+      <h2 class="section-title">আপনার ব্যক্তিগত লাইব্রেরি প্রোফাইল</h2>
+      <div class="gold-divider"></div>
+      <p class="section-desc">সদস্য হন, ডিজিটাল আইডি পান এবং আপনার পাঠ-ইতিহাস ট্র্যাক করুন।</p>
+    </div>
+    <div class="portal-grid">
+      <div class="portal-card">
+        <div class="icon">📝</div>
+        <h3>অনলাইন মেম্বারশিপ রেজিস্ট্রেশন</h3>
+        <p>বিভাগীয় শিক্ষার্থী, শিক্ষক ও গবেষকদের জন্য অনলাইনে লাইব্রেরি সদস্যপদ নিবন্ধন।</p>
+        <a href="#" class="portal-btn">নিবন্ধন করুন</a>
+      </div>
+      <div class="portal-card">
+        <div class="icon">📊</div>
+        <h3>রিডিং হিস্ট্রি ড্যাশবোর্ড</h3>
+        <p>ব্যক্তিগত প্রোফাইলে আপনার ইস্যুড বই, রিটার্ন ইতিহাস ও পেন্ডিং ফাইন দেখুন।</p>
+        <a href="#" class="portal-btn">লগইন করুন</a>
+      </div>
+      <div class="portal-card">
+        <div class="icon">🪪</div>
+        <h3>ডিজিটাল লাইব্রেরি কার্ড</h3>
+        <p>QR কোডযুক্ত ডিজিটাল আইডি কার্ড ডাউনলোড করুন এবং দ্রুত বই ইস্যু করুন।</p>
+        <a href="#" class="portal-btn">কার্ড ডাউনলোড</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY / NEWS -->
+<section id="community">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">একাডেমিক কমিউনিটি ও প্রকাশনা</span>
+      <h2 class="section-title">সাম্প্রতিক খবর ও ইভেন্ট</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-thumb nc-blue">📚</div>
+        <div class="news-body">
+          <div class="news-cat">নোটিশ</div>
+          <h3>নতুন বই সংযোজন — ২০২৬ সালের দ্বিতীয় ব্যাচ</h3>
+          <p>দর্শন, ইসলামী চিন্তা ও মনোবিজ্ঞান বিষয়ক ১৮০টি নতুন বই লাইব্রেরিতে যুক্ত হয়েছে।</p>
+          <div class="news-date">১০ জুন, ২০২৬</div>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-thumb nc-gold">🎤</div>
+        <div class="news-body">
+          <div class="news-cat">ইভেন্ট</div>
+          <h3>জিজ্ঞাসার আসর — প্রথম বর্ষ দার্শনিক সেমিনার</h3>
+          <p>নতুন শিক্ষার্থীদের জন্য আলোচনা সভা। স্থান: সেমিনার লাইব্রেরি কক্ষ।</p>
+          <div class="news-date">২০ জুন, ২০২৬</div>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-thumb nc-green">🌐</div>
+        <div class="news-body">
+          <div class="news-cat">UniVoice ব্লগ</div>
+          <h3>AI ও লাইব্রেরি বিজ্ঞান: ভবিষ্যতের পথরেখা</h3>
+          <p>আধুনিক তথ্য প্রযুক্তি কীভাবে বিশ্ববিদ্যালয় লাইব্রেরিকে রূপান্তরিত করছে।</p>
+          <div class="news-date">৫ জুন, ২০২৬</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECTOR MESSAGE -->
+<section class="director-section">
+  <div class="director-inner">
+    <div class="quote-mark">"</div>
+    <p class="director-quote">
+      জ্ঞান অর্জনের পথ কখনো বন্ধ হয় না — প্রযুক্তি শুধু সেই পথকে আরো প্রশস্ত করে। LIIM Centre-এর লক্ষ্য হলো প্রতিটি শিক্ষার্থী ও গবেষকের হাতে সঠিক তথ্য, সঠিক সময়ে পৌঁছে দেওয়া।
+    </p>
+    <div class="director-name">মো. আব্দুল মাজিদ</div>
+    <div class="director-role">LIIM Centre পরিচালক | সেমিনার লাইব্রেরি, দর্শন বিভাগ, চট্টগ্রাম বিশ্ববিদ্যালয়</div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<div class="hours-banner">
+  <div class="hours-inner">
+    <div class="hour-item">
+      <span>🕘</span>
+      <div>
+        <div class="hour-label">রবি — বৃহস্পতি</div>
+        <div class="hour-val">সকাল ৯:০০ — বিকাল ৫:০০</div>
+      </div>
+    </div>
+    <div class="hour-item">
+      <span>🕘</span>
+      <div>
+        <div class="hour-label">শুক্রবার</div>
+        <div class="hour-val">বন্ধ</div>
+      </div>
+    </div>
+    <div class="hour-item">
+      <span>📞</span>
+      <div>
+        <div class="hour-label">জরুরি যোগাযোগ</div>
+        <div class="hour-val">+880-31-xxxxxxx</div>
+      </div>
+    </div>
+    <div class="hour-item">
+      <span>📍</span>
+      <div>
+        <div class="hour-label">অবস্থান</div>
+        <div class="hour-val">দর্শন ভবন, চট্টগ্রাম বিশ্ববিদ্যালয়</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">যোগাযোগ ও সহায়তা</span>
+      <h2 class="section-title">আমরা আছি আপনার পাশে</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>যোগাযোগের তথ্য</h3>
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div>
+            <div class="ci-label">ঠিকানা</div>
+            <div class="ci-value">সেমিনার লাইব্রেরি, দর্শন বিভাগ ভবন, চট্টগ্রাম বিশ্ববিদ্যালয়, হাটহাজারী, চট্টগ্রাম-৪৩৩১</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📧</div>
+          <div>
+            <div class="ci-label">ইমেইল</div>
+            <div class="ci-value">library@philosophy.cu.ac.bd</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📱</div>
+          <div>
+            <div class="ci-label">ফোন</div>
+            <div class="ci-value">+880-31-xxxxxxx</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🗺️</div>
+          <div>
+            <div class="ci-label">গুগল ম্যাপ</div>
+            <div class="ci-value"><a href="#" style="color:var(--gold)">দিকনির্দেশনা পান →</a></div>
+          </div>
+        </div>
+        <div class="social-links">
+          <a class="social-btn" href="#" title="Facebook">📘</a>
+          <a class="social-btn" href="#" title="YouTube">📺</a>
+          <a class="social-btn" href="#" title="WhatsApp">💬</a>
+          <a class="social-btn" href="#" title="Email">📧</a>
+        </div>
+      </div>
+      <div class="ask-librarian">
+        <h3>💬 Ask a Librarian</h3>
+        <p>যেকোনো তথ্য, বই বা গবেষণা সহায়তার প্রয়োজনে সরাসরি প্রশ্ন করুন। আমরা ২৪ ঘণ্টার মধ্যে উত্তর দেব।</p>
+        <div class="ask-form">
+          <input type="text" placeholder="আপনার নাম">
+          <input type="email" placeholder="ইমেইল বা মোবাইল নম্বর">
+          <select style="width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:var(--white);font-family:'Hind Siliguri',sans-serif;font-size:14px;outline:none;margin-bottom:12px;">
+            <option>প্রশ্নের ধরন বেছে নিন</option>
+            <option>বই খোঁজা</option>
+            <option>গবেষণা সহায়তা</option>
+            <option>সদস্যপদ</option>
+            <option>ডিজিটাল রিসোর্স</option>
+            <option>অন্যান্য</option>
+          </select>
+          <textarea rows="4" placeholder="আপনার প্রশ্ন বা মন্তব্য লিখুন..."></textarea>
+          <button class="ask-submit">প্রশ্ন পাঠান ✉️</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="text-decoration:none;display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+          <div class="brand-icon">L</div>
+          <div class="brand-text">
+            <div class="en">LIIM Centre</div>
+            <div class="bn" style="color:#5A6478;">Library Innovation & Information Management</div>
+          </div>
+        </div>
+        <p>সেমিনার লাইব্রেরি, দর্শন বিভাগ, চট্টগ্রাম বিশ্ববিদ্যালয়ে অবস্থিত — জ্ঞান, উদ্ভাবন ও প্রযুক্তির মেলবন্ধনে একটি আধুনিক তথ্যকেন্দ্র।</p>
+      </div>
+      <div class="footer-col">
+        <h4>সেবাসমূহ</h4>
+        <a href="#">ওয়েব-ওপাক</a>
+        <a href="#">ডিজিটাল রিপোজিটরি</a>
+        <a href="#">গবেষণা সহায়তা</a>
+        <a href="#">ই-জার্নাল অ্যাক্সেস</a>
+        <a href="#">ডিজিটাল আইডি কার্ড</a>
+      </div>
+      <div class="footer-col">
+        <h4>তথ্য</h4>
+        <a href="#">আমাদের সম্পর্কে</a>
+        <a href="#">নোটিশ বোর্ড</a>
+        <a href="#">ইভেন্ট ক্যালেন্ডার</a>
+        <a href="#">UniVoice ব্লগ</a>
+        <a href="#">গ্যালারি</a>
+      </div>
+      <div class="footer-col">
+        <h4>দ্রুত লিংক</h4>
+        <a href="#">চট্টগ্রাম বিশ্ববিদ্যালয়</a>
+        <a href="#">চট্টগ্রাম বিশ্ববিদ্যালয়</a>
+        <a href="#">Koha ILS লগইন</a>
+        <a href="#">BDREN ই-রিসোর্স</a>
+        <a href="#">জাতীয় গ্রন্থাগার</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© ২০২৬ LIIM Centre — Library Innovation & Information Management Centre | সেমিনার লাইব্রেরি, দর্শন বিভাগ, চট্টগ্রাম বিশ্ববিদ্যালয়</span>
+      <span>Developed with ❤️ for knowledge</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- end mainHomePage -->
+
+
+
+
+<!-- ════════════════════════════════════════
+     PAGE: বই ক্যাটালগ
+════════════════════════════════════════ -->
+<div id="page-catalogue" class="page-container">
+
+  <!-- HERO -->
+  <div style="background:var(--navy);padding:48px 0 40px;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;opacity:0.05;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='30,3 57,16 57,44 30,57 3,44 3,16' fill='none' stroke='%23C9A84C' stroke-width='1'/%3E%3C/svg%3E");background-size:60px;"></div>
+    <div style="max-width:1200px;margin:auto;padding:0 24px;position:relative;z-index:2;">
+      <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">LIIM Centre — ডিজিটাল ক্যাটালগ</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,42px);font-weight:900;color:white;margin-bottom:10px;">বই অনুসন্ধান কেন্দ্র</h1>
+      <p style="font-size:14px;color:var(--gray-300);line-height:1.7;">সেমিনার লাইব্রেরির সকল বই এখানে খুঁজুন — নাম, লেখক বা Accession নম্বর দিয়ে</p>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:auto;padding:40px 24px 60px;">
+
+    <!-- SEARCH BAR -->
+    <div style="background:linear-gradient(135deg,var(--navy),#1a3560);border-radius:16px;padding:32px;margin-bottom:32px;">
+      <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;">
+        <input type="text" id="catSearch" placeholder="🔍  বইয়ের নাম, লেখক বা Accession No লিখুন..."
+          style="flex:1;min-width:200px;padding:14px 18px;border-radius:10px;border:none;outline:none;font-family:'Hind Siliguri',sans-serif;font-size:15px;color:var(--text);"
+          oninput="filterBooks()">
+        <select id="catAlmirah" onchange="filterBooks()"
+          style="padding:14px 16px;border-radius:10px;border:none;outline:none;font-family:'Hind Siliguri',sans-serif;font-size:14px;color:var(--text);min-width:140px;">
+          <option value="">সব আলমিরা</option>
+        </select>
+        <select id="catPdf" onchange="filterBooks()"
+          style="padding:14px 16px;border-radius:10px;border:none;outline:none;font-family:'Hind Siliguri',sans-serif;font-size:14px;color:var(--text);">
+          <option value="">সব বই</option>
+          <option value="yes">PDF আছে</option>
+          <option value="no">PDF নেই</option>
+        </select>
+        <button onclick="filterBooks()" style="background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);border:none;padding:14px 24px;border-radius:10px;font-weight:700;font-family:'Inter',sans-serif;font-size:14px;cursor:pointer;">খুঁজুন</button>
+      </div>
+      <div id="catStats" style="font-size:13px;color:var(--gray-300);font-family:'Inter',sans-serif;">
+        ডেটা লোড হচ্ছে...
+      </div>
+    </div>
+
+    <!-- LOADING -->
+    <div id="catLoading" style="text-align:center;padding:60px 0;">
+      <div style="font-size:48px;margin-bottom:16px;">📚</div>
+      <p style="font-size:16px;color:var(--gray-600);font-family:'Inter',sans-serif;">বইয়ের তালিকা লোড হচ্ছে...</p>
+      <p style="font-size:13px;color:var(--gray-300);margin-top:8px;">Google Sheets থেকে ডেটা আনা হচ্ছে</p>
+    </div>
+
+    <!-- ERROR -->
+    <div id="catError" style="display:none;text-align:center;padding:60px 0;">
+      <div style="font-size:48px;margin-bottom:16px;">⚠️</div>
+      <p style="font-size:16px;color:var(--gray-600);">ডেটা লোড করা যায়নি।</p>
+      <p style="font-size:13px;color:var(--gray-300);margin-top:8px;">Google Sheets টি Public করা আছে কিনা চেক করুন।</p>
+      <p id="catErrorDetail" style="font-size:11px;color:#dc2626;margin-top:10px;font-family:monospace;"></p>
+      <button onclick="loadCatalogueData()" style="margin-top:16px;background:var(--gold);color:var(--navy);border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer;">আবার চেষ্টা করুন</button>
+    </div>
+
+    <!-- TABLE -->
+    <div id="catTableWrap" style="display:none;">
+      <div style="overflow-x:auto;border-radius:14px;box-shadow:0 2px 20px rgba(10,22,40,0.08);">
+        <table style="width:100%;border-collapse:collapse;font-size:13.5px;">
+          <thead>
+            <tr style="background:var(--navy);">
+              <th style="padding:14px 16px;text-align:left;color:var(--gold);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">Acc. No</th>
+              <th style="padding:14px 16px;text-align:left;color:var(--gold);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;">বইয়ের নাম</th>
+              <th style="padding:14px 16px;text-align:left;color:var(--gold);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;">লেখক</th>
+              <th style="padding:14px 16px;text-align:center;color:var(--gold);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">আলমিরা</th>
+              <th style="padding:14px 16px;text-align:center;color:var(--gold);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">তাক</th>
+              <th style="padding:14px 16px;text-align:center;color:var(--gold);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;">স্ট্যাটাস</th>
+              <th style="padding:14px 16px;text-align:center;color:var(--gold);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;">PDF</th>
+            </tr>
+          </thead>
+          <tbody id="catTbody"></tbody>
+        </table>
+      </div>
+
+      <!-- PAGINATION -->
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px;flex-wrap:wrap;gap:12px;">
+        <div id="catPageInfo" style="font-size:13px;color:var(--gray-600);font-family:'Inter',sans-serif;"></div>
+        <div style="display:flex;gap:8px;">
+          <button id="catPrevBtn" onclick="catChangePage(-1)" style="background:var(--white);border:1px solid var(--gray-100);color:var(--navy);padding:9px 18px;border-radius:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;cursor:pointer;">← আগের</button>
+          <button id="catNextBtn" onclick="catChangePage(1)" style="background:var(--navy);border:none;color:white;padding:9px 18px;border-radius:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;cursor:pointer;">পরের →</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+var CAT_SHEET_ID = "1lLR5P9vLXPomY8q9r83sdmxn_8SfvKHAcoSi0yEWDRA";
+var catAllBooks = [];
+var catFiltered = [];
+var catPage = 1;
+var catPerPage = 25;
+
+function csvParseLine(line) {
+  var result = [];
+  var cur = '';
+  var inQuotes = false;
+  for (var i = 0; i < line.length; i++) {
+    var ch = line[i];
+    if (inQuotes) {
+      if (ch === '"') {
+        if (line[i+1] === '"') { cur += '"'; i++; }
+        else { inQuotes = false; }
+      } else {
+        cur += ch;
+      }
+    } else {
+      if (ch === '"') { inQuotes = true; }
+      else if (ch === ',') { result.push(cur); cur = ''; }
+      else { cur += ch; }
+    }
+  }
+  result.push(cur);
+  return result;
+}
+
+function csvParse(text) {
+  // Split into rows, respecting quoted newlines
+  var rows = [];
+  var curRow = '';
+  var inQuotes = false;
+  for (var i = 0; i < text.length; i++) {
+    var ch = text[i];
+    if (ch === '"') inQuotes = !inQuotes;
+    if ((ch === '\n') && !inQuotes) {
+      rows.push(curRow);
+      curRow = '';
+    } else if (ch !== '\r') {
+      curRow += ch;
+    }
+  }
+  if (curRow) rows.push(curRow);
+  return rows.map(csvParseLine);
+}
+
+function loadCatalogueData() {
+  document.getElementById('catLoading').style.display = 'block';
+  document.getElementById('catError').style.display = 'none';
+  document.getElementById('catTableWrap').style.display = 'none';
+
+  var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_E-uEGF7EseQebzcB2M85Oz6L3sMKTNRN69r_8zfGozMKfZ8HrZszjdB6slboT5HW5hsCkE9-bTlp/pub?gid=1401920671&single=true&output=csv&t=' + Date.now();
+
+  fetch(url)
+    .then(function(resp) {
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      return resp.text();
+    })
+    .then(function(text) {
+      var rows = csvParse(text);
+      if (!rows.length) throw new Error('empty sheet');
+
+      var header = rows[0];
+      var colMap = {};
+      header.forEach(function(h, i) {
+        var label = (h || '').toLowerCase().trim();
+        if (label.indexOf('accession') !== -1 || label.indexOf('acc') !== -1) colMap.acc = i;
+        else if (label.indexOf('title') !== -1 || label.indexOf('book') !== -1) colMap.title = i;
+        else if (label.indexOf('author') !== -1) colMap.author = i;
+        else if (label.indexOf('almirah') !== -1) colMap.almirah = i;
+        else if (label.indexOf('shelf') !== -1) colMap.shelf = i;
+        else if (label.indexOf('status') !== -1) colMap.status = i;
+        else if (label.indexOf('issued') !== -1) colMap.issued = i;
+        else if (label.indexOf('pdf') !== -1) colMap.pdf = i;
+      });
+
+      catAllBooks = [];
+      for (var r = 1; r < rows.length; r++) {
+        var row = rows[r];
+        var get = function(key) {
+          var i = colMap[key];
+          if (i === undefined || row[i] === undefined) return '';
+          return (row[i] || '').toString().trim();
+        };
+        var title = get('title');
+        if (!title) continue;
+        catAllBooks.push({
+          acc: get('acc') || r.toString(),
+          title: title,
+          author: get('author'),
+          almirah: get('almirah'),
+          shelf: get('shelf'),
+          status: get('status'),
+          issued: get('issued'),
+          pdf: get('pdf')
+        });
+      }
+
+      // Populate almirah dropdown
+      var _almSet = {};
+      catAllBooks.forEach(function(b){ if(b.almirah) _almSet[b.almirah]=1; });
+      var almirahs = Object.keys(_almSet).sort();
+      var sel = document.getElementById('catAlmirah');
+      sel.innerHTML = '<option value="">সব আলমিরা</option>';
+      almirahs.forEach(function(a) {
+        var opt = document.createElement('option');
+        opt.value = a; opt.textContent = 'আলমিরা: ' + a;
+        sel.appendChild(opt);
+      });
+
+      catFiltered = catAllBooks.slice();
+      catPage = 1;
+      document.getElementById('catLoading').style.display = 'none';
+      document.getElementById('catTableWrap').style.display = 'block';
+      renderCatTable();
+      updateCatStats();
+    })
+    .catch(function(err) {
+      document.getElementById('catLoading').style.display = 'none';
+      document.getElementById('catError').style.display = 'block';
+      var errEl = document.getElementById('catErrorDetail');
+      if (errEl) errEl.textContent = err.message || String(err);
+    });
+}
+
+function filterBooks() {
+  var q = document.getElementById('catSearch').value.toLowerCase().trim();
+  var almirah = document.getElementById('catAlmirah').value;
+  var pdfFilter = document.getElementById('catPdf').value;
+
+  catFiltered = catAllBooks.filter(function(b) {
+    var matchQ = !q || b.title.toLowerCase().indexOf(q) !== -1 || b.author.toLowerCase().indexOf(q) !== -1 || b.acc.toLowerCase().indexOf(q) !== -1;
+    var matchA = !almirah || b.almirah === almirah;
+    var matchP = !pdfFilter || (pdfFilter==='yes' ? !!b.pdf : !b.pdf);
+    return matchQ && matchA && matchP;
+  });
+  catPage = 1;
+  renderCatTable();
+  updateCatStats();
+}
+
+function renderCatTable() {
+  var start = (catPage-1)*catPerPage;
+  var end = Math.min(start+catPerPage, catFiltered.length);
+  var rows = catFiltered.slice(start, end);
+  var tbody = document.getElementById('catTbody');
+
+  if (!rows.length) {
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--gray-300);">কোনো বই পাওয়া যায়নি।</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = rows.map(function(b, i) {
+    var statLower = (b.status || '').toLowerCase();
+    var hasIssuedTo = !!b.issued;
+    var statusHtml;
+    if (statLower.indexOf('missing') !== -1) {
+      statusHtml = '<span style="background:#fef3c7;color:#92400e;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;font-family:Inter,sans-serif;">নিখোঁজ</span>';
+    } else if (hasIssuedTo || statLower.indexOf('issued') !== -1) {
+      statusHtml = '<span style="background:#fef2f2;color:#dc2626;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;font-family:Inter,sans-serif;">ইস্যুড</span>';
+    } else {
+      statusHtml = '<span style="background:#f0fdf4;color:#16a34a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;font-family:Inter,sans-serif;">পাওয়া যাচ্ছে</span>';
+    }
+    var pdfHtml = b.pdf
+      ? '<a href="'+b.pdf+'" target="_blank" style="background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);font-size:11px;font-weight:700;padding:5px 12px;border-radius:8px;text-decoration:none;font-family:Inter,sans-serif;white-space:nowrap;">📄 PDF</a>'
+      : '<span style="color:var(--gray-300);font-size:11px;font-family:Inter,sans-serif;">শীঘ্রই</span>';
+    var bgColor = (i % 2 === 0) ? '#ffffff' : '#F8F9FB';
+    var html = '<tr style="background:' + bgColor + ';border-bottom:1px solid #EEF0F4;">';
+    html += '<td style="padding:12px 16px;font-family:Inter,sans-serif;font-size:12px;color:#5A6478;white-space:nowrap;">' + b.acc + '</td>';
+    html += '<td style="padding:12px 16px;font-weight:600;color:#0A1628;">' + b.title + '</td>';
+    html += '<td style="padding:12px 16px;color:#5A6478;">' + b.author + '</td>';
+    html += '<td style="padding:12px 16px;text-align:center;color:#5A6478;font-family:Inter,sans-serif;">' + b.almirah + '</td>';
+    html += '<td style="padding:12px 16px;text-align:center;color:#5A6478;font-family:Inter,sans-serif;">' + b.shelf + '</td>';
+    html += '<td style="padding:12px 16px;text-align:center;">' + statusHtml + '</td>';
+    html += '<td style="padding:12px 16px;text-align:center;">' + pdfHtml + '</td>';
+    html += '</tr>';
+    return html;
+  }).join('');
+
+  // Pagination info
+  var total = catFiltered.length;
+  var totalPages = Math.ceil(total/catPerPage);
+  document.getElementById('catPageInfo').textContent = (start+1)+' — '+end+' / মোট '+total+'টি বই | পৃষ্ঠা '+catPage+'/'+totalPages;
+  document.getElementById('catPrevBtn').disabled = catPage<=1;
+  document.getElementById('catNextBtn').disabled = catPage>=totalPages;
+  document.getElementById('catPrevBtn').style.opacity = catPage<=1 ? '0.4' : '1';
+  document.getElementById('catNextBtn').style.opacity = catPage>=totalPages ? '0.4' : '1';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function catChangePage(dir) {
+  var totalPages = Math.ceil(catFiltered.length/catPerPage);
+  catPage = Math.max(1, Math.min(totalPages, catPage+dir));
+  renderCatTable();
+}
+
+function updateCatStats() {
+  var total = catAllBooks.length;
+  var withPdf = catAllBooks.filter(function(b){ return !!b.pdf; }).length;
+  var available = catAllBooks.filter(function(b){
+    var s = (b.status || '').toLowerCase();
+    return !b.issued && s.indexOf('missing') === -1 && s.indexOf('issued') === -1;
+  }).length;
+  var filtered = catFiltered.length;
+  var statsEl = document.getElementById('catStats');
+  if (filtered < total) {
+    statsEl.innerHTML = '<span style="color:var(--gold-light);font-weight:700;">'+filtered+'টি ফলাফল</span> | মোট সংগ্রহ: '+total+' | PDF: '+withPdf+' | পাওয়া যাচ্ছে: '+available;
+  } else {
+    statsEl.innerHTML = 'মোট সংগ্রহ: <span style="color:var(--gold-light);font-weight:700;">'+total+'টি বই</span> | PDF আছে: '+withPdf+' | পাওয়া যাচ্ছে: '+available;
+  }
+}
+
+// Load when catalogue page is opened
+var _origShowSubPage = window.showSubPage;
+window.showSubPage = function(name) {
+  _origShowSubPage.call(this, name);
+  if (name === 'catalogue' && catAllBooks.length === 0) {
+    loadCatalogueData();
+  }
+};
+</script>
+
+
+<!-- ════════════════════════════════════════
+     PAGE: আমাদের সম্পর্কে
+════════════════════════════════════════ -->
+<div id="page-about" class="page-container">
+
+  <!-- HERO -->
+  <div style="background:var(--navy); padding:56px 0 48px; position:relative; overflow:hidden;">
+    <div style="position:absolute;inset:0;opacity:0.05;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='30,3 57,16 57,44 30,57 3,44 3,16' fill='none' stroke='%23C9A84C' stroke-width='1'/%3E%3C/svg%3E");background-size:60px;"></div>
+    <div style="max-width:1200px;margin:auto;padding:0 24px;position:relative;z-index:2;">
+      <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Library Innovation & Information Management Centre</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);font-weight:900;color:white;line-height:1.2;margin-bottom:14px;">আমাদের সম্পর্কে</h1>
+      <p style="font-size:15px;color:var(--gray-300);max-width:620px;line-height:1.8;">LIIM Centre — একটি স্বতন্ত্র উদ্যোগ যা জ্ঞান, প্রযুক্তি ও মানবিক সেবার সমন্বয়ে গড়ে উঠছে।</p>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:auto;padding:60px 24px;">
+
+    <!-- INTRO -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:72px;">
+      <div>
+        <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px;">পরিচিতি</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--navy);line-height:1.25;margin-bottom:16px;">LIIM Centre কী?</h2>
+        <div style="width:48px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin-bottom:20px;"></div>
+        <p style="font-size:14.5px;color:var(--gray-600);line-height:1.9;margin-bottom:16px;">
+          <strong style="color:var(--navy);">Library Innovation and Information Management Centre (LIIM Centre)</strong> হলো চট্টগ্রাম বিশ্ববিদ্যালয়ের দর্শন বিভাগের সেমিনার লাইব্রেরিতে অবস্থিত একটি স্বতন্ত্র ডিজিটাল উদ্যোগ।
+        </p>
+        <p style="font-size:14.5px;color:var(--gray-600);line-height:1.9;margin-bottom:16px;">
+          এটি কোনো বিভাগীয় প্রশাসনিক কাঠামোর অংশ নয় — বরং এটি একজন উদ্যমী লাইব্রেরি পেশাদারের ব্যক্তিগত উদ্যোগে গড়ে ওঠা একটি আধুনিক তথ্য ও জ্ঞান ব্যবস্থাপনা কেন্দ্র।
+        </p>
+        <p style="font-size:14.5px;color:var(--gray-600);line-height:1.9;">
+          ডিজিটাল ক্যাটালগ, গবেষণা সহায়তা, তথ্য-প্রযুক্তি প্রশিক্ষণ এবং উন্মুক্ত জ্ঞানভান্ডার গড়ে তোলাই এই কেন্দ্রের মূল কাজ।
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:var(--navy);border-radius:16px;padding:28px 22px;text-align:center;">
+          <div style="font-size:36px;margin-bottom:10px;">📚</div>
+          <div style="font-family:'Playfair Display',serif;font-size:28px;color:var(--gold);font-weight:900;">OPAC</div>
+          <div style="font-size:12px;color:var(--gray-300);margin-top:6px;">অনলাইন ক্যাটালগ</div>
+        </div>
+        <div style="background:var(--gold-pale);border-radius:16px;padding:28px 22px;text-align:center;">
+          <div style="font-size:36px;margin-bottom:10px;">🤖</div>
+          <div style="font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);font-weight:900;">AI</div>
+          <div style="font-size:12px;color:var(--gray-600);margin-top:6px;">প্রযুক্তি সেবা</div>
+        </div>
+        <div style="background:var(--gold-pale);border-radius:16px;padding:28px 22px;text-align:center;">
+          <div style="font-size:36px;margin-bottom:10px;">🔬</div>
+          <div style="font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);font-weight:900;">R&D</div>
+          <div style="font-size:12px;color:var(--gray-600);margin-top:6px;">গবেষণা সহায়তা</div>
+        </div>
+        <div style="background:var(--navy);border-radius:16px;padding:28px 22px;text-align:center;">
+          <div style="font-size:36px;margin-bottom:10px;">🌍</div>
+          <div style="font-family:'Playfair Display',serif;font-size:28px;color:var(--gold);font-weight:900;">OA</div>
+          <div style="font-size:12px;color:var(--gray-300);margin-top:6px;">উন্মুক্ত অ্যাক্সেস</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISSION VISION -->
+    <div style="margin-bottom:72px;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px;">আমাদের দিকনির্দেশনা</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--navy);">মিশন, ভিশন ও লক্ষ্য</h2>
+        <div style="width:48px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:16px auto 0;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+
+        <!-- MISSION -->
+        <div style="background:var(--navy);border-radius:20px;padding:36px 28px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;background:rgba(201,168,76,0.08);border-radius:50%;"></div>
+          <div style="font-size:40px;margin-bottom:16px;">🎯</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--gold);margin-bottom:16px;">আমাদের মিশন</h3>
+          <p style="font-size:13.5px;color:var(--gray-300);line-height:1.9;">
+            শিক্ষার্থী, গবেষক ও শিক্ষকদের কাছে সঠিক তথ্য, সঠিক সময়ে এবং সহজলভ্যভাবে পৌঁছে দেওয়া। আধুনিক তথ্যপ্রযুক্তির সর্বোচ্চ ব্যবহারের মাধ্যমে লাইব্রেরি সেবাকে যুগোপযোগী করে তোলা।
+          </p>
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);">
+            <div style="font-size:12px;color:var(--gold);font-family:'Inter',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">মূলনীতি</div>
+            <div style="font-size:12.5px;color:var(--gray-300);line-height:1.8;">
+              ✦ তথ্যের উন্মুক্ত প্রবাহ<br>
+              ✦ প্রযুক্তিগত উদ্ভাবন<br>
+              ✦ ব্যবহারকারীকেন্দ্রিক সেবা<br>
+              ✦ জ্ঞানের গণতন্ত্রীকরণ
+            </div>
+          </div>
+        </div>
+
+        <!-- VISION -->
+        <div style="background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:20px;padding:36px 28px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;background:rgba(10,22,40,0.1);border-radius:50%;"></div>
+          <div style="font-size:40px;margin-bottom:16px;">🔭</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);margin-bottom:16px;">আমাদের ভিশন</h3>
+          <p style="font-size:13.5px;color:var(--navy);line-height:1.9;opacity:0.85;">
+            বাংলাদেশের বিশ্ববিদ্যালয়গুলোর মধ্যে একটি আদর্শ ডিজিটাল সেমিনার লাইব্রেরি মডেল হিসেবে LIIM Centre-কে প্রতিষ্ঠিত করা — যা অন্য বিশ্ববিদ্যালয়ের জন্য অনুকরণীয় হবে।
+          </p>
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(10,22,40,0.15);">
+            <div style="font-size:12px;color:var(--navy);font-family:'Inter',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;opacity:0.7;">স্বপ্ন</div>
+            <div style="font-size:12.5px;color:var(--navy);line-height:1.8;opacity:0.85;">
+              ✦ দেশের প্রথম সম্পূর্ণ ডিজিটাল সেমিনার লাইব্রেরি<br>
+              ✦ AI-চালিত তথ্য ব্যবস্থাপনা<br>
+              ✦ আন্তর্জাতিক মানের গবেষণা সহায়তা<br>
+              ✦ উন্মুক্ত জ্ঞানভান্ডার নির্মাণ
+            </div>
+          </div>
+        </div>
+
+        <!-- OBJECTIVES -->
+        <div style="background:var(--off-white);border:1px solid var(--gray-100);border-radius:20px;padding:36px 28px;position:relative;overflow:hidden;">
+          <div style="font-size:40px;margin-bottom:16px;">📋</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);margin-bottom:16px;">আমাদের লক্ষ্যসমূহ</h3>
+          <ul style="list-style:none;padding:0;">
+            <li style="font-size:13px;color:var(--gray-600);padding:9px 0;border-bottom:1px solid var(--gray-100);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">০১</span> শিক্ষার্থী ও গবেষকদের ডিজিটাল তথ্যসেবা নিশ্চিত করা</li>
+            <li style="font-size:13px;color:var(--gray-600);padding:9px 0;border-bottom:1px solid var(--gray-100);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">০২</span> লাইব্রেরি অটোমেশন ও স্মার্ট ক্যাটালগিং বাস্তবায়ন</li>
+            <li style="font-size:13px;color:var(--gray-600);padding:9px 0;border-bottom:1px solid var(--gray-100);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">০৩</span> ডিজিটাল রিপোজিটরি ও ওপেন অ্যাক্সেস রিসোর্স তৈরি</li>
+            <li style="font-size:13px;color:var(--gray-600);padding:9px 0;border-bottom:1px solid var(--gray-100);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">০৪</span> IT ও তথ্য সাক্ষরতা প্রশিক্ষণ কার্যক্রম পরিচালনা</li>
+            <li style="font-size:13px;color:var(--gray-600);padding:9px 0;border-bottom:1px solid var(--gray-100);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">০৫</span> দুর্লভ একাডেমিক নথিপত্র সংরক্ষণ ও ডিজিটাইজেশন</li>
+            <li style="font-size:13px;color:var(--gray-600);padding:9px 0;display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">০৬</span> আন্তর্জাতিক লাইব্রেরি নেটওয়ার্কের সাথে সংযুক্তি</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SERVICES OFFERED -->
+    <div style="margin-bottom:72px;">
+      <div style="text-align:center;margin-bottom:40px;">
+        <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px;">কার্যক্রম</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--navy);">LIIM Centre যা করে</h2>
+        <div style="width:48px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:16px auto 0;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <div style="background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:24px 20px;text-align:center;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--gray-100)';this.style.transform='translateY(0)'">
+          <div style="font-size:32px;margin-bottom:12px;">🗂️</div>
+          <h4 style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px;">ক্যাটালগিং ও শ্রেণিবিন্যাস</h4>
+          <p style="font-size:12px;color:var(--gray-600);line-height:1.7;">DDC পদ্ধতিতে বই শ্রেণিবদ্ধ করা ও ডিজিটাল ক্যাটালগ তৈরি</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:24px 20px;text-align:center;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--gray-100)';this.style.transform='translateY(0)'">
+          <div style="font-size:32px;margin-bottom:12px;">🔍</div>
+          <h4 style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px;">রেফারেন্স সার্ভিস</h4>
+          <p style="font-size:12px;color:var(--gray-600);line-height:1.7;">গবেষণার জন্য প্রাসঙ্গিক তথ্য খুঁজে দেওয়া ও সাইটেশন সহায়তা</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:24px 20px;text-align:center;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--gray-100)';this.style.transform='translateY(0)'">
+          <div style="font-size:32px;margin-bottom:12px;">💻</div>
+          <h4 style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px;">ডিজিটাল টুল উন্নয়ন</h4>
+          <p style="font-size:12px;color:var(--gray-600);line-height:1.7;">লাইব্রেরি ব্যবস্থাপনার জন্য কাস্টম সফটওয়্যার ও অ্যাপ তৈরি</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:24px 20px;text-align:center;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--gray-100)';this.style.transform='translateY(0)'">
+          <div style="font-size:32px;margin-bottom:12px;">📡</div>
+          <h4 style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px;">তথ্য প্রশিক্ষণ</h4>
+          <p style="font-size:12px;color:var(--gray-600);line-height:1.7;">Mendeley, Zotero, ডেটাবেস ব্যবহার ও তথ্য সাক্ষরতা কোর্স</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIRECTOR PROFILE -->
+    <div style="background:var(--navy);border-radius:24px;padding:48px;margin-bottom:72px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;right:0;width:300px;height:300px;background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,transparent 70%);"></div>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start;position:relative;z-index:1;">
+        <div style="text-align:center;">
+          <div style="width:120px;height:120px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:48px;margin:0 auto 16px;">👤</div>
+          <div style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:6px 16px;display:inline-block;">
+            <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;">পরিচালক</span>
+          </div>
+        </div>
+        <div>
+          <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px;">LIIM Centre পরিচালক</span>
+          <h2 style="font-family:'Playfair Display',serif;font-size:30px;color:white;margin-bottom:6px;">মো. আব্দুল মাজিদ</h2>
+          <p style="font-size:14px;color:var(--gold-light);margin-bottom:20px;">ক্যাটালগার | সেমিনার লাইব্রেরি, দর্শন বিভাগ, চট্টগ্রাম বিশ্ববিদ্যালয়</p>
+          <p style="font-size:14px;color:var(--gray-300);line-height:1.9;margin-bottom:20px;">
+            মো. আব্দুল মাজিদ চট্টগ্রাম বিশ্ববিদ্যালয়ের দর্শন বিভাগের সেমিনার লাইব্রেরিতে ক্যাটালগার হিসেবে কর্মরত আছেন। তিনি LIIM Centre-এর প্রতিষ্ঠাতা এবং একমাত্র পরিচালক। দর্শন, ইসলামী চিন্তা এবং বাংলা বুদ্ধিবৃত্তিক সংস্কৃতির প্রতি গভীর আগ্রহ থেকে তিনি এই ডিজিটাল জ্ঞানকেন্দ্র গড়ে তুলেছেন।
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;">
+            <span style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);color:var(--gold-light);font-size:12px;font-family:'Inter',sans-serif;font-weight:600;padding:5px 14px;border-radius:20px;">📚 লাইব্রেরি বিজ্ঞান</span>
+            <span style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);color:var(--gold-light);font-size:12px;font-family:'Inter',sans-serif;font-weight:600;padding:5px 14px;border-radius:20px;">🤖 ডিজিটাল উদ্ভাবন</span>
+            <span style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);color:var(--gold-light);font-size:12px;font-family:'Inter',sans-serif;font-weight:600;padding:5px 14px;border-radius:20px;">📖 দর্শন ও ইসলামী চিন্তা</span>
+            <span style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);color:var(--gold-light);font-size:12px;font-family:'Inter',sans-serif;font-weight:600;padding:5px 14px;border-radius:20px;">✍️ বাংলা সাহিত্য</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALUES -->
+    <div style="margin-bottom:60px;">
+      <div style="text-align:center;margin-bottom:40px;">
+        <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px;">মূল্যবোধ</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--navy);">আমরা যা বিশ্বাস করি</h2>
+        <div style="width:48px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:16px auto 0;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+        <div style="background:var(--gold-pale);border-radius:16px;padding:28px 24px;">
+          <div style="font-size:32px;margin-bottom:12px;">🌟</div>
+          <h4 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;">উৎকর্ষ</h4>
+          <p style="font-size:13px;color:var(--gray-600);line-height:1.75;">প্রতিটি সেবায় সর্বোচ্চ মান বজায় রাখা এবং ক্রমাগত উন্নতির দিকে এগিয়ে যাওয়া।</p>
+        </div>
+        <div style="background:var(--gold-pale);border-radius:16px;padding:28px 24px;">
+          <div style="font-size:32px;margin-bottom:12px;">🤝</div>
+          <h4 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;">সেবার মনোভাব</h4>
+          <p style="font-size:13px;color:var(--gray-600);line-height:1.75;">ব্যবহারকারীর প্রয়োজনকে সর্বোচ্চ গুরুত্ব দিয়ে নিষ্ঠার সাথে সেবা প্রদান।</p>
+        </div>
+        <div style="background:var(--gold-pale);border-radius:16px;padding:28px 24px;">
+          <div style="font-size:32px;margin-bottom:12px;">💡</div>
+          <h4 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;">উদ্ভাবন</h4>
+          <p style="font-size:13px;color:var(--gray-600);line-height:1.75;">প্রযুক্তি ও সৃজনশীলতার সমন্বয়ে সমস্যার নতুন সমাধান খুঁজে বের করা।</p>
+        </div>
+        <div style="background:var(--gold-pale);border-radius:16px;padding:28px 24px;">
+          <div style="font-size:32px;margin-bottom:12px;">🔓</div>
+          <h4 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;">উন্মুক্ততা</h4>
+          <p style="font-size:13px;color:var(--gray-600);line-height:1.75;">জ্ঞান সবার জন্য — ওপেন অ্যাক্সেস ও তথ্যের মুক্ত প্রবাহে বিশ্বাস।</p>
+        </div>
+        <div style="background:var(--gold-pale);border-radius:16px;padding:28px 24px;">
+          <div style="font-size:32px;margin-bottom:12px;">🏛️</div>
+          <h4 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;">সততা ও স্বচ্ছতা</h4>
+          <p style="font-size:13px;color:var(--gray-600);line-height:1.75;">একাডেমিক সততা, সঠিক তথ্য এবং স্বচ্ছ কার্যক্রম পরিচালনায় অঙ্গীকারবদ্ধ।</p>
+        </div>
+        <div style="background:var(--gold-pale);border-radius:16px;padding:28px 24px;">
+          <div style="font-size:32px;margin-bottom:12px;">🌱</div>
+          <h4 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;">ধারাবাহিক উন্নয়ন</h4>
+          <p style="font-size:13px;color:var(--gray-600);line-height:1.75;">থেমে না থেকে প্রতিদিন একটু একটু করে এগিয়ে যাওয়া — শেখা ও বেড়ে ওঠা।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:20px;padding:48px;text-align:center;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--navy);margin-bottom:12px;">আমাদের সাথে যুক্ত হন</h2>
+      <p style="font-size:15px;color:var(--navy);opacity:0.8;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;">গবেষণা, তথ্যসেবা বা যেকোনো একাডেমিক সহায়তার জন্য আমাদের সাথে যোগাযোগ করুন।</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <button onclick="showHome(); setTimeout(function(){ document.getElementById('contact').scrollIntoView({behavior:'smooth'}); }, 300);" style="background:var(--navy);color:white;border:none;padding:14px 28px;border-radius:10px;font-size:14px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;">📞 যোগাযোগ করুন</button>
+        <button onclick="showHome(); setTimeout(function(){ document.getElementById('portal').scrollIntoView({behavior:'smooth'}); }, 300);" style="background:rgba(10,22,40,0.12);color:var(--navy);border:2px solid var(--navy);padding:14px 28px;border-radius:10px;font-size:14px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;">🪪 সদস্য হন</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     PAGE 1: MENDELEY GUIDE
+════════════════════════════════════════ -->
+<div id="page-mendeley" class="page-container active">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">রেফারেন্স ম্যানেজমেন্ট সফটওয়্যার</div>
+      <h1 class="page-title">Mendeley — সম্পূর্ণ গাইড</h1>
+      <p class="page-subtitle">ইনস্টলেশন থেকে Word-এ সাইটেশন পর্যন্ত — প্রতিটি ধাপ বাংলায় বিস্তারিত। গবেষক, শিক্ষার্থী ও শিক্ষক সকলের জন্য।</p>
+    </div>
+  </div>
+
+  <!-- WHAT IS MENDELEY -->
+  <section class="section" style="background:var(--gold-pale);">
+    <div class="section-inner">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+        <div>
+          <span class="sec-eyebrow">Mendeley কী?</span>
+          <h2 class="sec-title">গবেষণার রেফারেন্স ম্যানেজার</h2>
+          <div class="gold-bar"></div>
+          <p style="font-size:14px;color:var(--gray-600);line-height:1.8;margin-bottom:16px;">
+            Mendeley হলো একটি বিনামূল্যের সফটওয়্যার যা দিয়ে আপনি গবেষণাপত্র সংগ্রহ করতে, সংগঠিত করতে এবং থিসিস বা প্রবন্ধে স্বয়ংক্রিয়ভাবে সাইটেশন ও রেফারেন্স তালিকা তৈরি করতে পারবেন।
+          </p>
+          <p style="font-size:14px;color:var(--gray-600);line-height:1.8;">
+            Elsevier-এর এই টুলটি বিশ্বের ৬০ লক্ষেরও বেশি গবেষক ব্যবহার করেন। APA, MLA, Chicago সহ ৯,০০০+ সাইটেশন স্টাইল সাপোর্ট করে।
+          </p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="background:var(--white);border-radius:12px;padding:20px;text-align:center;box-shadow:0 2px 12px rgba(10,22,40,0.06);">
+            <div style="font-size:32px;margin-bottom:8px;">🆓</div>
+            <div style="font-size:13px;font-weight:700;color:var(--navy);">সম্পূর্ণ বিনামূল্যে</div>
+            <div style="font-size:11px;color:var(--gray-600);margin-top:4px;">ব্যক্তিগত ব্যবহারে</div>
+          </div>
+          <div style="background:var(--white);border-radius:12px;padding:20px;text-align:center;box-shadow:0 2px 12px rgba(10,22,40,0.06);">
+            <div style="font-size:32px;margin-bottom:8px;">📱</div>
+            <div style="font-size:13px;font-weight:700;color:var(--navy);">সব ডিভাইসে</div>
+            <div style="font-size:11px;color:var(--gray-600);margin-top:4px;">Windows, Mac, Android</div>
+          </div>
+          <div style="background:var(--white);border-radius:12px;padding:20px;text-align:center;box-shadow:0 2px 12px rgba(10,22,40,0.06);">
+            <div style="font-size:32px;margin-bottom:8px;">📝</div>
+            <div style="font-size:13px;font-weight:700;color:var(--navy);">Word Plugin</div>
+            <div style="font-size:11px;color:var(--gray-600);margin-top:4px;">সরাসরি Word-এ কাজ</div>
+          </div>
+          <div style="background:var(--white);border-radius:12px;padding:20px;text-align:center;box-shadow:0 2px 12px rgba(10,22,40,0.06);">
+            <div style="font-size:32px;margin-bottom:8px;">☁️</div>
+            <div style="font-size:13px;font-weight:700;color:var(--navy);">ক্লাউড সিংক</div>
+            <div style="font-size:11px;color:var(--gray-600);margin-top:4px;">যেকোনো জায়গা থেকে</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP BY STEP -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="sec-eyebrow">ধাপে ধাপে</span>
+        <h2 class="sec-title">শুরু থেকে শেষ পর্যন্ত সম্পূর্ণ গাইড</h2>
+        <div class="gold-bar"></div>
+        <p class="sec-desc">মোট ৮টি ধাপে Mendeley সম্পূর্ণভাবে শিখুন। প্রতিটি ধাপে স্ক্রিনশট গাইড ও টিপস দেওয়া আছে।</p>
+      </div>
+
+      <div class="step-timeline">
+
+        <!-- STEP 1 -->
+        <div class="step-item">
+          <div class="step-num">১</div>
+          <div class="step-body">
+            <div class="step-title"><span class="step-icon">📥</span> অ্যাকাউন্ট তৈরি ও ডাউনলোড <span class="step-badge badge-free">বিনামূল্যে</span></div>
+            <p class="step-desc">প্রথমে Mendeley-এর অফিশিয়াল ওয়েবসাইট থেকে একটি বিনামূল্যের অ্যাকাউন্ট খুলতে হবে। আপনার বিশ্ববিদ্যালয়ের ইমেইল ব্যবহার করুন — এতে Institutional অ্যাক্সেস পাওয়ার সুযোগ থাকে।</p>
+            <ul class="step-sub">
+              <li>ব্রাউজারে যান: <strong>www.mendeley.com</strong></li>
+              <li>"Create a free account" ক্লিক করুন</li>
+              <li>নাম, ইমেইল ও পাসওয়ার্ড দিন (বিশ্ববিদ্যালয়ের ইমেইল প্রেফার করুন)</li>
+              <li>Field of Study: Philosophy / Library Science বেছে নিন</li>
+              <li>Academic Status: Student / Researcher / Librarian বেছে নিন</li>
+              <li>ইমেইল ভেরিফিকেশন করুন</li>
+              <li>"Download Mendeley Desktop" বোতাম ক্লিক করুন</li>
+              <li>ইনস্টলার (.exe) রান করুন ও ইনস্টল সম্পন্ন করুন</li>
+            </ul>
+            <div class="step-tips"><p>💡 <strong>টিপ:</strong> ইমেইল ভেরিফিকেশন না করলে সিংক কাজ করবে না। স্প্যাম ফোল্ডার চেক করুন।</p></div>
+            <a href="https://www.mendeley.com/download-reference-manager/windows" target="_blank" class="btn-link">⬇️ Mendeley ডাউনলোড করুন</a>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step-item">
+          <div class="step-num">২</div>
+          <div class="step-body">
+            <div class="step-title"><span class="step-icon">🖥️</span> প্রথমবার চালু করা ও ইন্টারফেস পরিচিতি</div>
+            <p class="step-desc">ইনস্টলের পর Mendeley Desktop খুলুন এবং আপনার অ্যাকাউন্ট দিয়ে লগইন করুন। সফটওয়্যারের মূল অংশগুলো চিনে নিন।</p>
+            <div class="screenshot">
+              <div class="screenshot-bar">🖥️ Mendeley Desktop — মূল স্ক্রিন</div>
+              <div class="screenshot-content">
+                <strong style="color:var(--gold)">বাম প্যানেল:</strong> আপনার লাইব্রেরি, ফোল্ডার ও গ্রুপ<br>
+                <strong style="color:var(--gold)">মধ্য প্যানেল:</strong> রেফারেন্স তালিকা (শিরোনাম, লেখক, বছর)<br>
+                <strong style="color:var(--gold)">ডান প্যানেল:</strong> নির্বাচিত পেপারের বিস্তারিত তথ্য ও পিডিএফ
+              </div>
+            </div>
+            <ul class="step-sub" style="margin-top:14px;">
+              <li>All References: সব সংগৃহীত রেফারেন্স</li>
+              <li>My Library: আপনার ব্যক্তিগত সংগ্রহ</li>
+              <li>Favorites: তারকা চিহ্নিত গুরুত্বপূর্ণ পেপার</li>
+              <li>Needs Review: স্বয়ংক্রিয়ভাবে যোগ হওয়া পেপার (যাচাই দরকার)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step-item">
+          <div class="step-num">৩</div>
+          <div class="step-body">
+            <div class="step-title"><span class="step-icon">📄</span> রেফারেন্স যোগ করার ৪টি উপায় <span class="step-badge badge-important">গুরুত্বপূর্ণ</span></div>
+            <p class="step-desc">Mendeley-তে রেফারেন্স যোগ করার একাধিক পদ্ধতি আছে। সবচেয়ে দ্রুত উপায় হলো PDF ড্র্যাগ করা।</p>
+            <ul class="step-sub">
+              <li><strong>পদ্ধতি ১ — PDF ড্র্যাগ ও ড্রপ:</strong> পিডিএফ ফাইল সরাসরি Mendeley-তে টেনে আনুন। সফটওয়্যার স্বয়ংক্রিয়ভাবে লেখক, শিরোনাম ও বছর খুঁজে নেবে।</li>
+              <li><strong>পদ্ধতি ২ — DOI দিয়ে:</strong> File → Add Entry Manually → DOI বক্সে পেপারের DOI নম্বর পেস্ট করুন। বাকি তথ্য স্বয়ংক্রিয় আসবে।</li>
+              <li><strong>পদ্ধতি ৩ — Web Importer (Browser Extension):</strong> ব্রাউজারে Mendeley Web Importer এক্সটেনশন ইনস্টল করুন। যেকোনো ওয়েবসাইট বা Google Scholar থেকে এক ক্লিকে সেভ করুন।</li>
+              <li><strong>পদ্ধতি ৪ — ম্যানুয়ালি:</strong> File → Add Entry Manually → ধরন বেছে (বই/জার্নাল/থিসিস) সব তথ্য নিজে টাইপ করুন।</li>
+            </ul>
+            <div class="step-tips"><p>💡 <strong>টিপ:</strong> Google Scholar-এ কোনো পেপার খুঁজে পেলে Web Importer দিয়ে এক ক্লিকে Mendeley-তে সেভ করুন — সময় বাঁচবে।</p></div>
+            <a href="https://chrome.google.com/webstore/detail/mendeley-web-importer" target="_blank" class="btn-link">🔧 Web Importer Chrome Extension</a>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step-item">
+          <div class="step-num">৪</div>
+          <div class="step-body">
+            <div class="step-title"><span class="step-icon">📁</span> ফোল্ডার ও ট্যাগ দিয়ে সংগঠিত করুন</div>
+            <p class="step-desc">গবেষণার বিষয় অনুযায়ী ফোল্ডার তৈরি করুন এবং ট্যাগ ব্যবহার করে দ্রুত খুঁজে পান।</p>
+            <ul class="step-sub">
+              <li>বাম প্যানেলে "Create Folder" ক্লিক করুন</li>
+              <li>ফোল্ডারের নাম দিন (যেমন: থিসিস অধ্যায় ১, ইসলামী দর্শন, কান্টের নীতিশাস্ত্র)</li>
+              <li>রেফারেন্স টেনে ফোল্ডারে রাখুন</li>
+              <li>ডান প্যানেলে "Tags" বক্সে কীওয়ার্ড যোগ করুন</li>
+              <li>স্টার (★) চিহ্ন দিয়ে গুরুত্বপূর্ণ পেপার চিহ্নিত করুন</li>
+            </ul>
+            <div class="step-tips"><p>💡 <strong>টিপ:</strong> একটি পেপার একসাথে একাধিক ফোল্ডারে রাখা যায়। ফোল্ডারের মধ্যে সাব-ফোল্ডারও তৈরি করা যায়।</p></div>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="step-item">
+          <div class="step-num">৫</div>
+          <div class="step-body">
+            <div class="step-title"><span class="step-icon">📝</span> Word Plugin ইনস্টল ও সাইটেশন যোগ করা <span class="step-badge badge-important">সবচেয়ে দরকারি</span></div>
+            <p class="step-desc">Mendeley-এর সবচেয়ে কার্যকর ফিচার হলো MS Word-এ সরাসরি সাইটেশন দেওয়া। একটি Plugin ইনস্টল করলেই হবে।</p>
+            <ul class="step-sub">
+              <li>Mendeley Desktop খোলা অবস্থায়: Tools → Install MS Word Plugin</li>
+              <li>Word খুলুন — উপরের মেনুতে "References" ট্যাবে "Mendeley Cite" দেখবেন</li>
+              <li>থিসিস লেখার সময় যেখানে সাইটেশন দরকার সেখানে কার্সর রাখুন</li>
+              <li>"Insert Citation" ক্লিক করুন → পেপারের নাম বা লেখক লিখে সার্চ করুন</li>
+              <li>পেপার বেছে "OK" করুন → সাইটেশন স্বয়ংক্রিয়ভাবে যোগ হবে</li>
+              <li>থিসিসের শেষে References/Bibliography পেজে: "Insert Bibliography" ক্লিক করুন</li>
+              <li>সব রেফারেন্স স্বয়ংক্রিয়ভাবে নির্বাচিত স্টাইলে তালিকা তৈরি হবে</li>
+            </ul>
+            <div class="screenshot">
+              <div class="screenshot-bar">📝 MS Word — Mendeley Cite প্যানেল</div>
+              <div class="screenshot-content">
+                References ট্যাব → Mendeley Cite → সার্চ বক্সে লেখক বা শিরোনাম → পেপার বেছে Insert
+              </div>
+            </div>
+            <div class="step-tips"><p>💡 <strong>টিপ:</strong> Word বন্ধ থাকলে Plugin কাজ করবে না। Mendeley Desktop ও Word — দুটোই খোলা রাখুন।</p></div>
+          </div>
+        </div>
+
+        <!-- STEP 6 -->
+        <div class="step-item">
+          <div class="step-num">৬</div>
+          <div class="step-body">
+            <div class="step-title"><span class="step-icon">🎨</span> সাইটেশন স্টাইল পরিবর্তন করুন <span class="step-badge badge-tip">APA / MLA / Chicago</span></div>
+            <p class="step-desc">বিভিন্ন জার্নাল ও বিশ্ববিদ্যালয় ভিন্ন সাইটেশন স্টাইল চায়। Mendeley-তে ৯,০০০+ স্টাইল আছে — যেকোনোটি এক ক্লিকে পরিবর্তন করা যায়।</p>
+            <table class="format-table">
+              <thead><tr><th>স্টাইল</th><th>কোথায় ব্যবহার</th><th>উদাহরণ</th></tr></thead>
+              <tbody>
+                <tr><td><strong>APA 7th</strong></td><td>সামাজিক বিজ্ঞান, মনোবিজ্ঞান, দর্শন</td><td>Kant, I. (1785). <em>Groundwork</em>.</td></tr>
+                <tr><td><strong>MLA 9th</strong></td><td>মানবিক বিজ্ঞান, সাহিত্য</td><td>Kant, Immanuel. <em>Groundwork</em>. 1785.</td></tr>
+                <tr><td><strong>Chicago</strong></td><td>ইতিহাস, ধর্মতত্ত্ব</td><td>Kant, Immanuel. 1785. <em>Groundwork</em>.</td></tr>
+                <tr><td><strong>IEEE</strong></td><td>প্রকৌশল, প্রযুক্তি</td><td>[1] I. Kant, <em>Groundwork</em>, 1785.</td></tr>
+              </tbody>
+            </table>
+            <ul class="step-sub" style="margin-top:14px;">
+              <li>Word-এ Mendeley Cite প্যানেলে "Citation Style" বোতাম ক্লিক করুন</li>
+              <li>সার্চ বক্সে APA / MLA / Chicago লিখুন</li>
+              <li>পছন্দের স্টাইল বেছে "Update" করুন</li>
+              <li>পুরো ডকুমেন্টের সব সাইটেশন ও Bibliography স্বয়ংক্রিয় আপডেট হবে</li>
+            </ul>
+            <div class="step-tips"><p>💡 <strong>দর্শন বিভাগের জন্য:</strong> সাধারণত APA 7th বা Chicago Author-Date স্টাইল ব্যবহৃত হয়। জার্নালের গাইডলাইন চেক করুন।</p></div>
+          </div>
+        </div>
+
+        <!-- STEP 7 -->
+        <div class="step-item">
+          <div class="step-num">৭</div>
+          <div class="step-body">
+            <div class="step-title"><span class="step-icon">☁️</span> ক্লাউড সিংক ও মোবাইল অ্যাপ</div>
+            <p class="step-desc">Mendeley আপনার সব রেফারেন্স ক্লাউডে সংরক্ষণ করে। যেকোনো ডিভাইস থেকে অ্যাক্সেস করতে পারবেন।</p>
+            <ul class="step-sub">
+              <li>Mendeley Desktop: সব পরিবর্তন স্বয়ংক্রিয়ভাবে সিংক হয়</li>
+              <li>Mendeley Web: browser.mendeley.com — যেকোনো ব্রাউজার থেকে</li>
+              <li>Mendeley Mobile App: Android/iOS থেকে PDF পড়া ও নোট নেওয়া</li>
+              <li>বিনামূল্যে ২ GB স্টোরেজ পাবেন</li>
+            </ul>
+            <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;">
+              <a href="https://play.google.com/store/apps/details?id=com.elsevier.mendeley" target="_blank" class="btn-link" style="font-size:12px;padding:8px 16px;">📱 Android App</a>
+              <a href="https://apps.apple.com/app/mendeley-reference-manager/id380669300" target="_blank" class="btn-link" style="font-size:12px;padding:8px 16px;">🍎 iOS App</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 8 -->
+        <div class="step-item">
+          <div class="step-num">৮</div>
+          <div class="step-body">
+            <div class="step-title"><span class="step-icon">👥</span> গ্রুপ লাইব্রেরি — দলগত গবেষণা</div>
+            <p class="step-desc">একই গবেষণা দলের সদস্যরা একসাথে রেফারেন্স শেয়ার করতে পারেন। থিসিস গ্রুপ বা জার্নাল ক্লাবের জন্য আদর্শ।</p>
+            <ul class="step-sub">
+              <li>Mendeley Web-এ যান → Groups → Create Group</li>
+              <li>গ্রুপের নাম দিন (যেমন: CU Philosophy Research Group)</li>
+              <li>Public / Private / Invite Only বেছে নিন</li>
+              <li>সদস্যদের ইমেইল দিয়ে আমন্ত্রণ পাঠান</li>
+              <li>গ্রুপে পেপার যোগ করুন — সকলে দেখতে ও ডাউনলোড করতে পারবেন</li>
+            </ul>
+            <div class="step-tips"><p>💡 <strong>টিপ:</strong> LIIM Centre-এর পক্ষ থেকে একটি "CU Philosophy Library" গ্রুপ তৈরি করা হয়েছে। যোগ দিতে লাইব্রেরিয়ানের সাথে যোগাযোগ করুন।</p></div>
+          </div>
+        </div>
+
+      </div><!-- end timeline -->
+
+      <!-- FAQ -->
+      <div style="background:var(--navy);border-radius:16px;padding:36px;margin-top:48px;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--white);margin-bottom:24px;">❓ সাধারণ প্রশ্নোত্তর</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+          <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:18px;">
+            <p style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:8px;">PDF স্বয়ংক্রিয়ভাবে তথ্য নিচ্ছে না?</p>
+            <p style="font-size:12.5px;color:var(--gray-300);line-height:1.7;">পেপারটি সিলেক্ট করে ডান ক্লিক → "Update Details" করুন। অথবা DOI ম্যানুয়ালি দিন।</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:18px;">
+            <p style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:8px;">Word-এ Plugin দেখা যাচ্ছে না?</p>
+            <p style="font-size:12.5px;color:var(--gray-300);line-height:1.7;">Mendeley Desktop থেকে Tools → Install MS Word Plugin আবার করুন। Word রিস্টার্ট দিন।</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:18px;">
+            <p style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:8px;">বাংলা লেখক নাম কীভাবে দেব?</p>
+            <p style="font-size:12.5px;color:var(--gray-300);line-height:1.7;">ম্যানুয়ালি এন্ট্রি করুন। Author বক্সে বাংলায় নাম লিখুন। প্রতিটি লেখকের পর Enter চাপুন।</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:18px;">
+            <p style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:8px;">Zotero-র সাথে পার্থক্য কী?</p>
+            <p style="font-size:12.5px;color:var(--gray-300);line-height:1.7;">Mendeley Elsevier-এর (বেশি PDF সংগঠন সুবিধা), Zotero ওপেন সোর্স (বেশি ওয়েব ইম্পোর্ট সুবিধা)। দুটোই ভালো।</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- end mendeley page -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE 2: GLOBAL LIBRARY SEARCH
+════════════════════════════════════════ -->
+<div id="page-libraries" class="page-container">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">বৈশ্বিক জ্ঞানভান্ডার</div>
+      <h1 class="page-title">আন্তর্জাতিক লাইব্রেরি সার্চ কেন্দ্র</h1>
+      <p class="page-subtitle">বিশ্বের শীর্ষ র‍্যাংকড বিশ্ববিদ্যালয়ের লাইব্রেরি ও বাংলাদেশের প্রধান গ্রন্থাগারে একসাথে সার্চ করুন। একটি কীওয়ার্ড লিখুন — সব ট্যাবে খুলে যাবে।</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-inner">
+
+      <!-- GLOBAL SEARCH BOX -->
+      <div class="global-search-box">
+        <h2 class="gs-title">🌍 বৈশ্বিক লাইব্রেরি সার্চ</h2>
+        <p class="gs-sub">বিষয়, লেখক বা বইয়ের নাম লিখুন — নির্বাচিত লাইব্রেরিগুলোতে আলাদা ট্যাবে খুলবে</p>
+        <div class="gs-bar">
+          <input type="text" id="globalSearchInput" placeholder="যেমন: Islamic Philosophy, Kant, Ethics, দর্শন...">
+          <button class="gs-btn" onclick="doGlobalSearch()">🔍 সব লাইব্রেরিতে খুঁজুন</button>
+        </div>
+        <div class="gs-options">
+          <div class="gs-opt gs-select-all">
+            <input type="checkbox" id="selectAll" onchange="toggleAll(this)" checked>
+            <label for="selectAll">সব বেছে নিন</label>
+          </div>
+          <div class="gs-opt"><input type="checkbox" class="lib-check" value="worldcat" id="c1" checked><label for="c1">WorldCat</label></div>
+          <div class="gs-opt"><input type="checkbox" class="lib-check" value="scholar" id="c2" checked><label for="c2">Google Scholar</label></div>
+          <div class="gs-opt"><input type="checkbox" class="lib-check" value="jstor" id="c3" checked><label for="c3">JSTOR</label></div>
+          <div class="gs-opt"><input type="checkbox" class="lib-check" value="archive" id="c4" checked><label for="c4">Internet Archive</label></div>
+          <div class="gs-opt"><input type="checkbox" class="lib-check" value="harvard" id="c5" checked><label for="c5">Harvard</label></div>
+          <div class="gs-opt"><input type="checkbox" class="lib-check" value="oxford" id="c6" checked><label for="c6">Oxford</label></div>
+          <div class="gs-opt"><input type="checkbox" class="lib-check" value="cambridge" id="c7" checked><label for="c7">Cambridge</label></div>
+          <div class="gs-opt"><input type="checkbox" class="lib-check" value="mit" id="c8" checked><label for="c8">MIT</label></div>
+          <div class="gs-opt"><input type="checkbox" class="lib-check" value="stanford" id="c9" checked><label for="c9">Stanford</label></div>
+          <div class="gs-opt"><input type="checkbox" class="lib-check" value="du" id="c10" checked><label for="c10">ঢাকা বিশ্ববিদ্যালয়</label></div>
+        </div>
+        <p class="gs-result-info" id="searchInfo">বর্তমানে <span id="selectedCount">10</span>টি লাইব্রেরি নির্বাচিত</p>
+      </div>
+
+      <!-- FREE DATABASES -->
+      <div class="region-section">
+        <div class="region-header">
+          <div class="region-icon">🆓</div>
+          <div>
+            <div class="region-title">বিনামূল্যের আন্তর্জাতিক ডেটাবেস</div>
+            <div class="region-count">যেকোনো ইন্টারনেট সংযোগ থেকে অ্যাক্সেসযোগ্য</div>
+          </div>
+        </div>
+        <div class="lib-grid">
+          <div class="lib-card">
+            <div class="lib-flag">🌐</div>
+            <div class="lib-rank">সর্বাধিক ব্যবহৃত</div>
+            <div class="lib-uni">Google Scholar</div>
+            <div class="lib-name">বিশ্বের সবচেয়ে বড় বিনামূল্যের একাডেমিক সার্চ ইঞ্জিন</div>
+            <div class="lib-tags"><span class="lib-tag">জার্নাল</span><span class="lib-tag">থিসিস</span><span class="lib-tag">বই</span><span class="lib-tag">সাইটেশন</span></div>
+            <div class="lib-actions">
+              <a href="https://scholar.google.com" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট করুন</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://scholar.google.com/scholar?q=', this)">🔍 এখানে খুঁজুন</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">📚</div>
+            <div class="lib-rank">১০ কোটি+ বই</div>
+            <div class="lib-uni">WorldCat</div>
+            <div class="lib-name">বিশ্বের সবচেয়ে বড় লাইব্রেরি ক্যাটালগ — ৭০,০০০+ লাইব্রেরির সংগ্রহ</div>
+            <div class="lib-tags"><span class="lib-tag">বই</span><span class="lib-tag">ম্যাগাজিন</span><span class="lib-tag">ভিডিও</span></div>
+            <div class="lib-actions">
+              <a href="https://www.worldcat.org" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট করুন</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://www.worldcat.org/search?q=', this)">🔍 এখানে খুঁজুন</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">📰</div>
+            <div class="lib-rank">JSTOR</div>
+            <div class="lib-uni">JSTOR Digital Library</div>
+            <div class="lib-name">মানবিক ও সামাজিক বিজ্ঞানের লক্ষাধিক একাডেমিক জার্নাল আর্টিকেল</div>
+            <div class="lib-tags"><span class="lib-tag">দর্শন</span><span class="lib-tag">ইতিহাস</span><span class="lib-tag">সমাজবিজ্ঞান</span></div>
+            <div class="lib-actions">
+              <a href="https://www.jstor.org" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট করুন</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://www.jstor.org/action/doBasicSearch?Query=', this)">🔍 এখানে খুঁজুন</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🏛️</div>
+            <div class="lib-rank">Internet Archive</div>
+            <div class="lib-uni">Internet Archive — Open Library</div>
+            <div class="lib-name">লক্ষাধিক বিনামূল্যের ই-বুক, ডিজিটাইজড বই ও ওয়েব আর্কাইভ</div>
+            <div class="lib-tags"><span class="lib-tag">বিনামূল্যে</span><span class="lib-tag">ই-বুক</span><span class="lib-tag">পুরনো বই</span></div>
+            <div class="lib-actions">
+              <a href="https://archive.org" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট করুন</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://archive.org/search?query=', this)">🔍 এখানে খুঁজুন</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">📖</div>
+            <div class="lib-rank">SemanticScholar</div>
+            <div class="lib-uni">Semantic Scholar</div>
+            <div class="lib-name">AI-চালিত একাডেমিক সার্চ ইঞ্জিন — বিনামূল্যে PDF সহ</div>
+            <div class="lib-tags"><span class="lib-tag">AI সার্চ</span><span class="lib-tag">বিনামূল্যে PDF</span></div>
+            <div class="lib-actions">
+              <a href="https://www.semanticscholar.org" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট করুন</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://www.semanticscholar.org/search?q=', this)">🔍 এখানে খুঁজুন</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🔬</div>
+            <div class="lib-rank">PubMed/DOAJ</div>
+            <div class="lib-uni">DOAJ — Directory of Open Access Journals</div>
+            <div class="lib-name">বিশ্বের সব ওপেন-অ্যাক্সেস জার্নালের সংগ্রহ</div>
+            <div class="lib-tags"><span class="lib-tag">ওপেন অ্যাক্সেস</span><span class="lib-tag">বিনামূল্যে</span></div>
+            <div class="lib-actions">
+              <a href="https://doaj.org" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট করুন</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://doaj.org/search/articles?query=', this)">🔍 এখানে খুঁজুন</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- USA -->
+      <div class="region-section">
+        <div class="region-header">
+          <div class="region-icon">🇺🇸</div>
+          <div>
+            <div class="region-title">যুক্তরাষ্ট্র — শীর্ষ বিশ্ববিদ্যালয় লাইব্রেরি</div>
+            <div class="region-count">QS World Ranking অনুযায়ী</div>
+          </div>
+        </div>
+        <div class="lib-grid">
+          <div class="lib-card">
+            <div class="lib-flag">🏛️</div>
+            <div class="lib-rank">QS #4</div>
+            <div class="lib-uni">Harvard University Library</div>
+            <div class="lib-name">বিশ্বের সবচেয়ে বড় একাডেমিক লাইব্রেরি সিস্টেম</div>
+            <div class="lib-tags"><span class="lib-tag">দর্শন</span><span class="lib-tag">আইন</span><span class="lib-tag">ইতিহাস</span></div>
+            <div class="lib-actions">
+              <a href="https://library.harvard.edu" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://hollis.harvard.edu/primo-explore/search?query=any,contains,', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🔬</div>
+            <div class="lib-rank">QS #1</div>
+            <div class="lib-uni">MIT Libraries</div>
+            <div class="lib-name">Massachusetts Institute of Technology</div>
+            <div class="lib-tags"><span class="lib-tag">বিজ্ঞান</span><span class="lib-tag">প্রযুক্তি</span><span class="lib-tag">OpenCourseWare</span></div>
+            <div class="lib-actions">
+              <a href="https://libraries.mit.edu" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://mit.primo.exlibrisgroup.com/discovery/search?query=any,contains,', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🌴</div>
+            <div class="lib-rank">QS #5</div>
+            <div class="lib-uni">Stanford University Libraries</div>
+            <div class="lib-name">বিশাল দর্শন ও মানবিক বিজ্ঞানের সংগ্রহ</div>
+            <div class="lib-tags"><span class="lib-tag">দর্শন</span><span class="lib-tag">মনোবিজ্ঞান</span></div>
+            <div class="lib-actions">
+              <a href="https://library.stanford.edu" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://searchworks.stanford.edu/?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🗽</div>
+            <div class="lib-rank">QS #8</div>
+            <div class="lib-uni">Columbia University Libraries</div>
+            <div class="lib-name">নিউ ইয়র্ক — বিশাল সামাজিক বিজ্ঞান সংগ্রহ</div>
+            <div class="lib-tags"><span class="lib-tag">দর্শন</span><span class="lib-tag">রাজনীতি</span></div>
+            <div class="lib-actions">
+              <a href="https://library.columbia.edu" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://clio.columbia.edu/catalog?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🔵</div>
+            <div class="lib-rank">QS #12</div>
+            <div class="lib-uni">University of Chicago Library</div>
+            <div class="lib-name">দর্শন ও ধর্মতত্ত্বে বিশ্বমানের সংগ্রহ</div>
+            <div class="lib-tags"><span class="lib-tag">দর্শন</span><span class="lib-tag">ধর্ম</span><span class="lib-tag">ইতিহাস</span></div>
+            <div class="lib-actions">
+              <a href="https://www.lib.uchicago.edu" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://catalog.lib.uchicago.edu/vufind/Search/Results?lookfor=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🔵</div>
+            <div class="lib-rank">QS #9</div>
+            <div class="lib-uni">Yale University Library</div>
+            <div class="lib-name">বিশ্বের অন্যতম সমৃদ্ধ দুর্লভ পুস্তক সংগ্রহ</div>
+            <div class="lib-tags"><span class="lib-tag">দুর্লভ বই</span><span class="lib-tag">ইতিহাস</span></div>
+            <div class="lib-actions">
+              <a href="https://library.yale.edu" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://orbis.library.yale.edu/vwebv/search?searchArg=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- UK -->
+      <div class="region-section">
+        <div class="region-header">
+          <div class="region-icon">🇬🇧</div>
+          <div>
+            <div class="region-title">যুক্তরাজ্য — অক্সফোর্ড, কেমব্রিজ ও আরো</div>
+            <div class="region-count">QS World Ranking অনুযায়ী</div>
+          </div>
+        </div>
+        <div class="lib-grid">
+          <div class="lib-card">
+            <div class="lib-flag">📜</div>
+            <div class="lib-rank">QS #3</div>
+            <div class="lib-uni">Oxford University — Bodleian Libraries</div>
+            <div class="lib-name">বিশ্বের দ্বিতীয় প্রাচীনতম গ্রন্থাগার — ১৪ মিলিয়ন+ বই</div>
+            <div class="lib-tags"><span class="lib-tag">দর্শন</span><span class="lib-tag">ধর্মতত্ত্ব</span><span class="lib-tag">আরবি</span></div>
+            <div class="lib-actions">
+              <a href="https://www.bodleian.ox.ac.uk" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://solo.bodleian.ox.ac.uk/primo-explore/search?query=any,contains,', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🎓</div>
+            <div class="lib-rank">QS #2</div>
+            <div class="lib-uni">Cambridge University Library</div>
+            <div class="lib-name">দক্ষিণ এশিয়া ও ইসলামিক পাণ্ডুলিপির বিশাল সংগ্রহ</div>
+            <div class="lib-tags"><span class="lib-tag">পাণ্ডুলিপি</span><span class="lib-tag">ইসলাম</span><span class="lib-tag">দর্শন</span></div>
+            <div class="lib-actions">
+              <a href="https://www.lib.cam.ac.uk" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://idiscover.lib.cam.ac.uk/primo-explore/search?query=any,contains,', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+            <div class="lib-rank">QS #22</div>
+            <div class="lib-uni">University of Edinburgh Library</div>
+            <div class="lib-name">স্কটিশ দর্শন ও ডেভিড হিউমের আর্কাইভের জন্য বিখ্যাত</div>
+            <div class="lib-tags"><span class="lib-tag">দর্শন</span><span class="lib-tag">হিউম</span></div>
+            <div class="lib-actions">
+              <a href="https://www.ed.ac.uk/information-services/library-museum-gallery" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://discovered.ed.ac.uk/primo-explore/search?query=any,contains,', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MUSLIM WORLD -->
+      <div class="region-section">
+        <div class="region-header">
+          <div class="region-icon">🌙</div>
+          <div>
+            <div class="region-title">মুসলিম বিশ্ব — ইসলামিক বিশ্ববিদ্যালয় লাইব্রেরি</div>
+            <div class="region-count">দর্শন, ইসলামী চিন্তা ও আরবি সাহিত্যের জন্য বিশেষ</div>
+          </div>
+        </div>
+        <div class="lib-grid">
+          <div class="lib-card">
+            <div class="lib-flag">🇲🇾</div>
+            <div class="lib-rank">বিশ্ব র‍্যাংকড</div>
+            <div class="lib-uni">IIUM Library — আন্তর্জাতিক ইসলামী বিশ্ববিদ্যালয়</div>
+            <div class="lib-name">International Islamic University Malaysia — ইসলামী দর্শন ও ফিকহ</div>
+            <div class="lib-tags"><span class="lib-tag">ইসলামী দর্শন</span><span class="lib-tag">আরবি</span><span class="lib-tag">ফিকহ</span></div>
+            <div class="lib-actions">
+              <a href="https://lib.iium.edu.my" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://lib.iium.edu.my/primo-explore/search?query=any,contains,', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🇵🇰</div>
+            <div class="lib-rank">শীর্ষ পাক বিশ্ববিদ্যালয়</div>
+            <div class="lib-uni">IIU Islamabad Library</div>
+            <div class="lib-name">International Islamic University Islamabad — দর্শন ও আরবি বিভাগ</div>
+            <div class="lib-tags"><span class="lib-tag">ইসলামী চিন্তা</span><span class="lib-tag">আরবি</span></div>
+            <div class="lib-actions">
+              <a href="https://www.iiu.edu.pk/library" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://www.iiu.edu.pk/library?search=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🇸🇦</div>
+            <div class="lib-rank">ইসলামী বিশ্ব</div>
+            <div class="lib-uni">King Saud University Library</div>
+            <div class="lib-name">সৌদি আরব — আরবি ভাষা ও ইসলামী বিজ্ঞানের বিশাল সংগ্রহ</div>
+            <div class="lib-tags"><span class="lib-tag">আরবি</span><span class="lib-tag">ইসলাম</span><span class="lib-tag">তাফসির</span></div>
+            <div class="lib-actions">
+              <a href="https://library.ksu.edu.sa" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://library.ksu.edu.sa/search?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🇹🇷</div>
+            <div class="lib-rank">শীর্ষ তুর্কি</div>
+            <div class="lib-uni">Istanbul University Library</div>
+            <div class="lib-name">অটোমান পাণ্ডুলিপি ও ইসলামী দর্শনের অনন্য সংগ্রহ</div>
+            <div class="lib-tags"><span class="lib-tag">অটোমান</span><span class="lib-tag">ইসলামী দর্শন</span></div>
+            <div class="lib-actions">
+              <a href="https://kutuphane.istanbul.edu.tr" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://kutuphane.istanbul.edu.tr/search?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INDIA -->
+      <div class="region-section">
+        <div class="region-header">
+          <div class="region-icon">🇮🇳</div>
+          <div>
+            <div class="region-title">ভারত — শীর্ষ বিশ্ববিদ্যালয় লাইব্রেরি</div>
+            <div class="region-count">দক্ষিণ এশিয়ার জ্ঞানভান্ডার</div>
+          </div>
+        </div>
+        <div class="lib-grid">
+          <div class="lib-card">
+            <div class="lib-flag">🏛️</div>
+            <div class="lib-rank">QS India #1</div>
+            <div class="lib-uni">IIT Bombay Library</div>
+            <div class="lib-name">ভারতের শীর্ষ প্রযুক্তি বিশ্ববিদ্যালয়ের লাইব্রেরি</div>
+            <div class="lib-tags"><span class="lib-tag">বিজ্ঞান</span><span class="lib-tag">প্রযুক্তি</span></div>
+            <div class="lib-actions">
+              <a href="https://library.iitb.ac.in" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://library.iitb.ac.in/search?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🎓</div>
+            <div class="lib-rank">সামাজিক বিজ্ঞান</div>
+            <div class="lib-uni">JNU Library — জওহরলাল নেহরু বিশ্ববিদ্যালয়</div>
+            <div class="lib-name">সামাজিক বিজ্ঞান ও দক্ষিণ এশিয়া গবেষণায় অগ্রণী</div>
+            <div class="lib-tags"><span class="lib-tag">দর্শন</span><span class="lib-tag">সামাজিক বিজ্ঞান</span></div>
+            <div class="lib-actions">
+              <a href="https://library.jnu.ac.in" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://library.jnu.ac.in/search?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🌺</div>
+            <div class="lib-rank">ঐতিহ্যবাহী</div>
+            <div class="lib-uni">Delhi University Library System</div>
+            <div class="lib-name">দিল্লি বিশ্ববিদ্যালয় — মানবিক বিজ্ঞানে বিশাল সংগ্রহ</div>
+            <div class="lib-tags"><span class="lib-tag">দর্শন</span><span class="lib-tag">সাহিত্য</span><span class="lib-tag">বাংলা</span></div>
+            <div class="lib-actions">
+              <a href="https://duls.du.ac.in" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://duls.du.ac.in/search?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BANGLADESH -->
+      <div class="region-section">
+        <div class="region-header">
+          <div class="region-icon">🇧🇩</div>
+          <div>
+            <div class="region-title">বাংলাদেশ — জাতীয় ও বিশ্ববিদ্যালয় লাইব্রেরি</div>
+            <div class="region-count">দেশীয় গবেষণা ও বাংলা ভাষার সম্পদ</div>
+          </div>
+        </div>
+        <div class="lib-grid">
+          <div class="lib-card">
+            <div class="lib-flag">📚</div>
+            <div class="lib-rank">জাতীয়</div>
+            <div class="lib-uni">জাতীয় গ্রন্থাগার বাংলাদেশ</div>
+            <div class="lib-name">National Library of Bangladesh — বাংলা সাহিত্য ও গবেষণার মূল কেন্দ্র</div>
+            <div class="lib-tags"><span class="lib-tag">বাংলা</span><span class="lib-tag">জাতীয়</span><span class="lib-tag">দুর্লভ বই</span></div>
+            <div class="lib-actions">
+              <a href="http://www.nationallibrary.gov.bd" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('http://www.nationallibrary.gov.bd/search?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🎓</div>
+            <div class="lib-rank">BD র‍্যাংক #1</div>
+            <div class="lib-uni">ঢাকা বিশ্ববিদ্যালয় কেন্দ্রীয় গ্রন্থাগার</div>
+            <div class="lib-name">বাংলাদেশের প্রধান বিশ্ববিদ্যালয়ের বিশাল সংগ্রহ</div>
+            <div class="lib-tags"><span class="lib-tag">দর্শন</span><span class="lib-tag">বাংলা</span><span class="lib-tag">ইতিহাস</span></div>
+            <div class="lib-actions">
+              <a href="https://library.du.ac.bd" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://library.du.ac.bd/search?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">⚙️</div>
+            <div class="lib-rank">BD র‍্যাংক #2</div>
+            <div class="lib-uni">BUET কেন্দ্রীয় গ্রন্থাগার</div>
+            <div class="lib-name">Bangladesh University of Engineering and Technology</div>
+            <div class="lib-tags"><span class="lib-tag">প্রকৌশল</span><span class="lib-tag">বিজ্ঞান</span></div>
+            <div class="lib-actions">
+              <a href="https://www.buet.ac.bd/web/#/library" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://www.buet.ac.bd/library/search?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🌊</div>
+            <div class="lib-rank">আমাদের বিশ্ববিদ্যালয়</div>
+            <div class="lib-uni">চট্টগ্রাম বিশ্ববিদ্যালয় কেন্দ্রীয় গ্রন্থাগার</div>
+            <div class="lib-name">University of Chittagong Central Library</div>
+            <div class="lib-tags"><span class="lib-tag">চট্টগ্রাম</span><span class="lib-tag">দর্শন</span><span class="lib-tag">বাংলা</span></div>
+            <div class="lib-actions">
+              <a href="https://cu.ac.bd/library" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://cu.ac.bd/library/search?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🏫</div>
+            <div class="lib-rank">BD র‍্যাংকড</div>
+            <div class="lib-uni">রাজশাহী বিশ্ববিদ্যালয় গ্রন্থাগার</div>
+            <div class="lib-name">University of Rajshahi — মানবিক বিজ্ঞানে সমৃদ্ধ</div>
+            <div class="lib-tags"><span class="lib-tag">দর্শন</span><span class="lib-tag">সামাজিক বিজ্ঞান</span></div>
+            <div class="lib-actions">
+              <a href="https://ru.ac.bd/library" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://ru.ac.bd/library/search?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">📗</div>
+            <div class="lib-rank">ইসলামী</div>
+            <div class="lib-uni">ইসলামী বিশ্ববিদ্যালয় কুষ্টিয়া গ্রন্থাগার</div>
+            <div class="lib-name">ইসলামী দর্শন ও আরবি সাহিত্যের বিশেষ সংগ্রহ</div>
+            <div class="lib-tags"><span class="lib-tag">ইসলামী দর্শন</span><span class="lib-tag">আরবি</span></div>
+            <div class="lib-actions">
+              <a href="https://iu.ac.bd/library" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://iu.ac.bd/library/search?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUSTRALIA + OTHERS -->
+      <div class="region-section">
+        <div class="region-header">
+          <div class="region-icon">🌏</div>
+          <div>
+            <div class="region-title">অস্ট্রেলিয়া, কানাডা ও অন্যান্য</div>
+            <div class="region-count">QS শীর্ষ র‍্যাংকড</div>
+          </div>
+        </div>
+        <div class="lib-grid">
+          <div class="lib-card">
+            <div class="lib-flag">🇦🇺</div>
+            <div class="lib-rank">QS #33</div>
+            <div class="lib-uni">University of Melbourne Library</div>
+            <div class="lib-name">অস্ট্রেলিয়ার শীর্ষ গবেষণা বিশ্ববিদ্যালয়</div>
+            <div class="lib-tags"><span class="lib-tag">দর্শন</span><span class="lib-tag">সামাজিক বিজ্ঞান</span></div>
+            <div class="lib-actions">
+              <a href="https://library.unimelb.edu.au" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://search.unimelb.edu.au/?q=', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🇨🇦</div>
+            <div class="lib-rank">QS #34</div>
+            <div class="lib-uni">University of Toronto Libraries</div>
+            <div class="lib-name">কানাডার বৃহত্তম গবেষণা লাইব্রেরি সিস্টেম</div>
+            <div class="lib-tags"><span class="lib-tag">দর্শন</span><span class="lib-tag">ধর্মতত্ত্ব</span></div>
+            <div class="lib-actions">
+              <a href="https://libraries.utoronto.ca" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://uoft.primo.exlibrisgroup.com/discovery/search?query=any,contains,', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+          <div class="lib-card">
+            <div class="lib-flag">🇸🇬</div>
+            <div class="lib-rank">QS #8</div>
+            <div class="lib-uni">NUS Libraries — National University of Singapore</div>
+            <div class="lib-name">এশিয়ার শীর্ষ গবেষণা বিশ্ববিদ্যালয় — বিশাল ডিজিটাল সংগ্রহ</div>
+            <div class="lib-tags"><span class="lib-tag">এশিয়া</span><span class="lib-tag">দর্শন</span></div>
+            <div class="lib-actions">
+              <a href="https://lib.nus.edu.sg" target="_blank" class="lib-btn lib-btn-visit">🔗 ভিজিট</a>
+              <button class="lib-btn lib-btn-select" onclick="searchLib('https://libsearch.nus.edu.sg/primo-explore/search?query=any,contains,', this)">🔍 সার্চ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div><!-- end libraries page -->
+
+<!-- FLOATING BTN -->
+<div class="floating-search" id="floatingBtn" style="display:none;">
+  <button class="fs-btn" onclick="doGlobalSearch()">
+    🔍 নির্বাচিত লাইব্রেরিতে খুঁজুন <span class="fs-count" id="floatCount">0</span>
+  </button>
+</div>
+
+<script>
+// Page switching handled by main showSubPage()
+
+// Library search URLs
+var libSearchUrls = {
+  worldcat: 'https://www.worldcat.org/search?q=',
+  scholar: 'https://scholar.google.com/scholar?q=',
+  jstor: 'https://www.jstor.org/action/doBasicSearch?Query=',
+  archive: 'https://archive.org/search?query=',
+  harvard: 'https://hollis.harvard.edu/primo-explore/search?query=any,contains,',
+  oxford: 'https://solo.bodleian.ox.ac.uk/primo-explore/search?query=any,contains,',
+  cambridge: 'https://idiscover.lib.cam.ac.uk/primo-explore/search?query=any,contains,',
+  mit: 'https://mit.primo.exlibrisgroup.com/discovery/search?query=any,contains,',
+  stanford: 'https://searchworks.stanford.edu/?q=',
+  du: 'https://library.du.ac.bd/search?q=',
+};
+
+function doGlobalSearch() {
+  var query = document.getElementById('globalSearchInput').value.trim();
+  if (!query) { alert('অনুগ্রহ করে একটি বিষয় বা বইয়ের নাম লিখুন।'); return; }
+  var checked = document.querySelectorAll('.lib-check:checked');
+  if (checked.length === 0) { alert('অন্তত একটি লাইব্রেরি বেছে নিন।'); return; }
+  checked.forEach(function(cb) {
+    var url = libSearchUrls[cb.value];
+    if (url) window.open(url + encodeURIComponent(query), '_blank');
+  });
+}
+
+function searchLib(baseUrl, btn) {
+  var query = document.getElementById('globalSearchInput').value.trim();
+  if (!query) { alert('উপরের সার্চ বারে একটি বিষয় লিখুন, তারপর এই বোতাম চাপুন।'); return; }
+  window.open(baseUrl + encodeURIComponent(query), '_blank');
+}
+
+function toggleAll(cb) {
+  document.querySelectorAll('.lib-check').forEach(function(c) { c.checked = cb.checked; });
+  updateCount();
+}
+
+function updateCount() {
+  var n = document.querySelectorAll('.lib-check:checked').length;
+  document.getElementById('selectedCount').textContent = n;
+  if (document.getElementById('floatCount')) document.getElementById('floatCount').textContent = n;
+}
+
+document.querySelectorAll('.lib-check').forEach(function(cb) {
+  cb.addEventListener('change', updateCount);
+});
+
+// Floating btn on scroll
+window.addEventListener('scroll', function() {
+  var fb = document.getElementById('floatingBtn');
+  if (!fb) return;
+  if (document.getElementById('page-libraries').classList.contains('active') && window.scrollY > 400) {
+    fb.style.display = 'block';
+  } else {
+    fb.style.display = 'none';
+  }
+});
+</script>
+
+<script>
+function showSubPage(name) {
+  document.getElementById('mainHomePage').classList.add('hidden');
+  var pages = document.querySelectorAll('.page-container');
+  for (var i=0; i<pages.length; i++) pages[i].classList.remove('active');
+  var tabs = document.querySelectorAll('.nav-tab');
+  for (var i=0; i<tabs.length; i++) tabs[i].classList.remove('active');
+  var target = document.getElementById('page-' + name);
+  if (target) { target.classList.add('active'); }
+  if (event && event.target) event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function toggleMobileMenu() {
+  var nav = document.getElementById('mainNavLinks');
+  nav.classList.toggle('open');
+}
+
+function closeMobileMenu() {
+  var nav = document.getElementById('mainNavLinks');
+  nav.classList.remove('open');
+}
+
+function showHome() {
+  document.getElementById('mainHomePage').classList.remove('hidden');
+  var pages = document.querySelectorAll('.page-container');
+  for (var i=0; i<pages.length; i++) pages[i].classList.remove('active');
+  var tabs = document.querySelectorAll('.nav-tab');
+  for (var i=0; i<tabs.length; i++) tabs[i].classList.remove('active');
+  window.scrollTo(0, 0);
+}
+
+function showPage(name) {
+  showSubPage(name);
+}
+</script>
+
+<!-- SUB-PAGE TOPBAR (hidden on home) -->
+
+<script>
+// Load saved stats
+function loadStats() {
+  ['stat1','stat2','stat3'].forEach(function(id) {
+    var saved = localStorage.getItem(id);
+    if (saved) document.getElementById(id).textContent = saved;
+    var savedLabel = localStorage.getItem(id+'label');
+    if (savedLabel) document.getElementById(id+'label').textContent = savedLabel;
+  });
+}
+
+function editStat(numId, labelId) {
+  if (sessionStorage.getItem('liimAdmin') !== '1') {
+    alert('এই ফিচার শুধুমাত্র অ্যাডমিনের জন্য। অনুগ্রহ করে লগইন করুন।');
+    return;
+  }
+  var curNum = document.getElementById(numId).textContent;
+  var curLabel = document.getElementById(labelId).textContent;
+  var newNum = prompt('নতুন সংখ্যা লিখুন (যেমন: ৫,০০০+):', curNum === '—' ? '' : curNum);
+  if (newNum === null) return;
+  var newLabel = prompt('নতুন লেবেল লিখুন (যেমন: গ্রন্থ সংগ্রহ):', curLabel);
+  if (newLabel === null) return;
+  document.getElementById(numId).textContent = newNum || '—';
+  document.getElementById(labelId).textContent = newLabel;
+  localStorage.setItem(numId, newNum || '—');
+  localStorage.setItem(numId+'label', newLabel);
+}
+
+// Show edit hint when admin logged in
+var origCheckLogin = window.checkLogin;
+window.addEventListener('load', function() {
+  loadStats();
+  if (sessionStorage.getItem('liimAdmin') === '1') {
+    var hint = document.getElementById('statEditHint');
+    if (hint) hint.style.display = 'block';
+  }
+});
+
+// Patch checkLogin to show hint after login
+var _origCheck = window.checkLogin;
+if (_origCheck) {
+  window.checkLogin = function() {
+    _origCheck();
+    if (sessionStorage.getItem('liimAdmin') === '1') {
+      var hint = document.getElementById('statEditHint');
+      if (hint) hint.style.display = 'block';
+    }
+  }
+}
+</script>
+
+
+<!-- ══════════════════════════════════════════
+     ADMIN PANEL
+══════════════════════════════════════════ -->
+<div id="adminPanel" style="display:none; position:fixed; inset:0; background:rgba(6,14,28,0.95); z-index:9998; overflow-y:auto;">
+<div style="max-width:900px; margin:0 auto; padding:32px 20px 80px;">
+
+  <!-- Header -->
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid rgba(201,168,76,0.2);">
+    <div>
+      <div style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:6px;">LIIM Centre</div>
+      <h1 style="font-family:'Playfair Display',serif; font-size:28px; color:white;">⚙️ অ্যাডমিন প্যানেল</h1>
+    </div>
+    <button onclick="closeAdminPanel()" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:white; padding:10px 20px; border-radius:8px; cursor:pointer; font-family:'Inter',sans-serif; font-size:13px; font-weight:600;">✕ বন্ধ করুন</button>
+  </div>
+
+  <!-- TAB NAVIGATION -->
+  <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px;" id="apTabs">
+    <button class="ap-tab active" onclick="apShowTab('site',this)">🏠 সাইট তথ্য</button>
+    <button class="ap-tab" onclick="apShowTab('books',this)">📚 বই ক্যাটালগ</button>
+    <button class="ap-tab" onclick="apShowTab('notice',this)">📢 নোটিশ</button>
+    <button class="ap-tab" onclick="apShowTab('repo',this)">📁 রিপোজিটরি</button>
+    <button class="ap-tab" onclick="apShowTab('events',this)">📅 ইভেন্ট</button>
+    <button class="ap-tab" onclick="apShowTab('contact',this)">📞 যোগাযোগ</button>
+    <button class="ap-tab" onclick="apShowTab('hours',this)">🕘 সময়সূচী</button>
+  </div>
+
+  <!-- ── TAB: সাইট তথ্য ── -->
+  <div id="ap-site" class="ap-section">
+    <h3 style="color:var(--gold); font-size:16px; margin-bottom:20px; font-family:'Inter',sans-serif;">🏠 সাইটের মূল তথ্য</h3>
+    <div style="display:grid; gap:16px;">
+      <div class="ap-field">
+        <label>সাইটের শিরোনাম (হিরো H1)</label>
+        <input type="text" id="ap_hero_title" placeholder="যেমন: জ্ঞানের আলো, প্রযুক্তির পথে">
+      </div>
+      <div class="ap-field">
+        <label>সাবটাইটেল</label>
+        <input type="text" id="ap_hero_subtitle" placeholder="যেমন: সেমিনার লাইব্রেরি, দর্শন বিভাগ...">
+      </div>
+      <div class="ap-field">
+        <label>বিবরণ (হিরো প্যারাগ্রাফ)</label>
+        <textarea id="ap_hero_desc" rows="3" placeholder="লাইব্রেরির সংক্ষিপ্ত পরিচিতি..."></textarea>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+        <div class="ap-field">
+          <label>পরিসংখ্যান ১ (সংখ্যা)</label>
+          <input type="text" id="ap_stat1" placeholder="যেমন: ৫,০০০+">
+        </div>
+        <div class="ap-field">
+          <label>পরিসংখ্যান ১ (লেবেল)</label>
+          <input type="text" id="ap_stat1l" placeholder="যেমন: গ্রন্থ সংগ্রহ">
+        </div>
+        <div class="ap-field" style="display:flex; align-items:flex-end;">
+          <button onclick="apSaveStat(1)" class="ap-save-btn" style="width:100%;">💾 সেভ করুন</button>
+        </div>
+        <div class="ap-field">
+          <label>পরিসংখ্যান ২ (সংখ্যা)</label>
+          <input type="text" id="ap_stat2" placeholder="যেমন: ৩০০+">
+        </div>
+        <div class="ap-field">
+          <label>পরিসংখ্যান ২ (লেবেল)</label>
+          <input type="text" id="ap_stat2l" placeholder="যেমন: গবেষণা প্রবন্ধ">
+        </div>
+        <div class="ap-field" style="display:flex; align-items:flex-end;">
+          <button onclick="apSaveStat(2)" class="ap-save-btn" style="width:100%;">💾 সেভ করুন</button>
+        </div>
+        <div class="ap-field">
+          <label>পরিসংখ্যান ৩ (সংখ্যা)</label>
+          <input type="text" id="ap_stat3" placeholder="যেমন: ১৫০+">
+        </div>
+        <div class="ap-field">
+          <label>পরিসংখ্যান ৩ (লেবেল)</label>
+          <input type="text" id="ap_stat3l" placeholder="যেমন: সদস্য">
+        </div>
+        <div class="ap-field" style="display:flex; align-items:flex-end;">
+          <button onclick="apSaveStat(3)" class="ap-save-btn" style="width:100%;">💾 সেভ করুন</button>
+        </div>
+      </div>
+      <div class="ap-field">
+        <label>পরিচালকের বার্তা / উদ্ধৃতি</label>
+        <textarea id="ap_director_quote" rows="3" placeholder="পরিচালকের বক্তব্য..."></textarea>
+      </div>
+      <div class="ap-field">
+        <label>পরিচালকের নাম</label>
+        <input type="text" id="ap_director_name" placeholder="যেমন: মো. আব্দুল মাজিদ">
+      </div>
+      <button onclick="apSaveSiteInfo()" class="ap-save-btn">💾 সাইট তথ্য সেভ করুন</button>
+    </div>
+  </div>
+
+  <!-- ── TAB: বই ক্যাটালগ ── -->
+  <div id="ap-books" class="ap-section" style="display:none;">
+    <h3 style="color:var(--gold); font-size:16px; margin-bottom:20px; font-family:'Inter',sans-serif;">📚 বই ক্যাটালগ ব্যবস্থাপনা</h3>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+      <div class="ap-field"><label>বইয়ের নাম</label><input type="text" id="bk_title" placeholder="বইয়ের সম্পূর্ণ নাম"></div>
+      <div class="ap-field"><label>লেখক</label><input type="text" id="bk_author" placeholder="লেখকের নাম"></div>
+      <div class="ap-field"><label>DDC নম্বর</label><input type="text" id="bk_ddc" placeholder="যেমন: 170, 181.9"></div>
+      <div class="ap-field"><label>তাক নম্বর</label><input type="text" id="bk_shelf" placeholder="যেমন: A-12"></div>
+      <div class="ap-field"><label>প্রকাশকাল</label><input type="text" id="bk_year" placeholder="যেমন: ২০২২"></div>
+      <div class="ap-field"><label>স্ট্যাটাস</label>
+        <select id="bk_status">
+          <option value="available">✅ পাওয়া যাচ্ছে</option>
+          <option value="issued">❌ ইস্যুড</option>
+        </select>
+      </div>
+    </div>
+    <button onclick="apAddBook()" class="ap-save-btn">➕ বই যোগ করুন</button>
+    <div id="bookList" style="margin-top:24px;"></div>
+  </div>
+
+  <!-- ── TAB: নোটিশ ── -->
+  <div id="ap-notice" class="ap-section" style="display:none;">
+    <h3 style="color:var(--gold); font-size:16px; margin-bottom:20px; font-family:'Inter',sans-serif;">📢 নোটিশ বোর্ড ব্যবস্থাপনা</h3>
+    <div style="display:grid; gap:16px; margin-bottom:16px;">
+      <div class="ap-field"><label>নোটিশ শিরোনাম</label><input type="text" id="nt_title" placeholder="নোটিশের শিরোনাম"></div>
+      <div class="ap-field"><label>বিবরণ</label><textarea id="nt_desc" rows="3" placeholder="নোটিশের বিস্তারিত..."></textarea></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div class="ap-field"><label>তারিখ</label><input type="text" id="nt_date" placeholder="যেমন: ১৮ জুন, ২০২৬"></div>
+        <div class="ap-field"><label>ধরন</label>
+          <select id="nt_cat">
+            <option>নোটিশ</option><option>ইভেন্ট</option><option>জরুরি</option><option>তথ্য</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <button onclick="apAddNotice()" class="ap-save-btn">➕ নোটিশ যোগ করুন</button>
+    <div id="noticeList" style="margin-top:24px;"></div>
+  </div>
+
+  <!-- ── TAB: রিপোজিটরি ── -->
+  <div id="ap-repo" class="ap-section" style="display:none;">
+    <h3 style="color:var(--gold); font-size:16px; margin-bottom:20px; font-family:'Inter',sans-serif;">📁 ডিজিটাল রিপোজিটরি ব্যবস্থাপনা</h3>
+    <div style="display:grid; gap:16px; margin-bottom:16px;">
+      <div class="ap-field"><label>শিরোনাম</label><input type="text" id="rp_title" placeholder="থিসিস/পেপারের শিরোনাম"></div>
+      <div class="ap-field"><label>লেখক/গবেষক</label><input type="text" id="rp_author" placeholder="লেখকের নাম"></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div class="ap-field"><label>ধরন</label>
+          <select id="rp_type">
+            <option>থিসিস</option><option>সেমিনার পেপার</option><option>গবেষণা প্রবন্ধ</option><option>ই-বুক</option><option>লেকচার শিট</option>
+          </select>
+        </div>
+        <div class="ap-field"><label>বছর</label><input type="text" id="rp_year" placeholder="যেমন: ২০২৫"></div>
+      </div>
+      <div class="ap-field"><label>ডাউনলোড লিংক (Google Drive/PDF URL)</label><input type="text" id="rp_link" placeholder="https://drive.google.com/..."></div>
+    </div>
+    <button onclick="apAddRepo()" class="ap-save-btn">➕ রিপোজিটরিতে যোগ করুন</button>
+    <div id="repoList" style="margin-top:24px;"></div>
+  </div>
+
+  <!-- ── TAB: ইভেন্ট ── -->
+  <div id="ap-events" class="ap-section" style="display:none;">
+    <h3 style="color:var(--gold); font-size:16px; margin-bottom:20px; font-family:'Inter',sans-serif;">📅 ইভেন্ট ক্যালেন্ডার</h3>
+    <div style="display:grid; gap:16px; margin-bottom:16px;">
+      <div class="ap-field"><label>ইভেন্টের নাম</label><input type="text" id="ev_title" placeholder="ইভেন্টের শিরোনাম"></div>
+      <div class="ap-field"><label>বিবরণ</label><textarea id="ev_desc" rows="2" placeholder="ইভেন্টের বিস্তারিত..."></textarea></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+        <div class="ap-field"><label>তারিখ</label><input type="text" id="ev_date" placeholder="যেমন: ২০ জুন, ২০২৬"></div>
+        <div class="ap-field"><label>সময়</label><input type="text" id="ev_time" placeholder="যেমন: বিকাল ৩:০০"></div>
+        <div class="ap-field"><label>স্থান</label><input type="text" id="ev_place" placeholder="যেমন: সেমিনার রুম"></div>
+      </div>
+    </div>
+    <button onclick="apAddEvent()" class="ap-save-btn">➕ ইভেন্ট যোগ করুন</button>
+    <div id="eventList" style="margin-top:24px;"></div>
+  </div>
+
+  <!-- ── TAB: যোগাযোগ ── -->
+  <div id="ap-contact" class="ap-section" style="display:none;">
+    <h3 style="color:var(--gold); font-size:16px; margin-bottom:20px; font-family:'Inter',sans-serif;">📞 যোগাযোগ তথ্য আপডেট</h3>
+    <div style="display:grid; gap:16px;">
+      <div class="ap-field"><label>ঠিকানা</label><textarea id="ap_address" rows="2" placeholder="সম্পূর্ণ ঠিকানা..."></textarea></div>
+      <div class="ap-field"><label>ইমেইল</label><input type="text" id="ap_email" placeholder="library@..."></div>
+      <div class="ap-field"><label>ফোন নম্বর</label><input type="text" id="ap_phone" placeholder="+880-31-..."></div>
+      <div class="ap-field"><label>WhatsApp নম্বর</label><input type="text" id="ap_whatsapp" placeholder="+880..."></div>
+      <div class="ap-field"><label>Facebook পেজ লিংক</label><input type="text" id="ap_facebook" placeholder="https://facebook.com/..."></div>
+      <div class="ap-field"><label>YouTube চ্যানেল লিংক</label><input type="text" id="ap_youtube" placeholder="https://youtube.com/..."></div>
+      <button onclick="apSaveContact()" class="ap-save-btn">💾 যোগাযোগ তথ্য সেভ করুন</button>
+    </div>
+  </div>
+
+  <!-- ── TAB: সময়সূচী ── -->
+  <div id="ap-hours" class="ap-section" style="display:none;">
+    <h3 style="color:var(--gold); font-size:16px; margin-bottom:20px; font-family:'Inter',sans-serif;">🕘 লাইব্রেরি সময়সূচী</h3>
+    <div style="display:grid; gap:16px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div class="ap-field"><label>রবি — বৃহস্পতি (খোলার সময়)</label><input type="text" id="hr_sun_open" placeholder="সকাল ৯:০০"></div>
+        <div class="ap-field"><label>রবি — বৃহস্পতি (বন্ধের সময়)</label><input type="text" id="hr_sun_close" placeholder="বিকাল ৫:০০"></div>
+        <div class="ap-field"><label>শুক্রবার</label><input type="text" id="hr_fri" placeholder="বন্ধ / সীমিত সময়"></div>
+        <div class="ap-field"><label>শনিবার</label><input type="text" id="hr_sat" placeholder="বন্ধ / সীমিত সময়"></div>
+      </div>
+      <div class="ap-field"><label>বিশেষ নোট (যেমন: ছুটির দিন)</label><textarea id="hr_note" rows="2" placeholder="কোনো বিশেষ তথ্য..."></textarea></div>
+      <button onclick="apSaveHours()" class="ap-save-btn">💾 সময়সূচী সেভ করুন</button>
+    </div>
+  </div>
+
+  <!-- SAVE STATUS -->
+  <div id="apSaveStatus" style="display:none; margin-top:20px; background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.3); border-radius:10px; padding:14px; color:#4ADE80; font-family:'Inter',sans-serif; font-size:14px; text-align:center;">
+    ✅ সফলভাবে সেভ হয়েছে!
+  </div>
+
+</div>
+</div>
+
+<style>
+.ap-tab {
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+  color:var(--gray-300); padding:9px 16px; border-radius:8px; cursor:pointer;
+  font-family:'Inter',sans-serif; font-size:13px; font-weight:600; transition:all 0.2s;
+}
+.ap-tab:hover { border-color:var(--gold); color:var(--gold-light); }
+.ap-tab.active { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+.ap-field { display:flex; flex-direction:column; gap:6px; }
+.ap-field label { font-family:'Inter',sans-serif; font-size:11px; font-weight:700; color:var(--gray-300); text-transform:uppercase; letter-spacing:1px; }
+.ap-field input, .ap-field textarea, .ap-field select {
+  background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12);
+  border-radius:8px; padding:11px 14px; color:white; font-family:'Hind Siliguri',sans-serif;
+  font-size:14px; outline:none; resize:none; transition:border-color 0.2s;
+}
+.ap-field input:focus, .ap-field textarea:focus { border-color:var(--gold); }
+.ap-save-btn {
+  background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:var(--navy);
+  border:none; padding:13px 24px; border-radius:10px; font-family:'Inter',sans-serif;
+  font-weight:700; font-size:14px; cursor:pointer; transition:opacity 0.2s;
+}
+.ap-save-btn:hover { opacity:0.9; }
+.ap-list-item {
+  background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px; padding:14px 16px; margin-bottom:10px;
+  display:flex; justify-content:space-between; align-items:flex-start;
+}
+.ap-list-item h4 { color:white; font-size:14px; margin-bottom:4px; }
+.ap-list-item p { color:var(--gray-300); font-size:12px; }
+.ap-del-btn {
+  background:rgba(248,113,113,0.1); border:1px solid rgba(248,113,113,0.3);
+  color:#F87171; border-radius:6px; padding:5px 12px; cursor:pointer;
+  font-size:12px; font-family:'Inter',sans-serif; flex-shrink:0; margin-left:12px;
+}
+</style>
+
+<script>
+// ── ADMIN PANEL OPEN/CLOSE ──
+function openAdminPanel() {
+  if (sessionStorage.getItem('liimAdmin') !== '1') {
+    alert('অনুগ্রহ করে আগে অ্যাডমিন লগইন করুন।'); return;
+  }
+  document.getElementById('adminPanel').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+  apLoadAll();
+}
+function closeAdminPanel() {
+  document.getElementById('adminPanel').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// ── TABS ──
+function apShowTab(name, btn) {
+  var aps=document.querySelectorAll('.ap-section'); for(var i=0;i<aps.length;i++) aps[i].style.display='none';
+  var apts=document.querySelectorAll('.ap-tab'); for(var i=0;i<apts.length;i++) apts[i].classList.remove('active');
+  document.getElementById('ap-'+name).style.display = 'block';
+  btn.classList.add('active');
+}
+
+// ── SHOW STATUS ──
+function apShowStatus() {
+  var s = document.getElementById('apSaveStatus');
+  s.style.display = 'block';
+  setTimeout(function(){ s.style.display='none'; }, 2500);
+}
+
+// ── STATS ──
+function apSaveStat(n) {
+  var val = document.getElementById('ap_stat'+n).value;
+  var lbl = document.getElementById('ap_stat'+n+'l').value;
+  if (val) { localStorage.setItem('stat'+n, val); document.getElementById('stat'+n).textContent = val; }
+  if (lbl) { localStorage.setItem('stat'+n+'label', lbl); document.getElementById('stat'+n+'label').textContent = lbl; }
+  apShowStatus();
+}
+
+// ── SITE INFO ──
+function apSaveSiteInfo() {
+  var fields = ['ap_hero_desc','ap_director_quote','ap_director_name'];
+  fields.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el && el.value) localStorage.setItem(id, el.value);
+  });
+  apLoadSiteInfo();
+  apShowStatus();
+}
+function apLoadSiteInfo() {
+  ['ap_hero_desc','ap_director_quote','ap_director_name'].forEach(function(id){
+    var saved = localStorage.getItem(id);
+    if (saved) {
+      var el = document.getElementById(id);
+      if (el) el.value = saved;
+      // Apply to page
+      if (id==='ap_hero_desc') { var t=document.querySelector('.hero-desc'); if(t) t.textContent=saved; }
+      if (id==='ap_director_quote') { var t=document.querySelector('.director-quote'); if(t) t.textContent=saved; }
+      if (id==='ap_director_name') { var t=document.querySelector('.director-name'); if(t) t.textContent=saved; }
+    }
+  });
+}
+
+// ── BOOKS ──
+function apAddBook() {
+  var title=document.getElementById('bk_title').value;
+  if (!title) { alert('বইয়ের নাম দিন'); return; }
+  var books = JSON.parse(localStorage.getItem('liimBooks')||'[]');
+  books.unshift({
+    title: title,
+    author: document.getElementById('bk_author').value,
+    ddc: document.getElementById('bk_ddc').value,
+    shelf: document.getElementById('bk_shelf').value,
+    year: document.getElementById('bk_year').value,
+    status: document.getElementById('bk_status').value,
+    id: Date.now()
+  });
+  localStorage.setItem('liimBooks', JSON.stringify(books));
+  ['bk_title','bk_author','bk_ddc','bk_shelf','bk_year'].forEach(function(id){ document.getElementById(id).value=''; });
+  apRenderBooks();
+  apShowStatus();
+}
+function apDelBook(id) {
+  var books = JSON.parse(localStorage.getItem('liimBooks')||'[]');
+  localStorage.setItem('liimBooks', JSON.stringify(books.filter(function(b){ return b.id!==id; })));
+  apRenderBooks();
+}
+function apRenderBooks() {
+  var books = JSON.parse(localStorage.getItem('liimBooks')||'[]');
+  var el = document.getElementById('bookList');
+  if (!books.length) { el.innerHTML='<p style="color:var(--gray-300);font-size:13px;">এখনো কোনো বই যোগ করা হয়নি।</p>'; return; }
+  el.innerHTML = '<h4 style="color:var(--gold);font-size:13px;margin-bottom:12px;font-family:Inter,sans-serif;">'+books.length+'টি বই যোগ করা হয়েছে</h4>' +
+    books.map(function(b){ return '<div class="ap-list-item"><div><h4>'+b.title+'</h4><p>'+b.author+' | DDC: '+b.ddc+' | তাক: '+b.shelf+' | '+b.year+' | '+(b.status==='available'?'✅ পাওয়া যাচ্ছে':'❌ ইস্যুড')+'</p></div><button class="ap-del-btn" onclick="apDelBook('+b.id+')">🗑 মুছুন</button></div>'; }).join('');
+}
+
+// ── NOTICES ──
+function apAddNotice() {
+  var title=document.getElementById('nt_title').value;
+  if (!title) { alert('নোটিশের শিরোনাম দিন'); return; }
+  var items = JSON.parse(localStorage.getItem('liimNotices')||'[]');
+  items.unshift({ title:title, desc:document.getElementById('nt_desc').value, date:document.getElementById('nt_date').value, cat:document.getElementById('nt_cat').value, id:Date.now() });
+  localStorage.setItem('liimNotices', JSON.stringify(items));
+  ['nt_title','nt_desc','nt_date'].forEach(function(id){ document.getElementById(id).value=''; });
+  apRenderNotices();
+  apShowStatus();
+}
+function apDelNotice(id) {
+  var items = JSON.parse(localStorage.getItem('liimNotices')||'[]');
+  localStorage.setItem('liimNotices', JSON.stringify(items.filter(function(x){ return x.id!==id; })));
+  apRenderNotices();
+}
+function apRenderNotices() {
+  var items = JSON.parse(localStorage.getItem('liimNotices')||'[]');
+  var el = document.getElementById('noticeList');
+  if (!el) return;
+  if (!items.length) { el.innerHTML='<p style="color:var(--gray-300);font-size:13px;">এখনো কোনো নোটিশ নেই।</p>'; return; }
+  el.innerHTML = items.map(function(n){ return '<div class="ap-list-item"><div><h4>['+n.cat+'] '+n.title+'</h4><p>'+n.desc+' | '+n.date+'</p></div><button class="ap-del-btn" onclick="apDelNotice('+n.id+')">🗑 মুছুন</button></div>'; }).join('');
+}
+
+// ── REPO ──
+function apAddRepo() {
+  var title=document.getElementById('rp_title').value;
+  if (!title) { alert('শিরোনাম দিন'); return; }
+  var items = JSON.parse(localStorage.getItem('liimRepo')||'[]');
+  items.unshift({ title:title, author:document.getElementById('rp_author').value, type:document.getElementById('rp_type').value, year:document.getElementById('rp_year').value, link:document.getElementById('rp_link').value, id:Date.now() });
+  localStorage.setItem('liimRepo', JSON.stringify(items));
+  ['rp_title','rp_author','rp_year','rp_link'].forEach(function(id){ document.getElementById(id).value=''; });
+  apRenderRepo();
+  apShowStatus();
+}
+function apDelRepo(id) {
+  var items = JSON.parse(localStorage.getItem('liimRepo')||'[]');
+  localStorage.setItem('liimRepo', JSON.stringify(items.filter(function(x){ return x.id!==id; })));
+  apRenderRepo();
+}
+function apRenderRepo() {
+  var items = JSON.parse(localStorage.getItem('liimRepo')||'[]');
+  var el = document.getElementById('repoList');
+  if (!el) return;
+  if (!items.length) { el.innerHTML='<p style="color:var(--gray-300);font-size:13px;">রিপোজিটরিতে এখনো কিছু নেই।</p>'; return; }
+  el.innerHTML = items.map(function(r){ return '<div class="ap-list-item"><div><h4>'+r.title+'</h4><p>'+r.author+' | '+r.type+' | '+r.year+(r.link?' | <a href="'+r.link+'" target="_blank" style="color:var(--gold)">🔗 লিংক</a>':'')+'</p></div><button class="ap-del-btn" onclick="apDelRepo('+r.id+')">🗑 মুছুন</button></div>'; }).join('');
+}
+
+// ── EVENTS ──
+function apAddEvent() {
+  var title=document.getElementById('ev_title').value;
+  if (!title) { alert('ইভেন্টের নাম দিন'); return; }
+  var items = JSON.parse(localStorage.getItem('liimEvents')||'[]');
+  items.unshift({ title:title, desc:document.getElementById('ev_desc').value, date:document.getElementById('ev_date').value, time:document.getElementById('ev_time').value, place:document.getElementById('ev_place').value, id:Date.now() });
+  localStorage.setItem('liimEvents', JSON.stringify(items));
+  ['ev_title','ev_desc','ev_date','ev_time','ev_place'].forEach(function(id){ document.getElementById(id).value=''; });
+  apRenderEvents();
+  apShowStatus();
+}
+function apDelEvent(id) {
+  var items = JSON.parse(localStorage.getItem('liimEvents')||'[]');
+  localStorage.setItem('liimEvents', JSON.stringify(items.filter(function(x){ return x.id!==id; })));
+  apRenderEvents();
+}
+function apRenderEvents() {
+  var items = JSON.parse(localStorage.getItem('liimEvents')||'[]');
+  var el = document.getElementById('eventList');
+  if (!el) return;
+  if (!items.length) { el.innerHTML='<p style="color:var(--gray-300);font-size:13px;">কোনো ইভেন্ট নেই।</p>'; return; }
+  el.innerHTML = items.map(function(e){ return '<div class="ap-list-item"><div><h4>'+e.title+'</h4><p>'+e.date+' '+e.time+' | '+e.place+'</p></div><button class="ap-del-btn" onclick="apDelEvent('+e.id+')">🗑 মুছুন</button></div>'; }).join('');
+}
+
+// ── CONTACT ──
+function apSaveContact() {
+  ['ap_address','ap_email','ap_phone','ap_whatsapp','ap_facebook','ap_youtube'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el && el.value) localStorage.setItem(id, el.value);
+  });
+  apLoadContact();
+  apShowStatus();
+}
+function apLoadContact() {
+  var fields = {
+    'ap_address': '.ci-value-address',
+    'ap_email': '.ci-value-email',
+    'ap_phone': '.ci-value-phone'
+  };
+  Object.keys(fields).forEach(function(id){
+    var saved = localStorage.getItem(id);
+    var el = document.getElementById(id);
+    if (saved && el) el.value = saved;
+  });
+}
+
+// ── HOURS ──
+function apSaveHours() {
+  ['hr_sun_open','hr_sun_close','hr_fri','hr_sat','hr_note'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el && el.value) localStorage.setItem(id, el.value);
+  });
+  apLoadHours();
+  apShowStatus();
+}
+function apLoadHours() {
+  var open = localStorage.getItem('hr_sun_open');
+  var close = localStorage.getItem('hr_sun_close');
+  if (open && close) {
+    var els = document.querySelectorAll('.hour-val');
+    if (els[0]) els[0].textContent = open + ' — ' + close;
+  }
+  var fri = localStorage.getItem('hr_fri');
+  if (fri) { var els=document.querySelectorAll('.hour-val'); if(els[1]) els[1].textContent=fri; }
+}
+
+// ── LOAD ALL ──
+function apLoadAll() {
+  apLoadSiteInfo();
+  apLoadContact();
+  apLoadHours();
+  apRenderBooks();
+  apRenderNotices();
+  apRenderRepo();
+  apRenderEvents();
+  // Pre-fill stat inputs
+  for(var i=1;i<=3;i++){
+    var v=localStorage.getItem('stat'+i); var l=localStorage.getItem('stat'+i+'label');
+    var vi=document.getElementById('ap_stat'+i); var li=document.getElementById('ap_stat'+i+'l');
+    if(v&&vi) vi.value=v; if(l&&li) li.value=l;
+  }
+}
+</script>
+
+</body>
+</html>
